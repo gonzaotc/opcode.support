@@ -1,7 +1,7 @@
 # opcode.support
 
 Which EVM opcodes are supported on which chains, measured against live nodes rather than read off
-documentation. Top 30 EVM chains by TVL.
+documentation. Top 50 EVM chains by TVL.
 
 **[REPORT.md](./REPORT.md)** is the table. `data/results.json` is the same data with per-endpoint
 evidence, described by [`schema/results.schema.json`](./schema/results.schema.json).
@@ -27,7 +27,8 @@ Three rules keep the table honest:
 - **Unattributable failures are not evidence.** Rate limits, quotas and unrecognised errors are
   recorded as unconfirmed, never as unsupported.
 
-Anything unresolved stays `?` with a reason and is excluded from the percentages.
+Anything unresolved stays `?` with a reason and is excluded from the percentages, including from the
+TVL representativeness figure the report prints.
 
 ## Layout
 

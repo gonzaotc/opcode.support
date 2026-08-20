@@ -30,6 +30,17 @@ const ranked = llama
 // A chain with no resolvable id is skipped, but never silently: anything ranking above the eventual
 // cutoff that DefiLlama considers EVM is reported so a missing override stays visible.
 const candidates = ranked.filter((c) => c.chainId !== null).slice(0, config.topN);
+// Denominators for the report's representativeness line. Pinned with the chain list, since the
+// question they answer is how representative this selection is, not what TVL looks like today. The
+// EVM total is the union of DefiLlama's own EVM tag with the chains we resolved ourselves, since
+// that tag misses some (Mezo, Sei).
+const selectedNames = new Set(candidates.map((c) => c.name));
+const totalDefiTvlUsd = Math.round(llama.reduce((sum, c) => sum + (c.tvl ?? 0), 0));
+const totalEvmTvlUsd = Math.round(
+	llama
+		.filter((c) => selectedNames.has(c.name) || taggedEvm?.has(c.name))
+		.reduce((sum, c) => sum + (c.tvl ?? 0), 0),
+);
 const cutoff = candidates.at(-1)?.tvlUsd ?? 0;
 const unresolved = ranked.filter(
 	(c) => c.chainId === null && c.tvlUsd >= cutoff && (taggedEvm === null || taggedEvm.has(c.name)),
@@ -66,7 +77,18 @@ for (const [index, chain] of candidates.entries()) {
 
 writeFileSync(
 	'data/chains.json',
-	`${JSON.stringify({ generatedAt: new Date().toISOString(), source: 'defillama tvl, rpc pools from config/selection.json and ethereum-lists/chains, every endpoint verified by eth_chainId', chains }, null, '\t')}\n`,
+	`${JSON.stringify(
+		{
+			generatedAt: new Date().toISOString(),
+			source: 'defillama tvl, rpc pools from config/selection.json and ethereum-lists/chains, every endpoint verified by eth_chainId',
+			topN: config.topN,
+			totalDefiTvlUsd,
+			totalEvmTvlUsd,
+			chains,
+		},
+		null,
+		'\t',
+	)}\n`,
 );
 
 console.log(`\nwrote data/chains.json (${chains.length} chains)`);

@@ -12,7 +12,7 @@ const PROBE_ADDRESS = '0x0000000000000000000000000000000000c0ffee';
 
 const { referenceChainId } = JSON.parse(readFileSync('config/selection.json', 'utf8'));
 const { opcodes, controls } = JSON.parse(readFileSync('config/opcodes.json', 'utf8'));
-const { chains } = JSON.parse(readFileSync('data/chains.json', 'utf8'));
+const { chains, topN, totalDefiTvlUsd, totalEvmTvlUsd } = JSON.parse(readFileSync('data/chains.json', 'utf8'));
 
 // Two independent ways to make a node execute arbitrary bytecode without sending a transaction.
 const strategies = {
@@ -135,6 +135,19 @@ for (const chain of results)
 		coverage.byConfidence[key] = (coverage.byConfidence[key] ?? 0) + 1;
 	}
 
+// How representative the table is. A chain only counts once it produced a confirmed verdict, so a
+// chain we could not scan contributes nothing regardless of how large it is.
+const scanned = (chain) => opcodes.some((o) => chain.opcodes[o.name].confidence === 'confirmed');
+const sumTvl = (list) => list.reduce((sum, c) => sum + c.tvlUsd, 0);
+const tvl = {
+	topN,
+	totalDefiUsd: totalDefiTvlUsd ?? null,
+	totalEvmUsd: totalEvmTvlUsd ?? null,
+	selectedUsd: sumTvl(results),
+	analyzedUsd: sumTvl(results.filter(scanned)),
+	unscanned: results.filter((c) => !scanned(c)).map((c) => ({ name: c.name, tvlUsd: c.tvlUsd })),
+};
+
 writeFileSync(
 	'data/results.json',
 	`${JSON.stringify(
@@ -142,6 +155,7 @@ writeFileSync(
 			checkedAt: new Date().toISOString(),
 			opcodes,
 			coverage,
+			tvl,
 			snippetCheck: { referenceChainId, referenceProbed: Boolean(reference), suspectSnippets },
 			chains: results,
 		},
@@ -151,6 +165,10 @@ writeFileSync(
 );
 
 console.log(`\ncoverage: ${JSON.stringify(coverage.byConfidence)} of ${coverage.cells} cells`);
+if (tvl.totalDefiUsd)
+	console.log(
+		`tvl: analyzed $${(tvl.analyzedUsd / 1e9).toFixed(1)}B of $${(tvl.totalDefiUsd / 1e9).toFixed(1)}B total DeFi (${((tvl.analyzedUsd / tvl.totalDefiUsd) * 100).toFixed(1)}%), ${tvl.unscanned.length} chain(s) unscanned`,
+	);
 if (!reference) console.log(`warning: reference chain ${referenceChainId} not in chains.json, snippets unverified`);
 if (suspectSnippets.length) console.log(`warning: unsupported on the reference chain, check the snippet: ${suspectSnippets.join(', ')}`);
 console.log('wrote data/results.json');

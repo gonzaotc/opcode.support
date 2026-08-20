@@ -2,7 +2,7 @@
 
 ## Objective
 
-Measure which **EVM opcodes** are supported on the **top 30 EVM chains by TVL** by probing live
+Measure which **EVM opcodes** are supported on the **top 50 EVM chains by TVL** by probing live
 nodes. Availability only: not a chain diff tool, not semantics, not gas costs.
 
 ## Layout
@@ -58,6 +58,10 @@ Re-run `npm run probe` and diff verdicts against the previous `data/results.json
 stable run to run; anything that moves is a real chain change or a bug in your change. Watch
 `coverage.byConfidence`: a drop in `confirmed` means endpoints degraded, not that chains changed.
 `snippetCheck.suspectSnippets` should stay empty.
+
+`tvl` answers how representative the table is. A chain counts toward `analyzedUsd` only once it has a
+confirmed verdict, so an unscannable chain contributes nothing however large. Denominators are pinned
+in `data/chains.json` at selection time, not refreshed per probe run.
 
 ## Limits before proposing work
 
