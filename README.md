@@ -1,7 +1,6 @@
 # EVM Opcode Support
 
-Which EVM opcodes are supported on which chains, measured against live nodes instead of read off
-documentation.
+Which EVM opcodes are supported on which chains, measured periodically against live nodes.
 
 - **Last updated:** 20 August 2026, 18:19 UTC
 - **Refreshed:** daily at 06:00 UTC
