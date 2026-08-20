@@ -1,4 +1,4 @@
-// Probes opcode support across the chains in data/chains.json and writes data/results.json.
+// Probes the chains in data/generated-chains.json and writes data/generated-results.json.
 // Read-only: every check is an eth_call simulation, so no gas is ever spent and no key is needed.
 import { readFileSync, writeFileSync } from 'node:fs';
 import { rpc, pooled } from './rpc.mjs';
@@ -18,9 +18,10 @@ const FACTORY = {
 	salt: 'c0ffee'.padEnd(64, '0'),
 };
 
-const { referenceChainId, documented = {} } = JSON.parse(readFileSync('config/selection.json', 'utf8'));
+const { referenceChainId } = JSON.parse(readFileSync('config/chain-selection.json', 'utf8'));
+const documented = JSON.parse(readFileSync('config/documented.json', 'utf8'));
 const { opcodes, controls } = JSON.parse(readFileSync('config/opcodes.json', 'utf8'));
-const { chains, topN, totalDefiTvlUsd, totalEvmTvlUsd } = JSON.parse(readFileSync('data/chains.json', 'utf8'));
+const { chains, topN, totalDefiTvlUsd, totalEvmTvlUsd } = JSON.parse(readFileSync('data/generated-chains.json', 'utf8'));
 
 const ran = (res) => 'result' in res;
 const attributable = (res) => (isEvmRejection(res.error) ? res.error : null);
@@ -191,7 +192,7 @@ const tvl = {
 };
 
 writeFileSync(
-	'data/results.json',
+	'data/generated-results.json',
 	`${JSON.stringify(
 		{
 			checkedAt: new Date().toISOString(),
@@ -216,6 +217,6 @@ if (tvl.totalDefiUsd)
 	console.log(
 		`tvl: analyzed $${(tvl.analyzedUsd / 1e9).toFixed(1)}B of $${(tvl.totalDefiUsd / 1e9).toFixed(1)}B total DeFi (${((tvl.analyzedUsd / tvl.totalDefiUsd) * 100).toFixed(1)}%), ${tvl.unscanned.length} chain(s) unscanned`,
 	);
-if (!reference) console.log(`warning: reference chain ${referenceChainId} not in chains.json, snippets unverified`);
+if (!reference) console.log(`warning: reference chain ${referenceChainId} not in generated-chains.json, snippets unverified`);
 if (suspectSnippets.length) console.log(`warning: unsupported on the reference chain, check the snippet: ${suspectSnippets.join(', ')}`);
-console.log('wrote data/results.json');
+console.log('wrote data/generated-results.json');

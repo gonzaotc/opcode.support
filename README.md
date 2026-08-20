@@ -82,4 +82,4 @@ The top 50 EVM chains by TVL, as ranked by DefiLlama. Chains that produced a ver
 ## Method
 
 Calibrated probes, two independent operators per verdict, no gas: see [METHOD.md](./METHOD.md).
-`data/results.json` carries the per-endpoint evidence behind every cell.
+`data/generated-results.json` carries the per-endpoint evidence behind every cell.

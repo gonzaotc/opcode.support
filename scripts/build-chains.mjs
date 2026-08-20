@@ -1,13 +1,14 @@
-// Regenerates chains.json: the top N EVM chains by DefiLlama TVL, each with a verified, operator
+// Regenerates data/generated-chains.json: the top N EVM chains by DefiLlama TVL, each with a verified, operator
 // diversified RPC pool. Nothing here trusts a name: a chain is only included once an endpoint
 // confirms its chain id.
 import { writeFileSync, readFileSync } from 'node:fs';
 import { rpc } from './rpc.mjs';
 import { diversify, operator, operatorReach } from './endpoints.mjs';
 
-const config = JSON.parse(readFileSync('config/selection.json', 'utf8'));
+const config = JSON.parse(readFileSync('config/chain-selection.json', 'utf8'));
+const knownRpcs = JSON.parse(readFileSync('config/known-rpcs.json', 'utf8'));
 const excluded = new Set(config.exclude);
-const overrides = config.chainIdOverrides;
+const knownChainIds = config.knownChainIds;
 
 const [llama, registry, taggedEvm] = await Promise.all([
 	fetch('https://api.llama.fi/v2/chains').then((r) => r.json()),
@@ -24,7 +25,7 @@ const registryById = new Map(registry.map((c) => [c.chainId, c]));
 
 const ranked = llama
 	.filter((c) => !excluded.has(c.name))
-	.map((c) => ({ name: c.name, chainId: c.chainId ?? overrides[c.name] ?? null, tvlUsd: Math.round(c.tvl ?? 0) }))
+	.map((c) => ({ name: c.name, chainId: c.chainId ?? knownChainIds[c.name] ?? null, tvlUsd: Math.round(c.tvl ?? 0) }))
 	.sort((a, b) => b.tvlUsd - a.tvlUsd);
 
 // A chain with no resolvable id is skipped, but never silently: anything ranking above the eventual
@@ -50,7 +51,7 @@ const pools = candidates.map((chain) => {
 	const fromRegistry = (registryById.get(chain.chainId)?.rpc ?? []).filter(
 		(u) => u.startsWith('https://') && !u.includes('${'),
 	);
-	return [...new Set([...(config.rpcs[chain.chainId] ?? []), ...fromRegistry])];
+	return [...new Set([...(knownRpcs[chain.chainId] ?? []), ...fromRegistry])];
 });
 const reach = operatorReach(pools);
 
@@ -76,11 +77,11 @@ for (const [index, chain] of candidates.entries()) {
 }
 
 writeFileSync(
-	'data/chains.json',
+	'data/generated-chains.json',
 	`${JSON.stringify(
 		{
 			generatedAt: new Date().toISOString(),
-			source: 'defillama tvl, rpc pools from config/selection.json and ethereum-lists/chains, every endpoint verified by eth_chainId',
+			source: 'defillama tvl ranking, endpoints merged from config/known-rpcs.json and ethereum-lists/chains, every one verified by eth_chainId',
 			topN: config.topN,
 			totalDefiTvlUsd,
 			totalEvmTvlUsd,
@@ -91,13 +92,13 @@ writeFileSync(
 	)}\n`,
 );
 
-console.log(`\nwrote data/chains.json (${chains.length} chains)`);
+console.log(`\nwrote data/generated-chains.json (${chains.length} chains)`);
 const fragile = chains.filter((c) => new Set(c.rpcUrls.map(operator)).size < 2);
 if (fragile.length) console.log(`${fragile.length} chain(s) with a single operator: ${fragile.map((c) => c.name).join(', ')}`);
 if (dropped.length) console.log(`${dropped.length} chain(s) dropped for unverifiable chain id: ${dropped.map((c) => c.name).join(', ')}`);
 if (taggedEvm === null) console.log("warning: DefiLlama's config endpoint was unreachable, so the unresolved-chain warning is unfiltered");
 if (unresolved.length) {
 	console.log(`\n${unresolved.length} EVM-tagged chain(s) rank above the $${Math.round(cutoff / 1e6)}M cutoff but have no chain id.`);
-	console.log('Add a verified id to config/selection.json chainIdOverrides, or the name to exclude:');
+	console.log('Add a verified id to config/chain-selection.json knownChainIds, or the name to exclude:');
 	for (const c of unresolved) console.log(`   $${String(Math.round(c.tvlUsd / 1e6)).padStart(6)}M  ${c.name}`);
 }

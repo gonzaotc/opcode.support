@@ -1,7 +1,7 @@
 # Method
 
 How opcode.support decides whether a chain supports an opcode. The table it produces is in the
-[README](./README.md); `data/results.json` holds the same data with per-endpoint evidence and the
+[README](./README.md); `data/generated-results.json` holds the same data with per-endpoint evidence and the
 reason behind every `?`, described by [`schema/results.schema.json`](./schema/results.schema.json).
 
 Every check is an `eth_call`, a simulation on a node. Nothing is broadcast, no gas is spent, and no
@@ -63,6 +63,30 @@ arbitrary bytecode, but its own activated chain parameters state which forks are
 
 Anything unresolved stays `?`, excluded from the percentages and from the TVL figure.
 
+## Where things live
+
+`config/` is what a human decides. `data/` is what a run produced, and is never edited by hand.
+
+| file | role |
+| --- | --- |
+| `config/opcodes.json` | which opcodes to measure, and the snippet for each |
+| `config/chain-selection.json` | how many chains, and the chain ids DefiLlama does not give us |
+| `config/known-rpcs.json` | endpoints added by hand, per chain id |
+| `config/documented.json` | the answer for a chain no probe reaches, with a source |
+| `data/generated-chains.json` | the resulting chain set, pinned, with a verified endpoint pool per chain |
+| `data/generated-results.json` | the measurement, one verdict per chain and opcode, with its evidence |
+
+`npm run chains` builds `generated-chains.json` from three inputs: DefiLlama ranks the chains but
+returns no endpoints, `ethereum-lists/chains` supplies endpoints per chain id, and
+`config/known-rpcs.json` fills the gaps. Every URL from either source is then asked `eth_chainId`, and
+only the ones that answer correctly are kept, ordered so a chain-operated endpoint leads and operators
+alternate.
+
+The hand-added ones exist because a verdict needs two working endpoints from different operators, and
+the public registry lists whatever people submitted: often one URL for a new chain, sometimes none,
+sometimes dead ones. All 23 current entries are load-bearing, and for 7 chains they are the only
+endpoints there are.
+
 ## Chain selection
 
 Pinned on purpose: a list that reshuffles weekly cannot be compared over time.
@@ -76,9 +100,9 @@ unconfirmed rather than dropped.
 ## Running it
 
 ```sh
-npm run probe    # data/results.json
+npm run probe    # data/generated-results.json
 npm run report   # README.md
-npm run chains   # regenerate data/chains.json, changes the chain set
+npm run chains   # regenerate data/generated-chains.json, changes the chain set
 ```
 
 Node 20+, zero dependencies. `config/` is input, `data/` and `README.md` are generated. CI probes

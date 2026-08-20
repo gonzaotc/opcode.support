@@ -1,7 +1,7 @@
-// Renders data/results.json as README.md, the repo's front page.
+// Renders data/generated-results.json as README.md, the repo's front page.
 import { readFileSync, writeFileSync } from 'node:fs';
 
-const { checkedAt, opcodes, tvl, snippetCheck, chains } = JSON.parse(readFileSync('data/results.json', 'utf8'));
+const { checkedAt, opcodes, tvl, snippetCheck, chains } = JSON.parse(readFileSync('data/generated-results.json', 'utf8'));
 
 const CELL = { supported: 'yes', unsupported: 'no', unknown: '?' };
 const cell = (v) => (v.documented ? `${CELL[v.documented.status]}*` : CELL[v.status]);
@@ -105,7 +105,7 @@ ${notes.map((n) => `- ${n}`).join('\n')}
 ## Method
 
 Calibrated probes, two independent operators per verdict, no gas: see [METHOD.md](./METHOD.md).
-\`data/results.json\` carries the per-endpoint evidence behind every cell.
+\`data/generated-results.json\` carries the per-endpoint evidence behind every cell.
 `,
 );
 console.log(`wrote README.md (${chains.length} chains, ${opcodes.length} opcodes)`);
