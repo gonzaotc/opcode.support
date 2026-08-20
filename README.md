@@ -2,45 +2,45 @@
 
 Which EVM opcodes are supported on which chains, measured periodically against live nodes.
 
-- **Last updated:** 20 August 2026, 20:00 UTC
+- **Last updated:** 20 August 2026, 20:03 UTC
 - **Refreshed:** daily at 06:00 UTC
 - **How this is measured:** [METHOD.md](./METHOD.md)
 
 ## Representativeness
 
-The top 50 EVM chains by TVL, ranked by DefiLlama with endpoints from `ethereum-lists/chains`. The last run produced a verdict covering **99.7% of EVM TVL** ($71.2B).
+The top 50 EVM chains by TVL, ranked by DefiLlama with endpoints from `ethereum-lists/chains`. The last run produced a verdict covering **99.7% of EVM TVL** ($71.0B).
 
 ## Summary
 
 | opcode | byte | fork | EIP | confirmed | single source | support, confirmed | support, all evidence |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| `CLZ` | `0x1e` | Fusaka | EIP-7939 | 21 yes / 25 no | 2 yes / 2 no | **46%** of 46 | **46%** of 50 |
-| `TLOAD` | `0x5c` | Cancun | EIP-1153 | 45 yes / 1 no | 4 yes / 0 no | **98%** of 46 | **98%** of 50 |
-| `TSTORE` | `0x5d` | Cancun | EIP-1153 | 45 yes / 1 no | 4 yes / 0 no | **98%** of 46 | **98%** of 50 |
+| `CLZ` | `0x1e` | Fusaka | EIP-7939 | 18 yes / 28 no | 2 yes / 2 no | **39%** of 46 | **40%** of 50 |
+| `TLOAD` | `0x5c` | Cancun | EIP-1153 | 42 yes / 4 no | 4 yes / 0 no | **91%** of 46 | **92%** of 50 |
+| `TSTORE` | `0x5d` | Cancun | EIP-1153 | 42 yes / 4 no | 4 yes / 0 no | **91%** of 46 | **92%** of 50 |
 
 ## Top 50 EVM Chains Opcodes Support
 
 | # | chain | chain id | TVL | CLZ | TLOAD | TSTORE |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | Ethereum | 1 | $47.1B | yes | yes | yes |
+| 1 | Ethereum | 1 | $46.9B | yes | yes | yes |
 | 2 | BSC | 56 | $5.3B | yes | yes | yes |
 | 3 | Base | 8453 | $5.2B | yes | yes | yes |
 | 4 | Tron | 728126428 | $5.1B | no* | yes* | yes* |
-| 5 | Hyperliquid L1 | 999 | $1.5B | no | yes | yes |
+| 5 | Hyperliquid L1 | 999 | $1.4B | no | yes | yes |
 | 6 | Arbitrum | 42161 | $1.4B | yes | yes | yes |
 | 7 | Monad | 143 | $939M | yes | yes | yes |
-| 8 | Polygon | 137 | $821M | yes | yes | yes |
-| 9 | Plasma | 9745 | $632M | no | yes | yes |
+| 8 | Polygon | 137 | $820M | yes | yes | yes |
+| 9 | Plasma | 9745 | $633M | no | yes | yes |
 | 10 | Robinhood Chain | 4663 | $558M | yes~ | yes~ | yes~ |
-| 11 | Avalanche | 43114 | $457M | no | yes | yes |
-| 12 | OP Mainnet | 10 | $395M | yes | yes | yes |
-| 13 | Cronos | 25 | $259M | no | yes | yes |
+| 11 | Avalanche | 43114 | $456M | no | yes | yes |
+| 12 | OP Mainnet | 10 | $400M | yes | yes | yes |
+| 13 | Cronos | 25 | $257M | no | yes | yes |
 | 14 | Anubis | 6714 | $192M | no~ | yes~ | yes~ |
 | 15 | Ink | 57073 | $127M | yes | yes | yes |
-| 16 | Flare | 14 | $123M | no | yes | yes |
+| 16 | Flare | 14 | $122M | no | yes | yes |
 | 17 | X Layer | 196 | $112M | no | yes | yes |
 | 18 | PulseChain | 369 | $108M | no | no | no |
-| 19 | Gnosis | 100 | $104M | yes | yes | yes |
+| 19 | Gnosis | 100 | $103M | yes | yes | yes |
 | 20 | Rootstock | 30 | $77M | no | yes | yes |
 | 21 | Mantle | 5000 | $71M | yes | yes | yes |
 | 22 | Mezo | 31612 | $71M | yes | yes | yes |
@@ -50,33 +50,33 @@ The top 50 EVM chains by TVL, ranked by DefiLlama with endpoints from `ethereum-
 | 26 | Stable | 988 | $37M | no | yes | yes |
 | 27 | Sei | 1329 | $34M | no | yes | yes |
 | 28 | Berachain | 80094 | $34M | yes | yes | yes |
-| 29 | Linea | 59144 | $31M | yes | yes | yes |
-| 30 | Blast | 81457 | $31M | no | yes | yes |
+| 29 | Blast | 81457 | $31M | no | yes | yes |
+| 30 | Linea | 59144 | $31M | yes | yes | yes |
 | 31 | World Chain | 480 | $31M | no | yes | yes |
 | 32 | Unichain | 130 | $30M | yes | yes | yes |
 | 33 | Hedera | 295 | $23M | no | yes | yes |
-| 34 | Fraxtal | 252 | $19M | no | yes | yes |
-| 35 | Pharos | 1672 | $17M | no | yes | yes |
-| 36 | Etherlink | 42793 | $16M | yes | yes | yes |
-| 37 | Celo | 42220 | $16M | no | yes | yes |
-| 38 | ZKsync Era | 324 | $15M | no | yes | yes |
-| 39 | Sonic | 146 | $15M | no | yes | yes |
-| 40 | Abstract | 2741 | $12M | no | yes | yes |
-| 41 | Flow | 747 | $12M | yes | yes | yes |
-| 42 | Fluent | 25363 | $11M | yes | yes | yes |
-| 43 | Immutable zkEVM | 13371 | $11M | no | yes | yes |
-| 44 | ReyaChain | 1729 | $11M | no | yes | yes |
-| 45 | Ronin | 2020 | $11M | no | yes | yes |
-| 46 | BOB | 60808 | $10M | no | yes | yes |
-| 47 | Scroll | 534352 | $9M | yes | yes | yes |
-| 48 | Ethereal | 5064014 | $9M | yes~ | yes~ | yes~ |
-| 49 | Kaia | 8217 | $8M | yes | yes | yes |
-| 50 | Soneium | 1868 | $8M | yes | yes | yes |
+| 34 | Morph | 2818 | $22M | yes~ | yes~ | yes~ |
+| 35 | Kava | 2222 | $19M | no | no | no |
+| 36 | Fraxtal | 252 | $19M | no | yes | yes |
+| 37 | Pharos | 1672 | $17M | no | yes | yes |
+| 38 | Etherlink | 42793 | $16M | yes | yes | yes |
+| 39 | Celo | 42220 | $16M | no | yes | yes |
+| 40 | ZKsync Era | 324 | $15M | no | yes | yes |
+| 41 | Sonic | 146 | $15M | no | yes | yes |
+| 42 | Rollux | 570 | $13M | no | no | no |
+| 43 | Abstract | 2741 | $12M | no | yes | yes |
+| 44 | Flow | 747 | $12M | yes | yes | yes |
+| 45 | Fluent | 25363 | $11M | yes | yes | yes |
+| 46 | Immutable zkEVM | 13371 | $11M | no | yes | yes |
+| 47 | ReyaChain | 1729 | $11M | no | yes | yes |
+| 48 | Ronin | 2020 | $11M | no | yes | yes |
+| 49 | BOB | 60808 | $10M | no | yes | yes |
+| 50 | Merlin | 4200 | $9M | no | no | no |
 
 - `yes` supported
 - `no` unsupported
 - `?` no verdict
-- `~` observed, but by a single operator, so not confirmed: Robinhood Chain, Anubis, Ethereal
+- `~` observed, but by a single operator, so not confirmed: Robinhood Chain, Anubis, Morph
 - `*` from a primary source because no probe reaches that chain: Tron ([source](https://api.trongrid.io/wallet/getchainparameters))
 
 ## Method
