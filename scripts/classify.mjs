@@ -2,50 +2,28 @@
 // it. Only the first is evidence about the chain. Conflating them is how a probe reports a
 // rate-limited endpoint as an unsupported opcode.
 
+// Provider-side refusals. Worth retrying, and never evidence about a chain.
 const INFRASTRUCTURE = [
-	/rate ?limit/i,
-	/usage limit/i,
-	/upgrade to (a )?paid/i,
-	/current plan|free plan|pricing/i,
-	/server busy|too many requests|429/i,
-	/quota|capacity|throttl/i,
+	/rate ?limit|too many requests|429|server busy|throttl/i,
+	/usage limit|quota|capacity|current plan|free plan|pricing|upgrade to (a )?paid/i,
 	/timeout|timed out/i,
-	/temporary internal error|internal server error|try again|retry/i,
+	/temporary internal error|internal server error|try again|retry|^http 5\d\d/i,
 	/unauthorized|forbidden|api key|invalid credentials/i,
 	/does not exist\/is not available|method not (found|supported)/i,
 	/can't route your request|no suitable provider|bad gateway|service unavailable/i,
 ];
 
-// Wordings observed across geth, erigon, nethermind, besu, nitro, era_vm, cosmos-evm and others.
+// Opcode rejections, as worded by geth, erigon, nethermind, besu, nitro, era_vm, cosmos-evm and
+// others. An unrecognised failure is deliberately left unattributed rather than assumed.
 const EVM_REJECTION = [
-	/invalid opcode/i,
-	/opcode .*not defined/i,
-	/opcodenotfound/i,
-	/notactivated|not activated/i,
+	/invalid opcode|opcode .*not defined|opcodenotfound/i,
 	/invalid instruction|undefined instruction/i,
-	/execution reverted/i,
-	/execution unsuccessful/i,
+	/notactivated|not activated/i,
+	/execution reverted|execution unsuccessful|contract_execution_exception/i,
 	/stack underflow|stack overflow/i,
-	/contract_execution_exception/i,
 ];
 
-const matches = (patterns, message) => patterns.some((p) => p.test(message));
+const anyMatch = (patterns, message) => patterns.some((pattern) => pattern.test(message ?? ''));
 
-export function classify(message) {
-	if (!message) return 'other';
-	if (matches(INFRASTRUCTURE, message)) return 'infrastructure';
-	if (matches(EVM_REJECTION, message)) return 'evm';
-	return 'other';
-}
-
-// Normalises an error so the same rejection reads identically regardless of which opcode triggered
-// it, letting an endpoint's own negative-control wording act as its rejection fingerprint.
-export function signature(message) {
-	return String(message ?? '')
-		.toLowerCase()
-		.replace(/0x[0-9a-f]+/g, '0x*')
-		.replace(/\b\d+\b/g, '*')
-		.replace(/[a-z_]*(opcode|instruction)[a-z_]*\s*[:=]?\s*[a-z0-9_]*/g, '$1')
-		.replace(/\s+/g, ' ')
-		.trim();
-}
+export const isInfrastructure = (message) => anyMatch(INFRASTRUCTURE, message);
+export const isEvmRejection = (message) => anyMatch(EVM_REJECTION, message);

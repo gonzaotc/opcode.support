@@ -1,5 +1,5 @@
 {
-	"checkedAt": "2026-08-20T16:01:09.043Z",
+	"checkedAt": "2026-08-20T16:08:20.803Z",
 	"opcodes": [
 		{
 			"name": "CLZ",
@@ -49,7 +49,7 @@
 				{
 					"url": "https://1.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 25797376,
+					"block": 25797412,
 					"calibrated": true,
 					"strategy": "stateOverride",
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -71,7 +71,7 @@
 				{
 					"url": "https://ethereum.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 25797376,
+					"block": 25797412,
 					"calibrated": true,
 					"strategy": "stateOverride",
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -137,7 +137,7 @@
 				{
 					"url": "https://56.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 117068182,
+					"block": 117069135,
 					"calibrated": true,
 					"strategy": "stateOverride",
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -159,7 +159,7 @@
 				{
 					"url": "https://bsc.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 117068190,
+					"block": 117069150,
 					"calibrated": true,
 					"strategy": "stateOverride",
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -174,16 +174,15 @@
 							"evidence": "You reached Public endpoint rate limit, please upgrade to paid plan"
 						},
 						"TSTORE": {
-							"status": "unknown",
-							"reason": "endpoint-unavailable",
-							"evidence": "You reached Public endpoint rate limit, please upgrade to paid plan"
+							"status": "supported",
+							"evidence": "executed"
 						}
 					}
 				},
 				{
 					"url": "https://bsc-dataseed1.bnbchain.org",
 					"client": "Geth/v1.7.7-6c154fb3-20260723/linux-amd64/go1.26.5",
-					"block": 117068298,
+					"block": 117069204,
 					"calibrated": true,
 					"strategy": "stateOverride",
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -219,7 +218,7 @@
 				"TSTORE": {
 					"status": "supported",
 					"confidence": "confirmed",
-					"witnesses": 2,
+					"witnesses": 3,
 					"evidence": "executed"
 				}
 			}
@@ -241,7 +240,7 @@
 				{
 					"url": "https://8453.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 50226075,
+					"block": 50226290,
 					"calibrated": true,
 					"strategy": "stateOverride",
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -263,7 +262,7 @@
 				{
 					"url": "https://base.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 50226076,
+					"block": 50226291,
 					"calibrated": true,
 					"strategy": "stateOverride",
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -319,15 +318,14 @@
 				{
 					"url": "https://999.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 43701818,
+					"block": 43702255,
 					"calibrated": true,
 					"strategy": "stateOverride",
 					"rejectionExample": "EVM error: OpcodeNotFound",
 					"opcodes": {
 						"CLZ": {
 							"status": "unsupported",
-							"evidence": "EVM error: OpcodeNotFound",
-							"basis": "matches endpoint rejection fingerprint"
+							"evidence": "EVM error: OpcodeNotFound"
 						},
 						"TLOAD": {
 							"status": "supported",
@@ -353,15 +351,14 @@
 				{
 					"url": "https://rpc.hyperliquid.xyz/evm",
 					"client": "hyperliquid evm Mainnet",
-					"block": 43701878,
+					"block": 43702316,
 					"calibrated": true,
 					"strategy": "stateOverride",
 					"rejectionExample": "EVM error: OpcodeNotFound",
 					"opcodes": {
 						"CLZ": {
 							"status": "unsupported",
-							"evidence": "EVM error: OpcodeNotFound",
-							"basis": "matches endpoint rejection fingerprint"
+							"evidence": "EVM error: OpcodeNotFound"
 						},
 						"TLOAD": {
 							"status": "supported",
@@ -408,7 +405,7 @@
 				{
 					"url": "https://42161.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 496563732,
+					"block": 496565456,
 					"calibrated": true,
 					"strategy": "stateOverride",
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -430,18 +427,18 @@
 				{
 					"url": "https://arbitrum.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 496563740,
+					"block": 496565476,
 					"calibrated": false,
 					"strategy": null,
 					"rejected": {
 						"stateOverride": "positive control unreachable: You've reached the usage limit for your current plan. To continue with higher limits and uninterrupted access, please upgrade here: https://www.1rpc.io/#pricing",
-						"nullTo": "negative control unreachable: You've reached the usage limit for your current plan. To continue with higher limits and uninterrupted access, please upgrade here: https://www.1rpc.io/#pricing"
+						"nullTo": "positive control unreachable: You've reached the usage limit for your current plan. To continue with higher limits and uninterrupted access, please upgrade here: https://www.1rpc.io/#pricing"
 					}
 				},
 				{
 					"url": "https://arb1.arbitrum.io/rpc",
-					"client": "nitro/v3.11.3-rc.9-beb2108/linux-amd64/go1.25.12",
-					"block": 496563920,
+					"client": "nitro/v3.11.3-rc.9-beb2108/linux-arm64/go1.25.12",
+					"block": 496565667,
 					"calibrated": true,
 					"strategy": "stateOverride",
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -495,7 +492,7 @@
 				{
 					"url": "https://143.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 97665840,
+					"block": 97667226,
 					"calibrated": true,
 					"strategy": "stateOverride",
 					"rejectionExample": "execution reverted",
@@ -517,7 +514,7 @@
 				{
 					"url": "https://monad.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 97665849,
+					"block": 97667237,
 					"calibrated": false,
 					"strategy": null,
 					"rejected": {
@@ -528,7 +525,7 @@
 				{
 					"url": "https://rpc.monad.xyz",
 					"client": "Monad/0.15.2",
-					"block": 97665854,
+					"block": 97667243,
 					"calibrated": true,
 					"strategy": "stateOverride",
 					"rejectionExample": "execution reverted",
@@ -583,7 +580,7 @@
 				{
 					"url": "https://137.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 92357652,
+					"block": 92357940,
 					"calibrated": true,
 					"strategy": "stateOverride",
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -605,7 +602,7 @@
 				{
 					"url": "https://polygon.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 92357654,
+					"block": 92357942,
 					"calibrated": true,
 					"strategy": "stateOverride",
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -658,15 +655,14 @@
 				{
 					"url": "https://9745.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 30300957,
+					"block": 30301388,
 					"calibrated": true,
 					"strategy": "stateOverride",
 					"rejectionExample": "EVM error: OpcodeNotFound",
 					"opcodes": {
 						"CLZ": {
 							"status": "unsupported",
-							"evidence": "EVM error: NotActivated",
-							"basis": "recognised evm rejection"
+							"evidence": "EVM error: NotActivated"
 						},
 						"TLOAD": {
 							"status": "supported",
@@ -681,15 +677,14 @@
 				{
 					"url": "https://rpc.plasma.to",
 					"client": "reth/v1.8.3-4219741/x86_64-unknown-linux-gnu",
-					"block": 30300960,
+					"block": 30301391,
 					"calibrated": true,
 					"strategy": "stateOverride",
 					"rejectionExample": "EVM error: OpcodeNotFound",
 					"opcodes": {
 						"CLZ": {
 							"status": "unsupported",
-							"evidence": "EVM error: NotActivated",
-							"basis": "recognised evm rejection"
+							"evidence": "EVM error: NotActivated"
 						},
 						"TLOAD": {
 							"status": "supported",
@@ -746,7 +741,7 @@
 				{
 					"url": "https://rpc.mainnet.chain.robinhood.com",
 					"client": "nitro/v3.11.3-rc.9-beb2108/linux-amd64/go1.25.12",
-					"block": 41546804,
+					"block": 41551118,
 					"calibrated": true,
 					"strategy": "stateOverride",
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -800,15 +795,14 @@
 				{
 					"url": "https://43114.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 93272239,
+					"block": 93272624,
 					"calibrated": true,
 					"strategy": "stateOverride",
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
 					"opcodes": {
 						"CLZ": {
 							"status": "unsupported",
-							"evidence": "invalid opcode: opcode 0x1e not defined",
-							"basis": "matches endpoint rejection fingerprint"
+							"evidence": "invalid opcode: opcode 0x1e not defined"
 						},
 						"TLOAD": {
 							"status": "supported",
@@ -823,15 +817,14 @@
 				{
 					"url": "https://avalanche.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 93272240,
+					"block": 93272628,
 					"calibrated": true,
 					"strategy": "stateOverride",
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
 					"opcodes": {
 						"CLZ": {
 							"status": "unsupported",
-							"evidence": "invalid opcode: opcode 0x1e not defined",
-							"basis": "matches endpoint rejection fingerprint"
+							"evidence": "invalid opcode: opcode 0x1e not defined"
 						},
 						"TLOAD": {
 							"status": "supported",
@@ -880,7 +873,7 @@
 				{
 					"url": "https://10.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 155821373,
+					"block": 155821589,
 					"calibrated": true,
 					"strategy": "stateOverride",
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -902,30 +895,18 @@
 				{
 					"url": "https://optimism.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 155821374,
-					"calibrated": true,
-					"strategy": "nullTo",
-					"rejectionExample": "EVM error: OpcodeNotFound",
-					"opcodes": {
-						"CLZ": {
-							"status": "supported",
-							"evidence": "executed"
-						},
-						"TLOAD": {
-							"status": "supported",
-							"evidence": "executed"
-						},
-						"TSTORE": {
-							"status": "unknown",
-							"reason": "endpoint-unavailable",
-							"evidence": "You reached Public endpoint rate limit, please upgrade to paid plan"
-						}
+					"block": 155821591,
+					"calibrated": false,
+					"strategy": null,
+					"rejected": {
+						"stateOverride": "positive control unreachable: Can't route your request to suitable provider, if you specified certain providers revise the list",
+						"nullTo": "negative control unreachable: You reached Public endpoint rate limit, please upgrade to paid plan"
 					}
 				},
 				{
 					"url": "https://optimism-rpc.publicnode.com",
 					"client": "op-reth/v0.0.0-dev-unknown/x86_64-linux",
-					"block": 155821394,
+					"block": 155821610,
 					"calibrated": true,
 					"strategy": "stateOverride",
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -949,13 +930,13 @@
 				"CLZ": {
 					"status": "supported",
 					"confidence": "confirmed",
-					"witnesses": 3,
+					"witnesses": 2,
 					"evidence": "executed"
 				},
 				"TLOAD": {
 					"status": "supported",
 					"confidence": "confirmed",
-					"witnesses": 3,
+					"witnesses": 2,
 					"evidence": "executed"
 				},
 				"TSTORE": {
@@ -979,15 +960,14 @@
 				{
 					"url": "https://25.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 89256408,
+					"block": 89257228,
 					"calibrated": true,
 					"strategy": "stateOverride",
 					"rejectionExample": "rpc error: code = Internal desc = invalid opcode: opcode 0xc not defined",
 					"opcodes": {
 						"CLZ": {
 							"status": "unsupported",
-							"evidence": "rpc error: code = Internal desc = invalid opcode: opcode 0x1e not defined",
-							"basis": "matches endpoint rejection fingerprint"
+							"evidence": "rpc error: code = Internal desc = invalid opcode: opcode 0x1e not defined"
 						},
 						"TLOAD": {
 							"status": "supported",
@@ -1002,15 +982,14 @@
 				{
 					"url": "https://cronos.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 89256425,
+					"block": 89257243,
 					"calibrated": true,
 					"strategy": "stateOverride",
 					"rejectionExample": "rpc error: code = Internal desc = invalid opcode: opcode 0xc not defined",
 					"opcodes": {
 						"CLZ": {
 							"status": "unsupported",
-							"evidence": "rpc error: code = Internal desc = invalid opcode: opcode 0x1e not defined",
-							"basis": "matches endpoint rejection fingerprint"
+							"evidence": "rpc error: code = Internal desc = invalid opcode: opcode 0x1e not defined"
 						},
 						"TLOAD": {
 							"status": "supported",
@@ -1058,7 +1037,7 @@
 				{
 					"url": "https://57073.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 53743139,
+					"block": 53743560,
 					"calibrated": true,
 					"strategy": "stateOverride",
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -1080,7 +1059,7 @@
 				{
 					"url": "https://ink.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 53743143,
+					"block": 53743565,
 					"calibrated": true,
 					"strategy": "nullTo",
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -1138,7 +1117,7 @@
 				{
 					"url": "https://100.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 47824904,
+					"block": 47824986,
 					"calibrated": true,
 					"strategy": "stateOverride",
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -1160,7 +1139,7 @@
 				{
 					"url": "https://gnosis.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 47824905,
+					"block": 47824987,
 					"calibrated": true,
 					"strategy": "stateOverride",
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -1215,7 +1194,7 @@
 				{
 					"url": "https://30.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 9168115,
+					"block": 9168128,
 					"calibrated": false,
 					"strategy": null,
 					"rejected": {
@@ -1226,7 +1205,7 @@
 				{
 					"url": "https://rootstock.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 9168114,
+					"block": 9168128,
 					"calibrated": false,
 					"strategy": null,
 					"rejected": {
@@ -1237,7 +1216,7 @@
 				{
 					"url": "https://public-node.rsk.co",
 					"client": "RskJ/9.0.3/Linux/Java17/VETIVER-c19cf12",
-					"block": 9168115,
+					"block": 9168128,
 					"calibrated": false,
 					"strategy": null,
 					"rejected": {
@@ -1248,7 +1227,7 @@
 				{
 					"url": "https://mycrypto.rsk.co",
 					"client": "RskJ/9.0.3/Linux/Java17/VETIVER-c19cf12",
-					"block": 9168115,
+					"block": 9168129,
 					"calibrated": false,
 					"strategy": null,
 					"rejected": {
@@ -1289,7 +1268,7 @@
 				{
 					"url": "https://5000.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 99555623,
+					"block": 99555836,
 					"calibrated": true,
 					"strategy": "stateOverride",
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -1311,7 +1290,7 @@
 				{
 					"url": "https://mantle.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 99555628,
+					"block": 99555841,
 					"calibrated": true,
 					"strategy": "stateOverride",
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -1366,7 +1345,7 @@
 				{
 					"url": "https://mezo.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 11265613,
+					"block": 11265732,
 					"calibrated": true,
 					"strategy": "nullTo",
 					"rejectionExample": "rpc error: code = Internal desc = invalid opcode: opcode 0xc not defined",
@@ -1388,7 +1367,7 @@
 				{
 					"url": "https://mezo-mainnet.boar.network",
 					"client": "Mezod/12.0.0/amd64/go1.24.0",
-					"block": 11265618,
+					"block": 11265738,
 					"calibrated": true,
 					"strategy": "stateOverride",
 					"rejectionExample": "rpc error: code = Internal desc = invalid opcode: opcode 0xc not defined",
@@ -1444,15 +1423,14 @@
 				{
 					"url": "https://747474.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 40498757,
+					"block": 40499186,
 					"calibrated": true,
 					"strategy": "stateOverride",
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
 					"opcodes": {
 						"CLZ": {
 							"status": "unsupported",
-							"evidence": "invalid opcode: CLZ",
-							"basis": "recognised evm rejection"
+							"evidence": "invalid opcode: CLZ"
 						},
 						"TLOAD": {
 							"status": "supported",
@@ -1467,15 +1445,14 @@
 				{
 					"url": "https://katana.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 40498760,
+					"block": 40499192,
 					"calibrated": true,
 					"strategy": "nullTo",
 					"rejectionExample": "EVM error: OpcodeNotFound",
 					"opcodes": {
 						"CLZ": {
 							"status": "unsupported",
-							"evidence": "EVM error: NotActivated",
-							"basis": "recognised evm rejection"
+							"evidence": "EVM error: NotActivated"
 						},
 						"TLOAD": {
 							"status": "supported",
@@ -1522,15 +1499,14 @@
 				{
 					"url": "https://4326.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 24444565,
+					"block": 24444988,
 					"calibrated": true,
 					"strategy": "stateOverride",
 					"rejectionExample": "EVM error: OpcodeNotFound",
 					"opcodes": {
 						"CLZ": {
 							"status": "unsupported",
-							"evidence": "EVM error: NotActivated",
-							"basis": "recognised evm rejection"
+							"evidence": "EVM error: NotActivated"
 						},
 						"TLOAD": {
 							"status": "supported",
@@ -1545,15 +1521,14 @@
 				{
 					"url": "https://megaeth.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 24444567,
+					"block": 24444991,
 					"calibrated": true,
 					"strategy": "nullTo",
 					"rejectionExample": "EVM error: OpcodeNotFound",
 					"opcodes": {
 						"CLZ": {
 							"status": "unsupported",
-							"evidence": "EVM error: NotActivated",
-							"basis": "recognised evm rejection"
+							"evidence": "EVM error: NotActivated"
 						},
 						"TLOAD": {
 							"status": "supported",
@@ -1600,7 +1575,7 @@
 				{
 					"url": "https://rpc.tempo.xyz",
 					"client": "tempo/v1.13.1-6d9d0d5/x86_64-unknown-linux-gnu",
-					"block": 35678369,
+					"block": 35679124,
 					"calibrated": true,
 					"strategy": "stateOverride",
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -1622,7 +1597,7 @@
 				{
 					"url": "https://tempo.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 35678372,
+					"block": 35679128,
 					"calibrated": true,
 					"strategy": "nullTo",
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -1676,15 +1651,14 @@
 				{
 					"url": "https://988.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 36281021,
+					"block": 36281638,
 					"calibrated": true,
 					"strategy": "stateOverride",
 					"rejectionExample": "rpc error: code = Internal desc = invalid opcode: opcode 0xc not defined",
 					"opcodes": {
 						"CLZ": {
 							"status": "unsupported",
-							"evidence": "rpc error: code = Internal desc = invalid opcode: CLZ",
-							"basis": "recognised evm rejection"
+							"evidence": "rpc error: code = Internal desc = invalid opcode: CLZ"
 						},
 						"TLOAD": {
 							"status": "supported",
@@ -1699,15 +1673,14 @@
 				{
 					"url": "https://stable.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 36281025,
+					"block": 36281642,
 					"calibrated": true,
 					"strategy": "nullTo",
 					"rejectionExample": "rpc error: code = Internal desc = invalid opcode: opcode 0xc not defined",
 					"opcodes": {
 						"CLZ": {
 							"status": "unsupported",
-							"evidence": "rpc error: code = Internal desc = invalid opcode: CLZ",
-							"basis": "recognised evm rejection"
+							"evidence": "rpc error: code = Internal desc = invalid opcode: CLZ"
 						},
 						"TLOAD": {
 							"status": "supported",
@@ -1754,15 +1727,14 @@
 				{
 					"url": "https://1329.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 227444526,
+					"block": 227445419,
 					"calibrated": true,
 					"strategy": "stateOverride",
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
 					"opcodes": {
 						"CLZ": {
 							"status": "unsupported",
-							"evidence": "invalid opcode: opcode 0x1e not defined",
-							"basis": "matches endpoint rejection fingerprint"
+							"evidence": "invalid opcode: opcode 0x1e not defined"
 						},
 						"TLOAD": {
 							"status": "supported",
@@ -1777,40 +1749,14 @@
 				{
 					"url": "https://sei.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 227444523,
+					"block": 227445388,
 					"calibrated": true,
 					"strategy": "nullTo",
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
 					"opcodes": {
 						"CLZ": {
 							"status": "unsupported",
-							"evidence": "invalid opcode: opcode 0x1e not defined",
-							"basis": "matches endpoint rejection fingerprint"
-						},
-						"TLOAD": {
-							"status": "unknown",
-							"reason": "endpoint-unavailable",
-							"evidence": "Temporary internal error. Please retry, trace-id: f2d0e1d1cb62c7fba12f6bb62b66f50c"
-						},
-						"TSTORE": {
-							"status": "unknown",
-							"reason": "endpoint-unavailable",
-							"evidence": "Temporary internal error. Please retry, trace-id: c551cc561a2e85aec4d74daca90657e6"
-						}
-					}
-				},
-				{
-					"url": "https://evm-rpc.sei-apis.com",
-					"client": "Geth/linux-amd64/go1.25.8",
-					"block": 227444668,
-					"calibrated": true,
-					"strategy": "stateOverride",
-					"rejectionExample": "invalid opcode: opcode 0xc not defined",
-					"opcodes": {
-						"CLZ": {
-							"status": "unsupported",
-							"evidence": "invalid opcode: opcode 0x1e not defined",
-							"basis": "matches endpoint rejection fingerprint"
+							"evidence": "invalid opcode: opcode 0x1e not defined"
 						},
 						"TLOAD": {
 							"status": "supported",
@@ -1827,7 +1773,7 @@
 				"CLZ": {
 					"status": "unsupported",
 					"confidence": "confirmed",
-					"witnesses": 3,
+					"witnesses": 2,
 					"evidence": "invalid opcode: opcode 0x1e not defined"
 				},
 				"TLOAD": {
@@ -1859,7 +1805,7 @@
 				{
 					"url": "https://80094.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 25113437,
+					"block": 25113652,
 					"calibrated": true,
 					"strategy": "nullTo",
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -1881,7 +1827,7 @@
 				{
 					"url": "https://berachain.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 25113448,
+					"block": 25113663,
 					"calibrated": true,
 					"strategy": "nullTo",
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -1935,15 +1881,14 @@
 				{
 					"url": "https://81457.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 39215891,
+					"block": 39216105,
 					"calibrated": true,
 					"strategy": "stateOverride",
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
 					"opcodes": {
 						"CLZ": {
 							"status": "unsupported",
-							"evidence": "invalid opcode: opcode 0x1e not defined",
-							"basis": "matches endpoint rejection fingerprint"
+							"evidence": "invalid opcode: opcode 0x1e not defined"
 						},
 						"TLOAD": {
 							"status": "supported",
@@ -1958,15 +1903,14 @@
 				{
 					"url": "https://blast.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 39215892,
+					"block": 39216106,
 					"calibrated": true,
 					"strategy": "stateOverride",
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
 					"opcodes": {
 						"CLZ": {
 							"status": "unsupported",
-							"evidence": "invalid opcode: opcode 0x1e not defined",
-							"basis": "matches endpoint rejection fingerprint"
+							"evidence": "invalid opcode: opcode 0x1e not defined"
 						},
 						"TLOAD": {
 							"status": "supported",
@@ -2014,7 +1958,7 @@
 				{
 					"url": "https://59144.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 31773956,
+					"block": 31774017,
 					"calibrated": true,
 					"strategy": "stateOverride",
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -2036,7 +1980,7 @@
 				{
 					"url": "https://linea.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 31773956,
+					"block": 31774018,
 					"calibrated": true,
 					"strategy": "stateOverride",
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -2091,15 +2035,15 @@
 				{
 					"url": "https://480.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 33952982,
+					"block": 33953196,
 					"calibrated": true,
 					"strategy": "nullTo",
-					"rejectionExample": "We are not able to process your request at this time. Please contact thirdweb support 42c85313-75b6-4b47-9888-58c7d011f9fa.",
+					"rejectionExample": "We are not able to process your request at this time. Please contact thirdweb support a09fbd38-7fa8-4416-adc5-7594c3884587.",
 					"opcodes": {
 						"CLZ": {
-							"status": "unsupported",
-							"evidence": "EVM error: NotActivated",
-							"basis": "recognised evm rejection"
+							"status": "unknown",
+							"reason": "unattributable-error",
+							"evidence": "Unknown state. First available state is 1"
 						},
 						"TLOAD": {
 							"status": "supported",
@@ -2114,15 +2058,47 @@
 				{
 					"url": "https://worldchain.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 33952994,
+					"block": 33953207,
+					"calibrated": false,
+					"strategy": null,
+					"rejected": {
+						"stateOverride": "positive control unreachable: Can't route your request to suitable provider, if you specified certain providers revise the list",
+						"nullTo": "negative control unreachable: Temporary internal error. Please retry, trace-id: 61b10cef74479d1510cb8a9ca56010c0"
+					}
+				},
+				{
+					"url": "https://worldchain-mainnet.g.alchemy.com/public",
+					"client": "world-chain/v2.4.0-6714d64/x86_64-unknown-linux-gnu",
+					"block": 33953229,
 					"calibrated": true,
-					"strategy": "nullTo",
+					"strategy": "stateOverride",
 					"rejectionExample": "EVM error: OpcodeNotFound",
 					"opcodes": {
 						"CLZ": {
 							"status": "unsupported",
-							"evidence": "EVM error: NotActivated",
-							"basis": "recognised evm rejection"
+							"evidence": "EVM error: NotActivated"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				},
+				{
+					"url": "https://worldchain-mainnet.gateway.tenderly.co",
+					"client": "Tenderly/1.0",
+					"block": 33953230,
+					"calibrated": true,
+					"strategy": "stateOverride",
+					"rejectionExample": "invalid opcode: opcode 0xc not defined",
+					"opcodes": {
+						"CLZ": {
+							"status": "unsupported",
+							"evidence": "EVM error: NotActivated"
 						},
 						"TLOAD": {
 							"status": "supported",
@@ -2145,13 +2121,13 @@
 				"TLOAD": {
 					"status": "supported",
 					"confidence": "confirmed",
-					"witnesses": 2,
+					"witnesses": 3,
 					"evidence": "executed"
 				},
 				"TSTORE": {
 					"status": "supported",
 					"confidence": "confirmed",
-					"witnesses": 2,
+					"witnesses": 3,
 					"evidence": "executed"
 				}
 			}
@@ -2169,7 +2145,7 @@
 				{
 					"url": "https://130.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 56493248,
+					"block": 56493672,
 					"calibrated": true,
 					"strategy": "stateOverride",
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -2191,7 +2167,7 @@
 				{
 					"url": "https://unichain.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 56493254,
+					"block": 56493678,
 					"calibrated": true,
 					"strategy": "nullTo",
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -2245,15 +2221,14 @@
 				{
 					"url": "https://295.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 99081616,
+					"block": 99081792,
 					"calibrated": true,
 					"strategy": "nullTo",
-					"rejectionExample": "[Request ID: 4e7984f6-2022-42b1-ab94-450de6441186] Error occurred during transaction simulation: CONTRACT_EXECUTION_EXCEPTION",
+					"rejectionExample": "[Request ID: c1097ab0-d0ae-4c2f-83ff-70c3dd7684eb] Error occurred during transaction simulation: CONTRACT_EXECUTION_EXCEPTION",
 					"opcodes": {
 						"CLZ": {
 							"status": "unsupported",
-							"evidence": "[Request ID: 6ebf12e5-2a0b-47c3-bd2e-a6a40e9ff30f] Error occurred during transaction simulation: CONTRACT_EXECUTION_EXCEPTION",
-							"basis": "recognised evm rejection"
+							"evidence": "[Request ID: d629599a-8b9e-4b0d-a68e-05c38a549b6c] Error occurred during transaction simulation: CONTRACT_EXECUTION_EXCEPTION"
 						},
 						"TLOAD": {
 							"status": "supported",
@@ -2268,15 +2243,14 @@
 				{
 					"url": "https://mainnet.hashio.io/api",
 					"client": "relay/0.78.2",
-					"block": 99081617,
+					"block": 99081795,
 					"calibrated": true,
 					"strategy": "nullTo",
-					"rejectionExample": "[Request ID: ed3f9e10-1a36-48a3-8e6e-fad69bd6349e] Error occurred during transaction simulation: CONTRACT_EXECUTION_EXCEPTION",
+					"rejectionExample": "[Request ID: c05eed55-ce3d-4a2b-95e0-c6baa9ed1789] Error occurred during transaction simulation: CONTRACT_EXECUTION_EXCEPTION",
 					"opcodes": {
 						"CLZ": {
 							"status": "unsupported",
-							"evidence": "[Request ID: cb0c8888-60ba-48c4-8844-ed64adad6bc9] Error occurred during transaction simulation: CONTRACT_EXECUTION_EXCEPTION",
-							"basis": "recognised evm rejection"
+							"evidence": "[Request ID: 4bb0c2f3-c730-4512-8814-15e87c56fde9] Error occurred during transaction simulation: CONTRACT_EXECUTION_EXCEPTION"
 						},
 						"TLOAD": {
 							"status": "supported",
@@ -2294,7 +2268,7 @@
 					"status": "unsupported",
 					"confidence": "confirmed",
 					"witnesses": 2,
-					"evidence": "[Request ID: 6ebf12e5-2a0b-47c3-bd2e-a6a40e9ff30f] Error occurred during transaction simulation: CONTRACT_EXECUTION_EXCEPTION"
+					"evidence": "[Request ID: d629599a-8b9e-4b0d-a68e-05c38a549b6c] Error occurred during transaction simulation: CONTRACT_EXECUTION_EXCEPTION"
 				},
 				"TLOAD": {
 					"status": "supported",
@@ -2323,15 +2297,14 @@
 				{
 					"url": "https://252.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 40215453,
+					"block": 40215670,
 					"calibrated": true,
 					"strategy": "stateOverride",
 					"rejectionExample": "EVM error: OpcodeNotFound",
 					"opcodes": {
 						"CLZ": {
 							"status": "unsupported",
-							"evidence": "EVM error: NotActivated",
-							"basis": "recognised evm rejection"
+							"evidence": "EVM error: NotActivated"
 						},
 						"TLOAD": {
 							"status": "supported",
@@ -2346,15 +2319,14 @@
 				{
 					"url": "https://fraxtal.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 40215454,
+					"block": 40215671,
 					"calibrated": true,
 					"strategy": "stateOverride",
 					"rejectionExample": "EVM error: OpcodeNotFound",
 					"opcodes": {
 						"CLZ": {
 							"status": "unsupported",
-							"evidence": "EVM error: NotActivated",
-							"basis": "recognised evm rejection"
+							"evidence": "EVM error: NotActivated"
 						},
 						"TLOAD": {
 							"status": "supported",
@@ -2401,15 +2373,14 @@
 				{
 					"url": "https://pharos.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 15463714,
+					"block": 15464221,
 					"calibrated": true,
 					"strategy": "stateOverride",
 					"rejectionExample": "An undefined instruction has been encountered.",
 					"opcodes": {
 						"CLZ": {
 							"status": "unsupported",
-							"evidence": "An undefined instruction has been encountered.",
-							"basis": "matches endpoint rejection fingerprint"
+							"evidence": "An undefined instruction has been encountered."
 						},
 						"TLOAD": {
 							"status": "supported",
@@ -2424,26 +2395,25 @@
 				{
 					"url": "https://api.zan.top/pharos-mainnet",
 					"client": "portal/1.0.0",
-					"block": 15463723,
+					"block": 15464229,
 					"calibrated": false,
 					"strategy": null,
 					"rejected": {
 						"stateOverride": "positive control rejected: cu limit exceeded; Method \"eth_call\" is not available for unregistered accounts. Please visit https://zan.top/ and register to unlock more.",
-						"nullTo": "positive control rejected: cu limit exceeded; Request too fast per second. Please visit https://zan.top/ and register to unlock more."
+						"nullTo": "positive control rejected: cu limit exceeded; Method \"eth_call\" is not available for unregistered accounts. Please visit https://zan.top/ and register to unlock more."
 					}
 				},
 				{
 					"url": "https://rpc.pharos.xyz",
 					"client": "portal/1.0.0",
-					"block": 15463729,
+					"block": 15464233,
 					"calibrated": true,
 					"strategy": "stateOverride",
 					"rejectionExample": "An undefined instruction has been encountered.",
 					"opcodes": {
 						"CLZ": {
 							"status": "unsupported",
-							"evidence": "An undefined instruction has been encountered.",
-							"basis": "matches endpoint rejection fingerprint"
+							"evidence": "An undefined instruction has been encountered."
 						},
 						"TLOAD": {
 							"status": "supported",

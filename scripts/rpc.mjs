@@ -1,6 +1,4 @@
-import { classify } from './classify.mjs';
-
-const RETRYABLE_TRANSPORT = /^(timeout|http (429|5\d\d))/;
+import { isInfrastructure } from './classify.mjs';
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -27,7 +25,7 @@ async function once(url, method, params, timeoutMs) {
 			const message = json.error.message ?? JSON.stringify(json.error);
 			// Provider-side refusals carry no information about the chain, so surface them as
 			// transport failures and let the retry loop handle them.
-			if (classify(message) === 'infrastructure') return { transportError: message };
+			if (isInfrastructure(message)) return { transportError: message };
 			return { error: message };
 		}
 		return { transportError: `http ${res.status}` };
@@ -42,9 +40,7 @@ export async function rpc(url, method, params, { timeoutMs = 15000, attempts = 5
 	let last;
 	for (let attempt = 0; attempt < attempts; attempt++) {
 		last = await once(url, method, params, timeoutMs);
-		if (!last.transportError) return last;
-		const retryable = RETRYABLE_TRANSPORT.test(last.transportError) || classify(last.transportError) === 'infrastructure';
-		if (!retryable) return last;
+		if (!last.transportError || !isInfrastructure(last.transportError)) return last;
 		await sleep(500 * 2 ** attempt + Math.floor(Math.random() * 400));
 	}
 	return last;

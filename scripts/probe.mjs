@@ -2,7 +2,7 @@
 // Read-only: every check is an eth_call simulation, so no gas is ever spent and no key is needed.
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { rpc, pooled } from './rpc.mjs';
-import { classify, signature } from './classify.mjs';
+import { isEvmRejection } from './classify.mjs';
 
 const WITNESSES_REQUIRED = 2;
 const MAX_ENDPOINTS = 5;
@@ -34,19 +34,16 @@ async function calibrate(strategy, url) {
 	if (negative.transportError) return { ok: false, reason: `negative control unreachable: ${negative.transportError}` };
 	if (ran(negative)) return { ok: false, reason: 'negative control succeeded, endpoint does not execute the code' };
 
-	// The endpoint just told us, in its own wording, what an undefined opcode looks like.
-	return { ok: true, rejectionSignature: signature(negative.error), rejectionExample: negative.error };
+	// Kept as evidence: this is how the endpoint words a genuine opcode rejection.
+	return { ok: true, rejectionExample: negative.error };
 }
 
 // Turns one probe response into a verdict, refusing to guess when the failure is not attributable to
 // the EVM rejecting the opcode.
-function interpret(res, calibration) {
+function interpret(res) {
 	if (res.transportError) return { status: 'unknown', reason: 'endpoint-unavailable', evidence: res.transportError };
 	if (ran(res)) return { status: 'supported', evidence: 'executed' };
-	if (signature(res.error) === calibration.rejectionSignature)
-		return { status: 'unsupported', evidence: res.error, basis: 'matches endpoint rejection fingerprint' };
-	if (classify(res.error) === 'evm')
-		return { status: 'unsupported', evidence: res.error, basis: 'recognised evm rejection' };
+	if (isEvmRejection(res.error)) return { status: 'unsupported', evidence: res.error };
 	return { status: 'unknown', reason: 'unattributable-error', evidence: res.error };
 }
 
@@ -63,10 +60,7 @@ async function probeEndpoint(url) {
 		}
 
 		const results = {};
-		for (const opcode of enabled) {
-			const res = await strategy(url, opcode.snippet);
-			results[opcode.name] = interpret(res, calibration);
-		}
+		for (const opcode of enabled) results[opcode.name] = interpret(await strategy(url, opcode.snippet));
 		return {
 			...meta,
 			calibrated: true,
@@ -79,13 +73,17 @@ async function probeEndpoint(url) {
 	return { ...meta, calibrated: false, strategy: null, rejected };
 }
 
-// A single endpoint is a single witness, and endpoints can misreport. Only agreement counts as
-// confirmed; anything else is explicitly not a verdict.
-function reconcile(witnesses, opcodeName) {
-	const verdicts = witnesses
+// Verdicts from calibrated endpoints that reached a conclusion. Everything else is not evidence.
+const verdictsFor = (witnesses, opcodeName) =>
+	witnesses
 		.filter((w) => w.calibrated)
 		.map((w) => w.opcodes[opcodeName])
 		.filter((v) => v && v.status !== 'unknown');
+
+// A single endpoint is a single witness, and endpoints can misreport. Only agreement counts as
+// confirmed; anything else is explicitly not a verdict.
+function reconcile(witnesses, opcodeName) {
+	const verdicts = verdictsFor(witnesses, opcodeName);
 
 	if (verdicts.length === 0) return { status: 'unknown', confidence: 'no-calibrated-endpoint', witnesses: 0 };
 	if (new Set(verdicts.map((v) => v.status)).size > 1)
@@ -95,16 +93,13 @@ function reconcile(witnesses, opcodeName) {
 	return { status: verdicts[0].status, confidence: 'confirmed', witnesses: verdicts.length, evidence: verdicts[0].evidence };
 }
 
-const usableVerdicts = (witnesses, opcodeName) =>
-	witnesses.filter((w) => w.calibrated && w.opcodes[opcodeName]?.status !== 'unknown').length;
-
 async function probeChain(chain) {
 	// Keep walking the endpoint pool until every opcode has enough usable verdicts, so one
 	// rate-limited endpoint does not leave a hole in the table.
 	const witnesses = [];
 	for (const url of chain.rpcUrls.slice(0, MAX_ENDPOINTS)) {
 		witnesses.push(await probeEndpoint(url));
-		if (enabled.every((o) => usableVerdicts(witnesses, o.name) >= WITNESSES_REQUIRED)) break;
+		if (enabled.every((o) => verdictsFor(witnesses, o.name).length >= WITNESSES_REQUIRED)) break;
 	}
 
 	const verdicts = Object.fromEntries(enabled.map((o) => [o.name, reconcile(witnesses, o.name)]));

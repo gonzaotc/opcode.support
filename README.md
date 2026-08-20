@@ -37,7 +37,8 @@ Two further rules keep the table honest:
 - A verdict needs **two independently calibrated endpoints in agreement**. One endpoint is one
   witness, and witnesses can be wrong.
 - Failures that are not attributable to the EVM, such as rate limits and plan quotas, are recorded as
-  unconfirmed rather than counted as unsupported.
+  unconfirmed rather than counted as unsupported. An unrecognised failure is left unattributed too,
+  so a novel rejection wording degrades to unconfirmed instead of a wrong verdict.
 
 Anything unresolved stays `?` with its reason, and is excluded from the support percentages.
 
