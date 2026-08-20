@@ -40,18 +40,23 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data README.md config
+          git add data README.md
           if git diff --staged --quiet; then
             echo 'no change'
             exit 0
           fi
           git commit -m 'chore: refresh opcode support data'
-          # Two runs can overlap and race for the ref. Every file here is generated, so this run's
-          # output is the newer measurement and wins any conflict.
+          # Two runs can overlap and race for the ref. This run holds the newer measurement, so it
+          # wins the rebase, but -X theirs only settles conflicting lines: a concurrent run on an
+          # older tree can leave a README its generator produced and this one never touched. So
+          # rebuild the page from this tree after every rebase and fold it into the commit.
           for attempt in 1 2 3; do
             if git push; then exit 0; fi
             git fetch origin main
-            git rebase -X theirs origin/main || git rebase --abort
+            git rebase -X theirs origin/main || { git rebase --abort; exit 1; }
+            npm run report
+            git add README.md
+            git diff --staged --quiet || git commit --amend --no-edit
             sleep 5
           done
           exit 1
