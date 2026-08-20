@@ -7,7 +7,8 @@ import { diversify, operator, operatorReach } from './endpoints.mjs';
 
 const config = JSON.parse(readFileSync('config/chain-selection.json', 'utf8'));
 const knownRpcs = JSON.parse(readFileSync('config/known-rpcs.json', 'utf8'));
-const excluded = new Set(config.exclude);
+// exclude maps a chain name to why it is not EVM, so the reason travels with the decision.
+const excluded = new Set(Object.keys(config.exclude));
 const knownChainIds = config.knownChainIds;
 
 const [llama, registry, taggedEvm] = await Promise.all([

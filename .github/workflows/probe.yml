@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: '0 6 * * *' # daily at 06:00 UTC
   workflow_dispatch: # manual re-check, use this right after a hardfork
+    inputs:
+      regenerate_chains:
+        description: 'Also re-pin the chain set from DefiLlama. Changes which chains are measured.'
+        type: boolean
+        default: false
   push:
     branches: [main]
     paths: ['scripts/**', 'config/**', '.github/workflows/probe.yml']
@@ -24,6 +29,10 @@ jobs:
         with:
           node-version: '22'
 
+      # The chain set is pinned on purpose, so this never runs on a schedule.
+      - if: inputs.regenerate_chains
+        run: npm run chains
+
       - run: npm run probe
       - run: npm run report
 
@@ -31,7 +40,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data README.md
+          git add data README.md config
           if git diff --staged --quiet; then
             echo 'no change'
           else
