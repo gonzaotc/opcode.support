@@ -43,7 +43,15 @@ jobs:
           git add data README.md config
           if git diff --staged --quiet; then
             echo 'no change'
-          else
-            git commit -m 'chore: refresh opcode support data'
-            git push
+            exit 0
           fi
+          git commit -m 'chore: refresh opcode support data'
+          # Two runs can overlap and race for the ref. Every file here is generated, so this run's
+          # output is the newer measurement and wins any conflict.
+          for attempt in 1 2 3; do
+            if git push; then exit 0; fi
+            git fetch origin main
+            git rebase -X theirs origin/main || git rebase --abort
+            sleep 5
+          done
+          exit 1
