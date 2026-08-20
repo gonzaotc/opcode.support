@@ -42,6 +42,8 @@ Two further rules keep the table honest:
 
 Anything unresolved stays `?` with its reason, and is excluded from the support percentages.
 
+Working on this repo: see [AGENTS.md](./AGENTS.md).
+
 ## Running it
 
 ```sh
