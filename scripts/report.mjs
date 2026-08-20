@@ -1,13 +1,11 @@
 // Renders data/results.json as REPORT.md.
 import { readFileSync, writeFileSync } from 'node:fs';
-import { operator } from './endpoints.mjs';
 
 const { checkedAt, opcodes, tvl, snippetCheck, chains } = JSON.parse(readFileSync('data/results.json', 'utf8'));
 
 const CELL = { supported: 'yes', unsupported: 'no', unknown: '?' };
 const usd = (n) => (n >= 1e9 ? `$${(n / 1e9).toFixed(1)}B` : `$${Math.round(n / 1e6)}M`);
 const pct = (part, whole) => `${((part / whole) * 100).toFixed(1)}%`;
-const operators = (chain) => new Set(chain.witnesses.filter((w) => w.calibrated).map((w) => operator(w.url))).size;
 
 const table = (headers, rows) =>
 	[`| ${headers.join(' | ')} |`, `| ${headers.map(() => '---').join(' | ')} |`, ...rows.map((r) => `| ${r.join(' | ')} |`)].join('\n');
@@ -37,14 +35,13 @@ const summary = table(
 );
 
 const matrix = table(
-	['#', 'chain', 'chain id', 'TVL', ...opcodes.map((o) => o.name), 'operators'],
+	['#', 'chain', 'chain id', 'TVL', ...opcodes.map((o) => o.name)],
 	chains.map((chain, i) => [
 		i + 1,
 		chain.name,
 		chain.chainId,
 		usd(chain.tvlUsd),
 		...opcodes.map((o) => CELL[chain.opcodes[o.name].status]),
-		operators(chain),
 	]),
 );
 
