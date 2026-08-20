@@ -2,13 +2,13 @@
 
 Which EVM opcodes are supported on which chains, measured periodically against live nodes.
 
-- **Last updated:** 20 August 2026, 19:39 UTC
+- **Last updated:** 20 August 2026, 19:47 UTC
 - **Refreshed:** daily at 06:00 UTC
 - **How this is measured:** [METHOD.md](./METHOD.md)
 
 ## Representativeness
 
-The top 50 EVM chains by TVL, ranked by DefiLlama with endpoints from `ethereum-lists/chains`. The last run produced a verdict covering **91.4% of EVM TVL** ($65.3B).
+The top 50 EVM chains by TVL, ranked by DefiLlama with endpoints from `ethereum-lists/chains`. The last run produced a verdict covering **92.5% of EVM TVL** ($66.1B).
 
 ## Summary
 
