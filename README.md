@@ -2,22 +2,23 @@
 
 Which EVM opcodes are supported on which chains, measured periodically against live nodes.
 
-- **Last updated:** 20 August 2026, 20:14 UTC
+- **Last updated:** 20 August 2026, 20:59 UTC
+- **Chain set and TVL pinned:** 20 August 2026, 20:09 UTC
 - **Refreshed:** daily at 06:00 UTC
 - **How this is measured:** [METHOD.md](./METHOD.md)
 
 ## Representativeness
 
-The top 50 EVM chains by TVL, ranked by DefiLlama with endpoints from `ethereum-lists/chains`. The last run produced a verdict covering **99.7% of EVM TVL** ($71.0B).
+The top 50 EVM chains by TVL, ranked by DefiLlama with endpoints from `ethereum-lists/chains`. The last run answered **99.7% of EVM TVL** ($71.0B), of which **91.5%** ($65.2B) is confirmed by two operators on every opcode.
 
 ## Summary
 
-| opcode | byte | fork | EIP | confirmed | single source | support, confirmed | support, all evidence |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `PUSH0` | `0x5f` | Shanghai | EIP-3855 | 45 yes / 2 no | 2 yes / 0 no | **96%** of 47 | **96%** of 49, 1 unresolved |
-| `CLZ` | `0x1e` | Fusaka | EIP-7939 | 19 yes / 28 no | 1 yes / 2 no | **40%** of 47 | **40%** of 50 |
-| `TLOAD` | `0x5c` | Cancun | EIP-1153 | 43 yes / 4 no | 3 yes / 0 no | **91%** of 47 | **92%** of 50 |
-| `TSTORE` | `0x5d` | Cancun | EIP-1153 | 43 yes / 4 no | 3 yes / 0 no | **91%** of 47 | **92%** of 50 |
+| opcode | byte | fork | EIP | supported |
+| --- | --- | --- | --- | --- |
+| `PUSH0` | `0x5f` | Shanghai | EIP-3855 | **96%** (48 of 50) |
+| `CLZ` | `0x1e` | Fusaka | EIP-7939 | **40%** (20 of 50) |
+| `TLOAD` | `0x5c` | Cancun | EIP-1153 | **92%** (46 of 50) |
+| `TSTORE` | `0x5d` | Cancun | EIP-1153 | **92%** (46 of 50) |
 
 ## Top 50 EVM Chains Opcodes Support
 
@@ -26,7 +27,7 @@ The top 50 EVM chains by TVL, ranked by DefiLlama with endpoints from `ethereum-
 | 1 | Ethereum | 1 | $46.9B | yes | yes | yes | yes |
 | 2 | BSC | 56 | $5.3B | yes | yes | yes | yes |
 | 3 | Base | 8453 | $5.2B | yes | yes | yes | yes |
-| 4 | Tron | 728126428 | $5.1B | ? | no* | yes* | yes* |
+| 4 | Tron | 728126428 | $5.1B | yes* | no* | yes* | yes* |
 | 5 | Hyperliquid L1 | 999 | $1.4B | yes | no | yes | yes |
 | 6 | Arbitrum | 42161 | $1.4B | yes | yes | yes | yes |
 | 7 | Monad | 143 | $939M | yes | yes | yes | yes |
@@ -76,9 +77,10 @@ The top 50 EVM chains by TVL, ranked by DefiLlama with endpoints from `ethereum-
 
 - `yes` supported
 - `no` unsupported
-- `?` no verdict
 - `~` observed, but by a single operator, so not confirmed: Robinhood Chain, Anubis
 - `*` from a primary source because no probe reaches that chain: Tron ([source](https://api.trongrid.io/wallet/getchainparameters))
+- generic evidence, a rejection that named no cause, so consistent with an undefined opcode but with anything else too: Rootstock CLZ, Hedera CLZ, ZKsync Era CLZ, Sonic CLZ, Abstract CLZ
+- both operators answered with the same client string, so possibly one node behind two names: Hyperliquid L1, Avalanche, Flare, X Layer, Gnosis, Mezo, Berachain, Fraxtal, Celo
 
 ## Method
 
