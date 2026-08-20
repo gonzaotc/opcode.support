@@ -32,8 +32,10 @@ is reported rather than hidden behind whichever ran first.
 **5. A provider's excuse is not a chain's answer.** Rate limits, quotas and unrecognised failures are
 retried, then recorded as unconfirmed. Never as unsupported.
 
-**6. Two independent operators, or no verdict.** Witnesses are grouped by registrable domain. Extra
-methods on one endpoint add witnesses but never operators.
+**6. Two independent operators, or no confirmation.** Witnesses are grouped by registrable domain.
+Extra methods on one endpoint add witnesses but never operators. Where only one operator answers, the
+observation is recorded and marked `~`: it counts toward the TVL figure, since it is a real
+measurement, but never toward the support percentages.
 
 ```
 walk the endpoint pool until every opcode is confirmed:

@@ -31,11 +31,11 @@ The top 50 EVM chains by TVL, ranked by DefiLlama with endpoints from `ethereum-
 | 7 | Monad | 143 | $939M | yes | yes | yes |
 | 8 | Polygon | 137 | $821M | yes | yes | yes |
 | 9 | Plasma | 9745 | $632M | no | yes | yes |
-| 10 | Robinhood Chain | 4663 | $558M | ? | ? | ? |
+| 10 | Robinhood Chain | 4663 | $558M | yes~ | yes~ | yes~ |
 | 11 | Avalanche | 43114 | $457M | no | yes | yes |
 | 12 | OP Mainnet | 10 | $395M | yes | yes | yes |
 | 13 | Cronos | 25 | $259M | no | yes | yes |
-| 14 | Anubis | 6714 | $192M | ? | ? | ? |
+| 14 | Anubis | 6714 | $192M | no~ | yes~ | yes~ |
 | 15 | Ink | 57073 | $127M | yes | yes | yes |
 | 16 | Flare | 14 | $123M | no | yes | yes |
 | 17 | X Layer | 196 | $112M | no | yes | yes |
@@ -69,13 +69,14 @@ The top 50 EVM chains by TVL, ranked by DefiLlama with endpoints from `ethereum-
 | 45 | Ronin | 2020 | $11M | no | yes | yes |
 | 46 | BOB | 60808 | $10M | no | yes | yes |
 | 47 | Scroll | 534352 | $9M | yes | yes | yes |
-| 48 | Ethereal | 5064014 | $9M | ? | ? | ? |
+| 48 | Ethereal | 5064014 | $9M | yes~ | yes~ | yes~ |
 | 49 | Kaia | 8217 | $8M | yes | yes | yes |
 | 50 | Soneium | 1868 | $8M | yes | yes | yes |
 
 - `yes` supported
 - `no` unsupported
 - `?` no verdict
+- `~` observed, but by a single operator, so not confirmed: Robinhood Chain, Anubis, Ethereal
 - `*` from a primary source because no probe reaches that chain, excluded from the percentages: Tron ([source](https://api.trongrid.io/wallet/getchainparameters))
 - weakest evidence, an unsupported verdict backed by a generic error rather than a named opcode: Rootstock/CLZ, Hedera/CLZ, ZKsync Era/CLZ, Sonic/CLZ, Abstract/CLZ
 

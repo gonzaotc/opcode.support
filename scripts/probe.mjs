@@ -178,9 +178,12 @@ for (const chain of results)
 		if (cell.grade) coverage.byGrade[cell.grade] = (coverage.byGrade[cell.grade] ?? 0) + 1;
 	}
 
-// How representative the table is. A chain only counts once it produced a confirmed verdict, so a
-// chain we could not scan contributes nothing regardless of how large it is.
-const scanned = (chain) => opcodes.some((o) => chain.opcodes[o.name].confidence === 'confirmed');
+// How representative the table is. A chain we could not measure at all contributes nothing,
+// regardless of how large it is.
+// A chain counts once it produced a real observation. Two operators agreeing is the strong case;
+// one operator with several methods agreeing is weaker, marked separately, and still a measurement.
+const scanned = (chain) =>
+	opcodes.some((o) => chain.opcodes[o.name].confidence === 'confirmed' || chain.opcodes[o.name].observed);
 const sumTvl = (list) => list.reduce((sum, c) => sum + c.tvlUsd, 0);
 const tvl = {
 	topN,

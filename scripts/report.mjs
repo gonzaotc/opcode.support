@@ -4,7 +4,8 @@ import { readFileSync, writeFileSync } from 'node:fs';
 const { checkedAt, opcodes, tvl, snippetCheck, chains } = JSON.parse(readFileSync('data/generated-results.json', 'utf8'));
 
 const CELL = { supported: 'yes', unsupported: 'no', unknown: '?' };
-const cell = (v) => (v.documented ? `${CELL[v.documented.status]}*` : CELL[v.status]);
+const cell = (v) =>
+	v.documented ? `${CELL[v.documented.status]}*` : v.observed ? `${CELL[v.observed]}~` : CELL[v.status];
 const usd = (n) => (n >= 1e9 ? `$${(n / 1e9).toFixed(1)}B` : `$${Math.round(n / 1e6)}M`);
 const pct = (part, whole) => `${((part / whole) * 100).toFixed(1)}%`;
 const readable = (iso) => {
@@ -64,6 +65,7 @@ const generic = chains.flatMap((c) =>
 	opcodes.filter((o) => c.opcodes[o.name].grade === 'generic').map((o) => `${c.name}/${o.name}`),
 );
 const documented = chains.filter((c) => opcodes.some((o) => c.opcodes[o.name].documented));
+const singleOperator = chains.filter((c) => opcodes.some((o) => c.opcodes[o.name].observed));
 
 const documentedNote = documented.length
 	? `\`*\` from a primary source because no probe reaches that chain, excluded from the percentages: ${documented
@@ -75,6 +77,9 @@ const notes = [
 	'`yes` supported',
 	'`no` unsupported',
 	'`?` no verdict',
+	singleOperator.length
+		? `\`~\` observed, but by a single operator, so not confirmed: ${singleOperator.map((c) => c.name).join(', ')}`
+		: '',
 	documentedNote,
 	generic.length
 		? `weakest evidence, an unsupported verdict backed by a generic error rather than a named opcode: ${generic.join(', ')}`
