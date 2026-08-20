@@ -7,9 +7,11 @@ How a verdict is reached. The table is in the [README](./README.md);
 Every check is an `eth_call`, a simulation on a node. Nothing is broadcast, no gas is spent, no key is
 involved.
 
-**1. Make the opcode runnable.** One `PUSH0` per stack input, then the opcode byte. `TSTORE` is
-`0x5f5f5d`. Success or rejection is then binary, with no error text to parse. A malformed snippet
-would read as unsupported, so anything reported unsupported on Ethereum is flagged, not published.
+**1. Make the opcode runnable.** One `PUSH1 0x00` per stack input, then the opcode byte. `TSTORE` is
+`0x600060005d`. Success or rejection is then binary, with no error text to parse. The filler is
+`PUSH1` rather than `PUSH0` because `PUSH0` only exists from Shanghai, and on an older chain it fails
+first and every verdict blames the filler instead of the opcode. A malformed snippet would read as
+unsupported, so anything reported unsupported on Ethereum is flagged, not published.
 
 **2. Execute it, three ways.** A chain only has to accept one.
 
