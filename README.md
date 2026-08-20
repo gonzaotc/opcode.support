@@ -2,7 +2,7 @@
 
 Which EVM opcodes are supported on which chains, measured periodically against live nodes.
 
-- **Last updated:** 20 August 2026, 20:08 UTC
+- **Last updated:** 20 August 2026, 20:12 UTC
 - **Refreshed:** daily at 06:00 UTC
 - **How this is measured:** [METHOD.md](./METHOD.md)
 
@@ -12,12 +12,12 @@ The top 50 EVM chains by TVL, ranked by DefiLlama with endpoints from `ethereum-
 
 ## Summary
 
-| opcode | byte | fork | EIP | supported |
-| --- | --- | --- | --- | --- |
-| `PUSH0` | `0x5f` | Shanghai | EIP-3855 | **94%** (47 of 50) |
-| `CLZ` | `0x1e` | Fusaka | EIP-7939 | **40%** (20 of 50) |
-| `TLOAD` | `0x5c` | Cancun | EIP-1153 | **92%** (46 of 50) |
-| `TSTORE` | `0x5d` | Cancun | EIP-1153 | **92%** (46 of 50) |
+| opcode | byte | fork | EIP | confirmed | single source | support, confirmed | support, all evidence |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| `PUSH0` | `0x5f` | Shanghai | EIP-3855 | 45 yes / 2 no | 2 yes / 0 no | **96%** of 47 | **96%** of 49, 1 unresolved |
+| `CLZ` | `0x1e` | Fusaka | EIP-7939 | 19 yes / 28 no | 1 yes / 2 no | **40%** of 47 | **40%** of 50 |
+| `TLOAD` | `0x5c` | Cancun | EIP-1153 | 43 yes / 4 no | 3 yes / 0 no | **91%** of 47 | **92%** of 50 |
+| `TSTORE` | `0x5d` | Cancun | EIP-1153 | 43 yes / 4 no | 3 yes / 0 no | **91%** of 47 | **92%** of 50 |
 
 ## Top 50 EVM Chains Opcodes Support
 
@@ -56,7 +56,7 @@ The top 50 EVM chains by TVL, ranked by DefiLlama with endpoints from `ethereum-
 | 31 | World Chain | 480 | $31M | yes | no | yes | yes |
 | 32 | Unichain | 130 | $30M | yes | yes | yes | yes |
 | 33 | Hedera | 295 | $23M | yes | no | yes | yes |
-| 34 | Morph | 2818 | $22M | yes~ | yes~ | yes~ | yes~ |
+| 34 | Morph | 2818 | $22M | yes | yes | yes | yes |
 | 35 | Kava | 2222 | $19M | no | no | no | no |
 | 36 | Fraxtal | 252 | $19M | yes | no | yes | yes |
 | 37 | Pharos | 1672 | $17M | yes | no | yes | yes |
@@ -77,7 +77,7 @@ The top 50 EVM chains by TVL, ranked by DefiLlama with endpoints from `ethereum-
 - `yes` supported
 - `no` unsupported
 - `?` no verdict
-- `~` observed, but by a single operator, so not confirmed: Robinhood Chain, Anubis, Morph
+- `~` observed, but by a single operator, so not confirmed: Robinhood Chain, Anubis
 - `*` from a primary source because no probe reaches that chain: Tron ([source](https://api.trongrid.io/wallet/getchainparameters))
 
 ## Method
