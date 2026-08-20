@@ -11,7 +11,7 @@ involved.
 `0x600060005d`. Success or rejection is then binary, with no error text to parse. The filler is
 `PUSH1` rather than `PUSH0` because `PUSH0` only exists from Shanghai, and on an older chain it fails
 first and every verdict blames the filler instead of the opcode. A malformed snippet would read as
-unsupported, so anything reported unsupported on Ethereum is flagged, not published.
+unsupported, so anything reported unsupported on Ethereum raises a warning on the page itself.
 
 **2. Execute it, three ways.** A chain only has to accept one.
 
@@ -29,15 +29,20 @@ fork, must fail. The rule that matters most: some endpoints ignore state overrid
 every opcode as supported, and some accept creation calls without executing them.
 
 **4. Probe every method that calibrated.** Two paths into the same EVM should agree, so a disagreement
-is reported rather than hidden behind whichever ran first.
+is reported rather than hidden behind whichever ran first. The walk stops once every opcode is
+confirmed, so a dissenting third operator is never consulted: disagreement is caught among the
+witnesses used, not across the whole pool.
 
-**5. A provider's excuse is not a chain's answer.** Rate limits, quotas and unrecognised failures are
-retried, then recorded as unconfirmed. Never as unsupported.
+**5. A provider's excuse is not a chain's answer.** Rate limits, quotas and gateway refusals are
+retried, then recorded as unconfirmed. A failure nothing recognises is recorded as unconfirmed on the
+first attempt. Never as unsupported.
 
 **6. Two independent operators, or no confirmation.** Witnesses are grouped by registrable domain.
 Extra methods on one endpoint add witnesses but never operators. Where only one operator answers, the
 observation is recorded and marked `~`: it counts toward the TVL figure, since it is a real
-measurement, but never toward the support percentages.
+measurement, but never toward the support percentages. A domain is what can be verified, not proof of
+a separate node: a multi-chain gateway may front the chain's own RPC. Where both operators answer with
+the same client string, the cell is listed under the table.
 
 ```
 walk the endpoint pool until every opcode is confirmed:
@@ -73,8 +78,8 @@ chain parameters state which forks are live.
 
 DefiLlama ranks the chains but returns no endpoints. `ethereum-lists/chains` supplies endpoints per
 chain id, and `known-rpcs.json` fills the gaps, since the registry lists whatever people submitted:
-often one URL for a new chain, sometimes none, sometimes dead. All 23 hand-added entries are
-load-bearing, and for 7 chains they are the only endpoints there are.
+often one URL for a new chain, sometimes none, sometimes dead. Hand-added entries are load-bearing,
+and for some chains they are the only endpoints there are.
 
 Every URL is then asked `eth_chainId`, and only correct answers are kept, ordered so a chain-operated
 endpoint leads and operators alternate. Nothing trusts a name: the registry lists chain 999 as
@@ -102,3 +107,6 @@ post-hardfork re-check.
 - Prague adds no opcode, so it cannot be probed this way.
 - On chains whose native toolchain targets another VM, this measures the EVM path the RPC exposes.
 - Availability is not semantics. Gas costs and edge-case behaviour are out of scope.
+- `0x0c` is the negative control. A fork that assigned it would stop every endpoint calibrating,
+  which shows up as a table of `?` rather than as a wrong answer.
+- The ranking and the TVL column refresh only when the chain set is re-pinned, not on the daily run.
