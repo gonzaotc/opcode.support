@@ -8,7 +8,7 @@ Which EVM opcodes are supported on which chains, measured periodically against l
 
 ## Representativeness
 
-The top 50 EVM chains by TVL, as ranked by DefiLlama. The last run produced a verdict for chains covering **91.4% of EVM TVL** ($64.5B). Chains we could not scan do not count towards it.
+The top 50 EVM chains by TVL, pulled from DefiLlama and Chainlist. The last run produced a verdict covering **91.4% of EVM TVL** ($64.5B).
 
 ## Summary
 
