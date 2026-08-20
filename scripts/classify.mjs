@@ -13,17 +13,20 @@ const INFRASTRUCTURE = [
 	/can't route your request|no suitable provider|bad gateway|service unavailable/i,
 ];
 
-// Opcode rejections, as worded by geth, erigon, nethermind, besu, nitro, era_vm, cosmos-evm and
-// others. An unrecognised failure is deliberately left unattributed rather than assumed.
-const EVM_REJECTION = [
+// Rejections that name the cause, so the verdict can be read back and audited.
+const NAMES_THE_CAUSE = [
 	/invalid opcode|opcode .*not defined|opcodenotfound/i,
 	/invalid instruction|undefined instruction/i,
 	/notactivated|not activated/i,
-	/execution reverted|execution unsuccessful|contract_execution_exception/i,
 	/stack underflow|stack overflow/i,
 ];
+
+// Rejections consistent with an undefined opcode but equally consistent with any other failure.
+// Only trustworthy on a calibrated endpoint, and always the weaker evidence.
+const UNNAMED_FAILURE = [/execution reverted|execution unsuccessful|contract_execution_exception/i];
 
 const anyMatch = (patterns, message) => patterns.some((pattern) => pattern.test(message ?? ''));
 
 export const isInfrastructure = (message) => anyMatch(INFRASTRUCTURE, message);
-export const isEvmRejection = (message) => anyMatch(EVM_REJECTION, message);
+export const isEvmRejection = (message) => anyMatch(NAMES_THE_CAUSE, message) || anyMatch(UNNAMED_FAILURE, message);
+export const evidenceGrade = (message) => (anyMatch(NAMES_THE_CAUSE, message) ? 'specific' : 'generic');

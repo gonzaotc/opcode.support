@@ -69,6 +69,13 @@
 						"type": "integer"
 					},
 					"description": "Cell count per confidence value."
+				},
+				"byGrade": {
+					"type": "object",
+					"additionalProperties": {
+						"type": "integer"
+					},
+					"description": "Cell count per evidence grade: executed, specific, generic."
 				}
 			}
 		},
@@ -208,12 +215,13 @@
 	"$defs": {
 		"witness": {
 			"type": "object",
-			"description": "What one endpoint reported.",
+			"description": "What one endpoint reported through one strategy. An endpoint appears once per strategy tried.",
 			"required": [
 				"url",
 				"client",
 				"block",
-				"calibrated"
+				"calibrated",
+				"strategy"
 			],
 			"properties": {
 				"url": {
@@ -237,27 +245,20 @@
 					"description": "Whether this endpoint's answers were allowed to count."
 				},
 				"strategy": {
-					"type": [
-						"string",
-						"null"
-					],
 					"enum": [
 						"stateOverride",
 						"nullTo",
-						null
+						"factory"
 					],
-					"description": "Whichever passed calibration first."
+					"description": "How the bytecode was executed. stateOverride: eth_call to a dummy address with overridden code. nullTo: eth_call with no `to`, so the data is creation code. factory: eth_call to the deterministic CREATE2 factory already deployed on the chain, with the snippet as initcode."
 				},
 				"rejectionExample": {
 					"type": "string",
 					"description": "Calibrated only. How this endpoint words a real opcode rejection, captured from the negative control."
 				},
 				"rejected": {
-					"type": "object",
-					"description": "Uncalibrated only. Why each strategy was refused. The diagnostic field: 'negative control succeeded' means the endpoint does not execute the code at all.",
-					"additionalProperties": {
-						"type": "string"
-					}
+					"type": "string",
+					"description": "Uncalibrated only. Why this strategy was refused. 'negative control succeeded' means the endpoint does not execute the code at all."
 				},
 				"opcodes": {
 					"type": "object",
@@ -285,6 +286,14 @@
 									"unattributable-error"
 								],
 								"description": "unknown only. endpoint-unavailable is a provider refusal that survived retries; unattributable-error is a failure not recognisable as an opcode rejection."
+							},
+							"grade": {
+								"enum": [
+									"executed",
+									"specific",
+									"generic"
+								],
+								"description": "How strong the evidence is. executed: the snippet ran. specific: the error names the opcode or instruction. generic: a bare revert, consistent with an undefined opcode but with anything else too."
 							}
 						}
 					}
@@ -307,7 +316,7 @@
 						"unsupported",
 						"unknown"
 					],
-					"description": "What REPORT.md renders. Only 'confirmed' confidence yields a non-unknown status."
+					"description": "What README.md renders. Only 'confirmed' confidence yields a non-unknown status."
 				},
 				"confidence": {
 					"enum": [
@@ -317,7 +326,7 @@
 						"witnesses-disagree",
 						"no-calibrated-endpoint"
 					],
-					"description": "confirmed: two calibrated endpoints from different operators agreed. single-witness: only one endpoint had an opinion. single-operator: two endpoints agreed but share an operator, so they are one witness. witnesses-disagree: contradiction, investigate rather than average. no-calibrated-endpoint: nothing trustworthy answered."
+					"description": "confirmed: two calibrated endpoints from different operators agreed. single-witness: only one endpoint had an opinion. single-operator: endpoints agreed but share an operator, so they are one witness. witnesses-disagree: contradiction, investigate rather than average. no-calibrated-endpoint: nothing trustworthy answered. Extra strategies on one endpoint add witnesses, never operators."
 				},
 				"witnesses": {
 					"type": "integer",
@@ -337,6 +346,45 @@
 						"unsupported"
 					],
 					"description": "single-witness and single-operator only. What was seen, recorded but deliberately not promoted to a status."
+				},
+				"strategies": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"description": "Strategies that contributed. All calibrated strategies are probed, so several here means independent execution paths agreed."
+				},
+				"grade": {
+					"enum": [
+						"executed",
+						"specific",
+						"generic"
+					],
+					"description": "Grade of the recorded evidence. When witnesses agree, the one that names the cause is kept."
+				},
+				"documented": {
+					"type": "object",
+					"required": [
+						"status",
+						"source"
+					],
+					"description": "Chains no probe can reach. A value from a primary source, kept out of `status` so it can never enter a percentage. README.md marks it with an asterisk.",
+					"properties": {
+						"status": {
+							"enum": [
+								"supported",
+								"unsupported"
+							]
+						},
+						"source": {
+							"type": "string",
+							"description": "URL a reader can check."
+						},
+						"note": {
+							"type": "string",
+							"description": "Why probing fails and what the source actually says."
+						}
+					}
 				}
 			}
 		}
