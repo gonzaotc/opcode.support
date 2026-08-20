@@ -19,26 +19,35 @@ const readable = (iso) => {
 const table = (headers, rows) =>
 	[`| ${headers.join(' | ')} |`, `| ${headers.map(() => '---').join(' | ')} |`, ...rows.map((r) => `| ${r.join(' | ')} |`)].join('\n');
 
-const statusCounts = (opcode) => {
-	const counts = { supported: 0, unsupported: 0, unknown: 0 };
-	for (const chain of chains) counts[chain.opcodes[opcode.name].status]++;
+// Cells split by how strong the evidence is: two independent operators, versus one operator or a
+// primary source. The percentages are reported against both denominators so neither hides the other.
+const tally = (opcode) => {
+	const counts = { confirmed: { yes: 0, no: 0 }, single: { yes: 0, no: 0 }, none: 0 };
+	for (const chain of chains) {
+		const v = chain.opcodes[opcode.name];
+		const seen = v.confidence === 'confirmed' ? v.status : (v.observed ?? v.documented?.status);
+		if (!seen) counts.none++;
+		else if (v.confidence === 'confirmed') counts.confirmed[seen === 'supported' ? 'yes' : 'no']++;
+		else counts.single[seen === 'supported' ? 'yes' : 'no']++;
+	}
 	return counts;
 };
 
 const summary = table(
-	['opcode', 'byte', 'fork', 'EIP', 'supported', 'unsupported', 'unconfirmed', 'support'],
+	['opcode', 'byte', 'fork', 'EIP', 'confirmed', 'single source', 'support, confirmed', 'support, all evidence'],
 	opcodes.map((opcode) => {
-		const { supported, unsupported, unknown } = statusCounts(opcode);
-		const confirmed = supported + unsupported;
+		const { confirmed, single, none } = tally(opcode);
+		const c = confirmed.yes + confirmed.no;
+		const all = c + single.yes + single.no;
 		return [
 			`\`${opcode.name}\``,
 			`\`${opcode.byte}\``,
 			opcode.fork,
 			opcode.eip,
-			supported,
-			unsupported,
-			unknown,
-			confirmed ? `**${Math.round((supported / confirmed) * 100)}%** of ${confirmed} confirmed` : 'n/a',
+			`${confirmed.yes} yes / ${confirmed.no} no`,
+			single.yes + single.no ? `${single.yes} yes / ${single.no} no` : 'none',
+			c ? `**${Math.round((confirmed.yes / c) * 100)}%** of ${c}` : 'n/a',
+			all ? `**${Math.round(((confirmed.yes + single.yes) / all) * 100)}%** of ${all}${none ? `, ${none} unresolved` : ''}` : 'n/a',
 		];
 	}),
 );

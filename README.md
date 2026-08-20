@@ -12,11 +12,11 @@ The top 50 EVM chains by TVL, ranked by DefiLlama with endpoints from `ethereum-
 
 ## Summary
 
-| opcode | byte | fork | EIP | supported | unsupported | unconfirmed | support |
+| opcode | byte | fork | EIP | confirmed | single source | support, confirmed | support, all evidence |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| `CLZ` | `0x1e` | Fusaka | EIP-7939 | 21 | 25 | 4 | **46%** of 46 confirmed |
-| `TLOAD` | `0x5c` | Cancun | EIP-1153 | 45 | 1 | 4 | **98%** of 46 confirmed |
-| `TSTORE` | `0x5d` | Cancun | EIP-1153 | 45 | 1 | 4 | **98%** of 46 confirmed |
+| `CLZ` | `0x1e` | Fusaka | EIP-7939 | 21 yes / 25 no | 2 yes / 2 no | **46%** of 46 | **46%** of 50 |
+| `TLOAD` | `0x5c` | Cancun | EIP-1153 | 45 yes / 1 no | 4 yes / 0 no | **98%** of 46 | **98%** of 50 |
+| `TSTORE` | `0x5d` | Cancun | EIP-1153 | 45 yes / 1 no | 4 yes / 0 no | **98%** of 46 | **98%** of 50 |
 
 ## Top 50 EVM Chains Opcodes Support
 
