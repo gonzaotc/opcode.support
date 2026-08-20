@@ -180,10 +180,13 @@ for (const chain of results)
 
 // How representative the table is. A chain we could not measure at all contributes nothing,
 // regardless of how large it is.
-// A chain counts once it produced a real observation. Two operators agreeing is the strong case;
-// one operator with several methods agreeing is weaker, marked separately, and still a measurement.
+// A chain counts once it has an answer of any kind: two operators agreeing, one operator observing,
+// or a primary source for a chain no probe reaches. Only a chain with no answer at all is unscanned.
 const scanned = (chain) =>
-	opcodes.some((o) => chain.opcodes[o.name].confidence === 'confirmed' || chain.opcodes[o.name].observed);
+	opcodes.some((o) => {
+		const cell = chain.opcodes[o.name];
+		return cell.confidence === 'confirmed' || cell.observed || cell.documented;
+	});
 const sumTvl = (list) => list.reduce((sum, c) => sum + c.tvlUsd, 0);
 const tvl = {
 	topN,

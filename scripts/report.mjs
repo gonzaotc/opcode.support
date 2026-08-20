@@ -68,7 +68,7 @@ const documented = chains.filter((c) => opcodes.some((o) => c.opcodes[o.name].do
 const singleOperator = chains.filter((c) => opcodes.some((o) => c.opcodes[o.name].observed));
 
 const documentedNote = documented.length
-	? `\`*\` from a primary source because no probe reaches that chain, excluded from the percentages: ${documented
+	? `\`*\` from a primary source because no probe reaches that chain: ${documented
 			.map((c) => `${c.name} ([source](${opcodes.map((o) => c.opcodes[o.name].documented).find(Boolean).source}))`)
 			.join(', ')}`
 	: '';

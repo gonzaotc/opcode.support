@@ -50,8 +50,8 @@ reconcile per opcode:
 undefined opcode and anything else too, so it is marked `generic` and listed under the table. Where
 witnesses agree, the one that names the cause is kept.
 
-**8. Chains no probe reaches** get an answer from a primary source, held out of `status` so it cannot
-enter a percentage. Tron is the case: its RPC cannot execute arbitrary bytecode, but its own activated
+**8. Chains no probe reaches** get an answer from a primary source, marked `*` and held out of
+`status` so it cannot enter a percentage. Like `~`, it counts toward the TVL figure. Tron is the case: its RPC cannot execute arbitrary bytecode, but its own activated
 chain parameters state which forks are live.
 
 ## Files
