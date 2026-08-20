@@ -3,7 +3,7 @@
 Which EVM opcodes are supported on which chains, measured against live nodes instead of read off
 documentation.
 
-- **Last updated:** 2026-08-20T17:50:04.448Z
+- **Last updated:** 2026-08-20T18:03:45.095Z
 - **Refreshed:** daily at 06:00 UTC, and on demand after a hardfork
 - **How this is measured:** [METHOD.md](./METHOD.md)
 
