@@ -54,11 +54,11 @@ const matrix = table(
 );
 
 const representativeness = tvl?.totalEvmUsd
-	? `The top ${tvl.topN} EVM chains by TVL, as ranked by DefiLlama. The last run produced a verdict for chains covering **${pct(
+	? `The top ${tvl.topN} EVM chains by TVL, ranked by DefiLlama with endpoints from \`ethereum-lists/chains\`. The last run produced a verdict covering **${pct(
 			tvl.analyzedUsd,
 			tvl.totalEvmUsd,
-		)} of EVM TVL** (${usd(tvl.analyzedUsd)}). Chains we could not scan do not count towards it.`
-	: `The top ${chains.length} EVM chains by TVL, as ranked by DefiLlama.`;
+		)} of EVM TVL** (${usd(tvl.analyzedUsd)}).`
+	: `The top ${chains.length} EVM chains by TVL, ranked by DefiLlama.`;
 
 const generic = chains.flatMap((c) =>
 	opcodes.filter((o) => c.opcodes[o.name].grade === 'generic').map((o) => `${c.name}/${o.name}`),
@@ -89,8 +89,7 @@ writeFileSync(
 	'README.md',
 	`# EVM Opcode Support
 
-Which EVM opcodes are supported on which chains, measured against live nodes instead of read off
-documentation.
+Which EVM opcodes are supported on which chains, measured periodically against live nodes.
 
 - **Last updated:** ${readable(checkedAt)}
 - **Refreshed:** daily at 06:00 UTC
