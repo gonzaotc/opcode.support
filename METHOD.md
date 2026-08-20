@@ -1,112 +1,96 @@
 # Method
 
-How opcode.support decides whether a chain supports an opcode. The table it produces is in the
-[README](./README.md); `data/generated-results.json` holds the same data with per-endpoint evidence and the
-reason behind every `?`, described by [`schema/results.schema.json`](./schema/results.schema.json).
+How a verdict is reached. The table is in the [README](./README.md);
+`data/generated-results.json` holds the evidence behind every cell, described by
+[`schema/results.schema.json`](./schema/results.schema.json).
 
-Every check is an `eth_call`, a simulation on a node. Nothing is broadcast, no gas is spent, and no
-wallet, key or paid API key is involved.
+Every check is an `eth_call`, a simulation on a node. Nothing is broadcast, no gas is spent, no key is
+involved.
 
-**1. Turn the opcode into runnable bytecode.** Each opcode is prefixed with one `PUSH0` (`0x5f`) per
-stack input, so the snippet either runs cleanly or is rejected outright. `TSTORE` is `0x5f5f5d`. This
-makes the signal binary instead of a parse of error text. A snippet with the wrong arity would revert
-for the wrong reason and read as unsupported, so any opcode reported unsupported on Ethereum is
-flagged as a suspect snippet rather than published.
+**1. Make the opcode runnable.** One `PUSH0` per stack input, then the opcode byte. `TSTORE` is
+`0x5f5f5d`. Success or rejection is then binary, with no error text to parse. A malformed snippet
+would read as unsupported, so anything reported unsupported on Ethereum is flagged, not published.
 
-**2. Make a node execute it, three ways.** A chain only has to accept one of them.
+**2. Execute it, three ways.** A chain only has to accept one.
 
 | method | how | reaches |
 | --- | --- | --- |
-| `stateOverride` | `eth_call` to a dummy address whose code is overridden with the snippet | most chains |
-| `nullTo` | `eth_call` with no `to`, so the data is treated as creation code | chains that ignore overrides, such as Hedera |
-| `factory` | `eth_call` to the CREATE2 factory already deployed at `0x4e59b448…`, with the snippet as initcode | chains that reject both of the above, such as Rootstock |
+| `stateOverride` | `eth_call` to a dummy address with the snippet as its code | most chains |
+| `nullTo` | `eth_call` with no `to`, so the data is creation code | chains that ignore overrides, e.g. Hedera |
+| `factory` | `eth_call` to the CREATE2 factory at `0x4e59b448…`, snippet as initcode | chains that reject both, e.g. Rootstock |
 
-The factory is pinned by its runtime code, not just its address, since an address alone proves nothing
-about what lives there. Its rejections are always generic, because CREATE2 swallows the reason.
+The factory is pinned by its runtime code, since an address proves nothing about what lives there. Its
+rejections are always generic: CREATE2 swallows the reason.
 
-**3. Calibrate before trusting anything.** Per endpoint and per method, `STOP` must succeed and
-`0x0c`, undefined in every fork, must fail. Uncalibrated combinations are discarded and the reason is
-recorded. This is the rule that matters most: some endpoints ignore state overrides and would report
+**3. Calibrate first.** Per endpoint and per method, `STOP` must succeed and `0x0c`, undefined in every
+fork, must fail. The rule that matters most: some endpoints ignore state overrides and would report
 every opcode as supported, and some accept creation calls without executing them.
 
-**4. Probe every method that calibrated**, not just the first. Two paths into the same EVM should
-agree, so a disagreement is reported rather than hidden behind whichever ran first.
+**4. Probe every method that calibrated.** Two paths into the same EVM should agree, so a disagreement
+is reported rather than hidden behind whichever ran first.
 
-**5. Separate a chain's answer from a provider's excuse.** A rate limit, quota or unrecognised failure
-is retried, then recorded as unconfirmed. It is never read as unsupported.
+**5. A provider's excuse is not a chain's answer.** Rate limits, quotas and unrecognised failures are
+retried, then recorded as unconfirmed. Never as unsupported.
 
-**6. Require two independent operators.** Verdicts are grouped by the endpoint's registrable domain.
-Extra methods on one endpoint add witnesses but never operators, so two endpoints behind one provider
-stay one witness.
+**6. Two independent operators, or no verdict.** Witnesses are grouped by registrable domain. Extra
+methods on one endpoint add witnesses but never operators.
 
 ```
-for each chain, walk its endpoint pool until every opcode is confirmed:
-  for each method:
-    calibrate(method, endpoint)          -> discard the pair if it fails
-    run every snippet                    -> supported | unsupported | unattributable
-  reconcile all observations per opcode:
-    0 usable                             -> unknown, no-calibrated-endpoint
-    they contradict                       -> unknown, witnesses-disagree
-    < 2 witnesses                         -> unknown, single-witness
-    < 2 operators                         -> unknown, single-operator
-    otherwise                             -> the agreed status, confirmed
+walk the endpoint pool until every opcode is confirmed:
+  calibrate each method   -> discard the pair if it fails
+  run every snippet       -> supported | unsupported | unattributable
+reconcile per opcode:
+  0 usable | contradiction | <2 witnesses | <2 operators  -> unknown, with the reason
+  otherwise                                               -> the agreed status, confirmed
 ```
 
-**7. Grade the evidence.** `EVM error: NotActivated` and `invalid opcode: CLZ` name the cause.
-A bare `execution reverted` is consistent with an undefined opcode but with other failures too, so it
-is marked `generic` and listed under the table. Where witnesses agree, the one that names the cause is
-the one recorded.
+**7. Grade the evidence.** `invalid opcode: CLZ` names the cause. A bare `execution reverted` fits an
+undefined opcode and anything else too, so it is marked `generic` and listed under the table. Where
+witnesses agree, the one that names the cause is kept.
 
-**8. Chains no probe reaches** keep an answer from a primary source, marked with an asterisk and held
-out of `status`, so it can never enter a percentage. Tron is the case: its RPC cannot execute
-arbitrary bytecode, but its own activated chain parameters state which forks are live.
+**8. Chains no probe reaches** get an answer from a primary source, held out of `status` so it cannot
+enter a percentage. Tron is the case: its RPC cannot execute arbitrary bytecode, but its own activated
+chain parameters state which forks are live.
 
-Anything unresolved stays `?`, excluded from the percentages and from the TVL figure.
+## Files
 
-## Where things live
-
-`config/` is what a human decides. `data/` is what a run produced, and is never edited by hand.
+`config/` is decided by a human. `data/` is generated, never hand-edited.
 
 | file | role |
 | --- | --- |
 | `config/opcodes.json` | which opcodes to measure, and the snippet for each |
-| `config/chain-selection.json` | how many chains, and the chain ids DefiLlama does not give us |
+| `config/chain-selection.json` | how many chains, and the chain ids DefiLlama omits |
 | `config/known-rpcs.json` | endpoints added by hand, per chain id |
-| `config/unprobeable-chains.json` | the answer for a chain no probe reaches, with a source |
-| `data/generated-chains.json` | the resulting chain set, pinned, with a verified endpoint pool per chain |
-| `data/generated-results.json` | the measurement, one verdict per chain and opcode, with its evidence |
-
-`npm run chains` builds `generated-chains.json` from three inputs: DefiLlama ranks the chains but
-returns no endpoints, `ethereum-lists/chains` supplies endpoints per chain id, and
-`config/known-rpcs.json` fills the gaps. Every URL from either source is then asked `eth_chainId`, and
-only the ones that answer correctly are kept, ordered so a chain-operated endpoint leads and operators
-alternate.
-
-The hand-added ones exist because a verdict needs two working endpoints from different operators, and
-the public registry lists whatever people submitted: often one URL for a new chain, sometimes none,
-sometimes dead ones. All 23 current entries are load-bearing, and for 7 chains they are the only
-endpoints there are.
+| `config/unprobeable-chains.json` | sourced answers for chains no probe reaches |
+| `data/generated-chains.json` | the pinned chain set, with a verified endpoint pool each |
+| `data/generated-results.json` | the measurement |
 
 ## Chain selection
 
-Pinned on purpose: a list that reshuffles weekly cannot be compared over time.
+DefiLlama ranks the chains but returns no endpoints. `ethereum-lists/chains` supplies endpoints per
+chain id, and `known-rpcs.json` fills the gaps, since the registry lists whatever people submitted:
+often one URL for a new chain, sometimes none, sometimes dead. All 23 hand-added entries are
+load-bearing, and for 7 chains they are the only endpoints there are.
 
-Identity is never taken on trust. `ethereum-lists/chains` supplies endpoints only, since its metadata
-is unreliable here, and inclusion requires a live `eth_chainId`. Whether a chain is EVM is decided by
-measurement both ways: chains DefiLlama does not tag EVM but which verifiably run EVM bytecode are
-included, and chains it tags but which cannot run arbitrary bytecode appear at their true TVL rank as
-unconfirmed rather than dropped.
+Every URL is then asked `eth_chainId`, and only correct answers are kept, ordered so a chain-operated
+endpoint leads and operators alternate. Nothing trusts a name: the registry lists chain 999 as
+Wanchain Testnet. The result is pinned, because a list that reshuffles weekly cannot be compared over
+time.
+
+Whether a chain is EVM is decided by measurement both ways: chains DefiLlama does not tag EVM but
+which verifiably run EVM bytecode are included, and chains it tags but which cannot run arbitrary
+bytecode appear at their true TVL rank as unconfirmed rather than dropped.
 
 ## Running it
 
 ```sh
 npm run probe    # data/generated-results.json
 npm run report   # README.md
-npm run chains   # regenerate data/generated-chains.json, changes the chain set
+npm run chains   # regenerate the chain set
 ```
 
-Node 20+, zero dependencies. `config/` is input, `data/` and `README.md` are generated. CI probes
-daily and commits on change; `workflow_dispatch` is the post-hardfork re-check.
+Node 20+, zero dependencies. CI probes daily and commits on change; `workflow_dispatch` is the
+post-hardfork re-check.
 
 ## Limits
 
