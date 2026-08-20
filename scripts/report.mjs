@@ -7,6 +7,13 @@ const CELL = { supported: 'yes', unsupported: 'no', unknown: '?' };
 const cell = (v) => (v.documented ? `${CELL[v.documented.status]}*` : CELL[v.status]);
 const usd = (n) => (n >= 1e9 ? `$${(n / 1e9).toFixed(1)}B` : `$${Math.round(n / 1e6)}M`);
 const pct = (part, whole) => `${((part / whole) * 100).toFixed(1)}%`;
+const readable = (iso) => {
+	const d = new Date(iso);
+	const day = d.getUTCDate();
+	const month = d.toLocaleString('en-GB', { month: 'long', timeZone: 'UTC' });
+	const time = `${String(d.getUTCHours()).padStart(2, '0')}:${String(d.getUTCMinutes()).padStart(2, '0')}`;
+	return `${day} ${month} ${d.getUTCFullYear()}, ${time} UTC`;
+};
 
 const table = (headers, rows) =>
 	[`| ${headers.join(' | ')} |`, `| ${headers.map(() => '---').join(' | ')} |`, ...rows.map((r) => `| ${r.join(' | ')} |`)].join('\n');
@@ -47,9 +54,10 @@ const matrix = table(
 );
 
 const representativeness = tvl?.totalEvmUsd
-	? `The top ${tvl.topN} EVM chains by TVL, as ranked by DefiLlama. Chains that produced a verdict hold ${usd(
+	? `The top ${tvl.topN} EVM chains by TVL, as ranked by DefiLlama. The last run produced a verdict for chains covering **${pct(
 			tvl.analyzedUsd,
-		)}, **${pct(tvl.analyzedUsd, tvl.totalEvmUsd)} of EVM TVL**. Chains we could not scan do not count.`
+			tvl.totalEvmUsd,
+		)} of EVM TVL** (${usd(tvl.analyzedUsd)}). Chains we could not scan do not count towards it.`
 	: `The top ${chains.length} EVM chains by TVL, as ranked by DefiLlama.`;
 
 const generic = chains.flatMap((c) =>
@@ -84,8 +92,8 @@ writeFileSync(
 Which EVM opcodes are supported on which chains, measured against live nodes instead of read off
 documentation.
 
-- **Last updated:** ${checkedAt}
-- **Refreshed:** daily at 06:00 UTC, and on demand after a hardfork
+- **Last updated:** ${readable(checkedAt)}
+- **Refreshed:** daily at 06:00 UTC
 - **How this is measured:** [METHOD.md](./METHOD.md)
 
 ## Representativeness
