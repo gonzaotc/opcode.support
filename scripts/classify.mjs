@@ -11,6 +11,8 @@ const INFRASTRUCTURE = [
 	/unauthorized|forbidden|api key|invalid credentials/i,
 	/does not exist\/is not available|method not (found|supported)/i,
 	/can't route your request|no suitable provider|bad gateway|service unavailable/i,
+	// Gateways that impose their own call limits and blame the caller for a limit it never set.
+	/provider limit/i,
 ];
 
 // Rejections that name the cause, so the verdict can be read back and audited.

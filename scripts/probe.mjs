@@ -21,7 +21,7 @@ const FACTORY = {
 const { referenceChainId } = JSON.parse(readFileSync('config/chain-selection.json', 'utf8'));
 const documented = JSON.parse(readFileSync('config/unprobeable-chains.json', 'utf8'));
 const { opcodes, controls } = JSON.parse(readFileSync('config/opcodes.json', 'utf8'));
-const { chains, topN, totalDefiTvlUsd, totalEvmTvlUsd } = JSON.parse(readFileSync('data/generated-chains.json', 'utf8'));
+const { chains, topN, totalDefiTvlUsd, totalEvmTvlUsd, generatedAt } = JSON.parse(readFileSync('data/generated-chains.json', 'utf8'));
 
 const ran = (res) => 'result' in res;
 const attributable = (res) => (isEvmRejection(res.error) ? res.error : null);
@@ -105,7 +105,7 @@ async function probeEndpoint(url) {
 const verdictsFor = (witnesses, opcodeName) =>
 	witnesses
 		.filter((w) => w.calibrated && w.opcodes[opcodeName]?.status !== 'unknown')
-		.map((w) => ({ ...w.opcodes[opcodeName], operator: operator(w.url), strategy: w.strategy }));
+		.map((w) => ({ ...w.opcodes[opcodeName], operator: operator(w.url), strategy: w.strategy, client: w.client }));
 
 // Two endpoints run by the same operator are one witness wearing two hats, so agreement only counts
 // when it comes from independent operators. Extra strategies raise confidence in the method, never
@@ -114,7 +114,13 @@ function reconcile(witnesses, opcodeName) {
 	const verdicts = verdictsFor(witnesses, opcodeName);
 	const operators = new Set(verdicts.map((v) => v.operator));
 	const strategies = [...new Set(verdicts.map((v) => v.strategy))];
-	const shared = { witnesses: verdicts.length, operators: operators.size, strategies };
+	// Two domains answering with the same client string may be one node behind two names, which the
+	// domain alone cannot see. Recorded rather than acted on: distinct operators running the same
+	// release report the same string too, so this narrows what a reader should trust, not the verdict.
+	const clientPerOperator = new Map(verdicts.filter((v) => v.client).map((v) => [v.operator, v.client]));
+	const sharedClient =
+		operators.size >= WITNESSES_REQUIRED && clientPerOperator.size === operators.size && new Set(clientPerOperator.values()).size === 1;
+	const shared = { witnesses: verdicts.length, operators: operators.size, strategies, ...(sharedClient && { sharedClient }) };
 
 	if (verdicts.length === 0) return { status: 'unknown', confidence: 'no-calibrated-endpoint', ...shared };
 	if (new Set(verdicts.map((v) => v.status)).size > 1)
@@ -187,6 +193,9 @@ const scanned = (chain) =>
 		const cell = chain.opcodes[o.name];
 		return cell.confidence === 'confirmed' || cell.observed || cell.documented;
 	});
+// Stricter than scanned: every opcode on the chain carries two agreeing operators. This is the
+// figure to quote as confirmed coverage, since analyzedUsd counts a chain that answered once.
+const fullyConfirmed = (chain) => opcodes.every((o) => chain.opcodes[o.name].confidence === 'confirmed');
 const sumTvl = (list) => list.reduce((sum, c) => sum + c.tvlUsd, 0);
 const tvl = {
 	topN,
@@ -194,6 +203,7 @@ const tvl = {
 	totalEvmUsd: totalEvmTvlUsd ?? null,
 	selectedUsd: sumTvl(results),
 	analyzedUsd: sumTvl(results.filter(scanned)),
+	confirmedUsd: sumTvl(results.filter(fullyConfirmed)),
 	unscanned: results.filter((c) => !scanned(c)).map((c) => ({ name: c.name, tvlUsd: c.tvlUsd })),
 };
 
@@ -202,6 +212,7 @@ writeFileSync(
 	`${JSON.stringify(
 		{
 			checkedAt: new Date().toISOString(),
+			chainSetPinnedAt: generatedAt ?? null,
 			opcodes,
 			coverage,
 			tvl,

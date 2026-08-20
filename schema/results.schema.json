@@ -16,7 +16,15 @@
 		"checkedAt": {
 			"type": "string",
 			"format": "date-time",
-			"description": "When the run finished. The staleness marker."
+			"description": "When the run finished. The staleness marker for the opcode measurement."
+		},
+		"chainSetPinnedAt": {
+			"type": [
+				"string",
+				"null"
+			],
+			"format": "date-time",
+			"description": "When data/generated-chains.json was built. The staleness marker for the ranking and the TVL figures, which do not refresh on the daily schedule."
 		},
 		"opcodes": {
 			"type": "array",
@@ -40,7 +48,7 @@
 					},
 					"snippet": {
 						"type": "string",
-						"description": "Bytecode probed. Stack inputs satisfied by PUSH0 so success means supported."
+						"description": "Bytecode probed. Stack inputs satisfied by PUSH1 0x00, which every fork defines, so success means supported."
 					},
 					"fork": {
 						"type": "string"
@@ -161,6 +169,7 @@
 				"totalEvmUsd",
 				"selectedUsd",
 				"analyzedUsd",
+				"confirmedUsd",
 				"unscanned"
 			],
 			"properties": {
@@ -188,11 +197,15 @@
 				},
 				"analyzedUsd": {
 					"type": "integer",
-					"description": "Sum across chains that produced at least one confirmed verdict. A chain we could not scan contributes nothing, however large."
+					"description": "Sum across chains that produced an answer of any kind, including a single-operator observation or a primary source. One answered opcode is enough, so this measures reach, not confidence."
+				},
+				"confirmedUsd": {
+					"type": "integer",
+					"description": "Sum across chains where every opcode carries two agreeing operators. The figure to quote as confirmed coverage."
 				},
 				"unscanned": {
 					"type": "array",
-					"description": "Chains in the table with no confirmed verdict, excluded from analyzedUsd.",
+					"description": "Chains in the table with no answer at all, excluded from analyzedUsd.",
 					"items": {
 						"type": "object",
 						"required": [
@@ -346,6 +359,10 @@
 						"unsupported"
 					],
 					"description": "single-witness and single-operator only. What was seen, recorded but deliberately not promoted to a status."
+				},
+				"sharedClient": {
+					"const": true,
+					"description": "Present when every confirming operator answered web3_clientVersion with the same string, so the two domains may be one node behind two names. Recorded, never acted on: distinct operators running the same release report the same string too."
 				},
 				"strategies": {
 					"type": "array",

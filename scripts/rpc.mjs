@@ -46,11 +46,6 @@ export async function rpc(url, method, params, { timeoutMs = 15000, attempts = 5
 	return last;
 }
 
-export async function healthy(url, expectedChainId) {
-	const res = await rpc(url, 'eth_chainId', [], { attempts: 2 });
-	return Boolean(res.result) && Number.parseInt(res.result, 16) === expectedChainId;
-}
-
 // Runs tasks with bounded concurrency so shared public endpoints are not hammered.
 export async function pooled(items, limit, worker) {
 	const results = new Array(items.length);
