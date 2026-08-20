@@ -113,31 +113,12 @@ ${matrix}
 ${unconfirmed}
 ## Method
 
-For each opcode the probe asks a node to execute a minimal bytecode snippet that supplies the
-opcode's stack inputs with \`PUSH0\`, so a clean run means supported and a rejection means unsupported.
+Each opcode is probed with a snippet whose stack inputs are satisfied by \`PUSH0\`, executed two
+read-only ways: \`eth_call\` with a state override, then \`eth_call\` with no \`to\`. An endpoint counts
+only after \`STOP\` succeeds and \`0x0c\`, undefined in every fork, fails. Failures not attributable to
+the EVM, such as rate limits, are recorded as unconfirmed rather than unsupported.
 
-Two read-only ways to get a node to execute that snippet are tried, in order:
-
-1. \`eth_call\` with a state override placing the snippet as code at a dummy address
-2. \`eth_call\` with no \`to\`, so the snippet is treated as contract creation code
-
-Each endpoint is calibrated before its answers are used. \`STOP\` (\`0x00\`) must succeed and \`0x0c\`,
-undefined in every fork, must fail. Endpoints passing neither strategy are excluded, which is what
-keeps endpoints that silently ignore state overrides, or skip execution entirely, out of the data.
-
-Agreement must come from different operators, identified by registrable domain. Two endpoints behind
-the same provider are one witness, so they cannot confirm each other.
-
-Failures that are not attributable to the EVM, such as provider rate limits and plan quotas, are
-recorded as unconfirmed rather than counted as unsupported.
-
-## Limits
-
-- \`PREVRANDAO\` and \`DIFFICULTY\` share byte \`0x44\`, so availability cannot distinguish them.
-- Prague adds no opcode, so its support cannot be probed this way at all.
-- On chains whose native toolchain compiles to a different VM, this measures the EVM execution path
-  the RPC exposes, which is not necessarily what a natively compiled contract targets.
-- Availability is not semantics. Gas costs and edge-case behaviour are out of scope here.
+See [README](./README.md) for the full method and its limits.
 `,
 );
 console.log(`wrote REPORT.md (${chains.length} chains, ${opcodes.length} opcodes)`);

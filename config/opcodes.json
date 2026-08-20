@@ -1,0 +1,11 @@
+{
+	"opcodes": [
+		{ "name": "CLZ", "byte": "0x1e", "snippet": "0x5f1e", "fork": "Fusaka", "eip": "EIP-7939" },
+		{ "name": "TLOAD", "byte": "0x5c", "snippet": "0x5f5c", "fork": "Cancun", "eip": "EIP-1153" },
+		{ "name": "TSTORE", "byte": "0x5d", "snippet": "0x5f5f5d", "fork": "Cancun", "eip": "EIP-1153" }
+	],
+	"controls": {
+		"positive": { "snippet": "0x00", "why": "STOP, defined in every fork, must succeed" },
+		"negative": { "snippet": "0x0c", "why": "undefined in every fork, must fail" }
+	}
+}

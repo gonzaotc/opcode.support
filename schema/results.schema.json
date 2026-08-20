@@ -1,0 +1,114 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://github.com/gonzaotc/opcode.support/schema/results.schema.json",
+	"title": "opcode.support results",
+	"description": "Output of scripts/probe.mjs. Documentation, not enforced at runtime.",
+	"type": "object",
+	"required": ["checkedAt", "opcodes", "coverage", "snippetCheck", "chains"],
+	"properties": {
+		"checkedAt": { "type": "string", "format": "date-time", "description": "When the run finished. The staleness marker." },
+		"opcodes": {
+			"type": "array",
+			"description": "Copy of config/opcodes.json, so the file is self-describing.",
+			"items": {
+				"type": "object",
+				"required": ["name", "byte", "snippet", "fork", "eip"],
+				"properties": {
+					"name": { "type": "string" },
+					"byte": { "type": "string", "description": "Opcode byte, e.g. 0x5d." },
+					"snippet": { "type": "string", "description": "Bytecode probed. Stack inputs satisfied by PUSH0 so success means supported." },
+					"fork": { "type": "string" },
+					"eip": { "type": "string" }
+				}
+			}
+		},
+		"coverage": {
+			"type": "object",
+			"description": "How much of the table reached a verdict. A drop here means endpoints degraded, not that chains changed.",
+			"required": ["cells", "byConfidence"],
+			"properties": {
+				"cells": { "type": "integer", "description": "chains x opcodes." },
+				"byConfidence": { "type": "object", "additionalProperties": { "type": "integer" }, "description": "Cell count per confidence value." }
+			}
+		},
+		"snippetCheck": {
+			"type": "object",
+			"description": "Guard against malformed snippets. suspectSnippets should always be empty.",
+			"required": ["referenceChainId", "referenceProbed", "suspectSnippets"],
+			"properties": {
+				"referenceChainId": { "type": "integer" },
+				"referenceProbed": { "type": "boolean", "description": "False means snippets went unverified this run." },
+				"suspectSnippets": { "type": "array", "items": { "type": "string" }, "description": "Opcodes reported unsupported on the reference chain, which almost always means a bad snippet rather than a real gap." }
+			}
+		},
+		"chains": {
+			"type": "array",
+			"description": "One entry per chain, TVL descending.",
+			"items": {
+				"type": "object",
+				"required": ["chainId", "name", "tvlUsd", "rpcUrls", "witnesses", "opcodes"],
+				"properties": {
+					"chainId": { "type": "integer" },
+					"name": { "type": "string", "description": "DefiLlama's name, kept as the display name." },
+					"tvlUsd": { "type": "integer" },
+					"rpcUrls": { "type": "array", "items": { "type": "string" }, "description": "Full verified pool, operator diversified. The probe consumes it in order and stops early, so not all were contacted." },
+					"witnesses": { "type": "array", "items": { "$ref": "#/$defs/witness" }, "description": "Endpoints actually contacted, in the order tried." },
+					"opcodes": {
+						"type": "object",
+						"description": "The answer. One reconciled verdict per opcode name.",
+						"additionalProperties": { "$ref": "#/$defs/verdict" }
+					}
+				}
+			}
+		}
+	},
+	"$defs": {
+		"witness": {
+			"type": "object",
+			"description": "What one endpoint reported.",
+			"required": ["url", "client", "block", "calibrated"],
+			"properties": {
+				"url": { "type": "string" },
+				"client": { "type": ["string", "null"], "description": "web3_clientVersion. Cheapest fork-change detector and the first thing to check when a verdict moves." },
+				"block": { "type": ["integer", "null"] },
+				"calibrated": { "type": "boolean", "description": "Whether this endpoint's answers were allowed to count." },
+				"strategy": { "type": ["string", "null"], "enum": ["stateOverride", "nullTo", null], "description": "Whichever passed calibration first." },
+				"rejectionExample": { "type": "string", "description": "Calibrated only. How this endpoint words a real opcode rejection, captured from the negative control." },
+				"rejected": {
+					"type": "object",
+					"description": "Uncalibrated only. Why each strategy was refused. The diagnostic field: 'negative control succeeded' means the endpoint does not execute the code at all.",
+					"additionalProperties": { "type": "string" }
+				},
+				"opcodes": {
+					"type": "object",
+					"description": "Calibrated only. This endpoint's raw observations.",
+					"additionalProperties": {
+						"type": "object",
+						"required": ["status"],
+						"properties": {
+							"status": { "enum": ["supported", "unsupported", "unknown"] },
+							"evidence": { "type": "string", "description": "'executed' on success, otherwise the verbatim node error." },
+							"reason": { "enum": ["endpoint-unavailable", "unattributable-error"], "description": "unknown only. endpoint-unavailable is a provider refusal that survived retries; unattributable-error is a failure not recognisable as an opcode rejection." }
+						}
+					}
+				}
+			}
+		},
+		"verdict": {
+			"type": "object",
+			"description": "One chain's answer for one opcode, reconciled across witnesses.",
+			"required": ["status", "confidence", "witnesses", "operators"],
+			"properties": {
+				"status": { "enum": ["supported", "unsupported", "unknown"], "description": "What REPORT.md renders. Only 'confirmed' confidence yields a non-unknown status." },
+				"confidence": {
+					"enum": ["confirmed", "single-witness", "single-operator", "witnesses-disagree", "no-calibrated-endpoint"],
+					"description": "confirmed: two calibrated endpoints from different operators agreed. single-witness: only one endpoint had an opinion. single-operator: two endpoints agreed but share an operator, so they are one witness. witnesses-disagree: contradiction, investigate rather than average. no-calibrated-endpoint: nothing trustworthy answered."
+				},
+				"witnesses": { "type": "integer", "description": "Endpoints that contributed a usable observation." },
+				"operators": { "type": "integer", "description": "Distinct operators among them. Independence, not count, is what confirms." },
+				"evidence": { "type": "string", "description": "The agreeing observation's raw evidence." },
+				"observed": { "enum": ["supported", "unsupported"], "description": "single-witness and single-operator only. What was seen, recorded but deliberately not promoted to a status." }
+			}
+		}
+	}
+}

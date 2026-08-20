@@ -1,4 +1,4 @@
-// Probes opcode support across the chains in chains.json and writes data/results.json.
+// Probes opcode support across the chains in data/chains.json and writes data/results.json.
 // Read-only: every check is an eth_call simulation, so no gas is ever spent and no key is needed.
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { rpc, pooled } from './rpc.mjs';
@@ -10,10 +10,9 @@ const MAX_ENDPOINTS = 5;
 const CHAIN_CONCURRENCY = 5;
 const PROBE_ADDRESS = '0x0000000000000000000000000000000000c0ffee';
 
-const { referenceChainId } = JSON.parse(readFileSync('selection.json', 'utf8'));
-const { chains } = JSON.parse(readFileSync('chains.json', 'utf8'));
-const { opcodes, controls } = JSON.parse(readFileSync('opcodes.json', 'utf8'));
-const enabled = opcodes.filter((o) => o.enabled);
+const { referenceChainId } = JSON.parse(readFileSync('config/selection.json', 'utf8'));
+const { opcodes, controls } = JSON.parse(readFileSync('config/opcodes.json', 'utf8'));
+const { chains } = JSON.parse(readFileSync('data/chains.json', 'utf8'));
 
 // Two independent ways to make a node execute arbitrary bytecode without sending a transaction.
 const strategies = {
@@ -62,7 +61,7 @@ async function probeEndpoint(url) {
 		}
 
 		const results = {};
-		for (const opcode of enabled) results[opcode.name] = interpret(await strategy(url, opcode.snippet));
+		for (const opcode of opcodes) results[opcode.name] = interpret(await strategy(url, opcode.snippet));
 		return {
 			...meta,
 			calibrated: true,
@@ -107,14 +106,14 @@ async function probeChain(chain) {
 	const witnesses = [];
 	for (const url of chain.rpcUrls.slice(0, MAX_ENDPOINTS)) {
 		witnesses.push(await probeEndpoint(url));
-		if (enabled.every((o) => confirmable(witnesses, o.name))) break;
+		if (opcodes.every((o) => confirmable(witnesses, o.name))) break;
 	}
 
-	const verdicts = Object.fromEntries(enabled.map((o) => [o.name, reconcile(witnesses, o.name)]));
+	const verdicts = Object.fromEntries(opcodes.map((o) => [o.name, reconcile(witnesses, o.name)]));
 	const calibrated = witnesses.filter((w) => w.calibrated).length;
 	console.log(
 		`${String(chain.chainId).padStart(7)}  ${chain.name.padEnd(18)} ${calibrated}/${witnesses.length} calibrated  ` +
-			enabled.map((o) => `${o.name}=${verdicts[o.name].status}`).join(' '),
+			opcodes.map((o) => `${o.name}=${verdicts[o.name].status}`).join(' '),
 	);
 	return { ...chain, witnesses, opcodes: verdicts };
 }
@@ -123,26 +122,25 @@ const results = await pooled(chains, CHAIN_CONCURRENCY, probeChain);
 results.sort((a, b) => b.tvlUsd - a.tvlUsd);
 
 // An opcode reported unsupported on the reference chain almost certainly has a malformed snippet,
-// since the reference chain is the one expected to support everything enabled here.
+// since the reference chain is expected to support everything listed in config/opcodes.json.
 const reference = results.find((c) => c.chainId === referenceChainId);
 const suspectSnippets = reference
-	? enabled.filter((o) => reference.opcodes[o.name].status === 'unsupported').map((o) => o.name)
+	? opcodes.filter((o) => reference.opcodes[o.name].status === 'unsupported').map((o) => o.name)
 	: [];
 
-const coverage = { cells: results.length * enabled.length, byConfidence: {} };
+const coverage = { cells: results.length * opcodes.length, byConfidence: {} };
 for (const chain of results)
-	for (const o of enabled) {
+	for (const o of opcodes) {
 		const key = chain.opcodes[o.name].confidence;
 		coverage.byConfidence[key] = (coverage.byConfidence[key] ?? 0) + 1;
 	}
 
-mkdirSync('data', { recursive: true });
 writeFileSync(
 	'data/results.json',
 	`${JSON.stringify(
 		{
 			checkedAt: new Date().toISOString(),
-			opcodes: enabled,
+			opcodes,
 			coverage,
 			snippetCheck: { referenceChainId, referenceProbed: Boolean(reference), suspectSnippets },
 			chains: results,
