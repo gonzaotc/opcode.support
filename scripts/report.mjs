@@ -70,9 +70,6 @@ const representativeness = tvl?.totalEvmUsd
 		)} of EVM TVL** (${usd(tvl.analyzedUsd)}).`
 	: `The top ${chains.length} EVM chains by TVL, ranked by DefiLlama.`;
 
-const generic = chains.flatMap((c) =>
-	opcodes.filter((o) => c.opcodes[o.name].grade === 'generic').map((o) => `${c.name}/${o.name}`),
-);
 const documented = chains.filter((c) => opcodes.some((o) => c.opcodes[o.name].documented));
 const singleOperator = chains.filter((c) => opcodes.some((o) => c.opcodes[o.name].observed));
 
@@ -90,9 +87,6 @@ const notes = [
 		? `\`~\` observed, but by a single operator, so not confirmed: ${singleOperator.map((c) => c.name).join(', ')}`
 		: '',
 	documentedNote,
-	generic.length
-		? `weakest evidence, an unsupported verdict backed by a generic error rather than a named opcode: ${generic.join(', ')}`
-		: '',
 ].filter(Boolean);
 
 const warning = snippetCheck.suspectSnippets.length

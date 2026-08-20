@@ -78,7 +78,6 @@ The top 50 EVM chains by TVL, ranked by DefiLlama with endpoints from `ethereum-
 - `?` no verdict
 - `~` observed, but by a single operator, so not confirmed: Robinhood Chain, Anubis, Ethereal
 - `*` from a primary source because no probe reaches that chain: Tron ([source](https://api.trongrid.io/wallet/getchainparameters))
-- weakest evidence, an unsupported verdict backed by a generic error rather than a named opcode: Rootstock/CLZ, Hedera/CLZ, ZKsync Era/CLZ, Sonic/CLZ, Abstract/CLZ
 
 ## Method
 
