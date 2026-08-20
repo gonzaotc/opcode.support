@@ -1,5 +1,5 @@
 {
-	"comment": "Chain selection config. Kept out of the scripts so the rules are visible and reviewable.",
+	"comment": "Chain selection config. Deliberately small: inclusion is decided by measurement, not by lists here.",
 
 	"topN": 30,
 	"referenceChainId": 1,
@@ -10,18 +10,13 @@
 		"Sei": 1329,
 		"Flare": 14,
 		"PulseChain": 369,
-		"X Layer": 196
+		"X Layer": 196,
+		"Tron": 728126428,
+		"Anubis": 6714
 	},
 
 	"exclude": {
-		"comment": "Not EVM execution environments. Listed only to keep the unresolved-chain warning actionable.",
-		"note": "Bittensor, Vaulta and XRPL do have EVM environments, but DefiLlama's TVL for those names is the native chain, not the EVM sidechain, so including them would attribute the wrong TVL to the wrong execution environment.",
-		"names": [
-			"Solana", "Bitcoin", "Tron", "Sui", "Stellar", "Starknet", "Near", "Stacks", "Mixin",
-			"XPR Network", "Bittensor", "XRPL", "Vaulta", "THORChain",
-			"dYdX", "Aptos", "Cardano", "TON", "Hydration", "Provenance", "Anubis", "Bitcoin Cash",
-			"Litecoin", "Dogecoin", "Algorand", "Tezos", "Polkadot", "Cosmos", "Osmosis", "Injective",
-			"Thorchain", "Radix", "Elrond", "MultiversX", "Waves", "ICP", "Internet Computer", "Filecoin"
-		]
+		"comment": "Names to skip even though DefiLlama tags them EVM. Use only when DefiLlama's TVL for the name belongs to a non-EVM environment, so including it would attribute the wrong TVL to the wrong VM. Never use this for a chain that is merely hard to probe: those belong in the table as unconfirmed.",
+		"names": []
 	}
 }

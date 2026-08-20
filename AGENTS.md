@@ -45,9 +45,20 @@ with per-endpoint evidence).
 - **Nothing trusts a name.** `ethereum-lists/chains` lists chain 999 as Wanchain Testnet and 1514 as
   Data Network, both wrong for our purposes. A chain enters `chains.json` only once a live endpoint
   confirms its `eth_chainId`, and the registry is used purely as an RPC source.
-- **No silent drops.** A chain that ranks above the cutoff without a resolvable id is reported by
-  `npm run chains` as a TODO. That warning is how three real EVM chains (Flare, PulseChain, X Layer)
-  were found missing. Never suppress it; resolve it in `selection.json`.
+- **No silent drops.** A chain ranking above the cutoff without a resolvable id is reported by
+  `npm run chains` as a TODO. That warning is how five real EVM chains (Flare, PulseChain, X Layer,
+  Tron, Anubis) were found missing. Never suppress it; resolve it in `selection.json`.
+  The warning is filtered by DefiLlama's own `categories: ["EVM"]` tag so it stays actionable. That
+  tag is used **only** for filtering warnings, never to decide inclusion, so if the endpoint changes
+  shape the warnings degrade but the table does not. Residual risk to know about: a chain with both a
+  null chain id and no EVM tag skips silently, so two signals must be wrong at once to lose one.
+- **"Excluded" and "unmeasurable" are different claims.** A chain we cannot probe belongs in the
+  table as unconfirmed, not out of it. Tron verifies its chain id but its RPC cannot execute
+  arbitrary bytecode, so it sits at rank 4 as `no-calibrated-endpoint`. `selection.json`'s `exclude`
+  is only for names whose DefiLlama TVL belongs to a non-EVM environment, and it is currently empty.
+- **Empirical beats tagged, in both directions.** Mezo and Sei are not EVM-tagged by DefiLlama but
+  probe cleanly from multiple operators, so they are in. Tron is EVM-tagged but unprobeable, so it is
+  in as unconfirmed. A live calibrated probe outranks any metadata.
 - **`unknown` is a valid answer.** Provider rate limits, plan quotas and unrecognised errors must
   never be counted as `unsupported`. This is the failure mode that produced four wrong verdicts
   during development.

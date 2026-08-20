@@ -72,6 +72,11 @@ its metadata is unreliable for this purpose, and a chain is included only once a
 confirms its `eth_chainId`. Chains ranking above the cutoff without a resolvable id are reported as a
 TODO rather than dropped silently. Selection rules live in `selection.json`.
 
+Whether a chain is EVM is decided by measurement, not by metadata, in both directions. Chains
+DefiLlama does not tag EVM but which verifiably execute EVM bytecode are included, and chains it does
+tag EVM but whose RPC cannot execute arbitrary bytecode appear at their true TVL rank as unconfirmed
+rather than being dropped.
+
 Each pool is ordered so chain-operated endpoints come first and consecutive endpoints have different
 operators, with operator reach inferred from how many chains a domain serves.
 

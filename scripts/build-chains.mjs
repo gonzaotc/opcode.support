@@ -10,9 +10,16 @@ const extraRpcs = existsSync('extra-rpcs.json') ? JSON.parse(readFileSync('extra
 const excluded = new Set(config.exclude.names);
 const overrides = config.chainIdOverrides;
 
-const [llama, registry] = await Promise.all([
+const [llama, registry, taggedEvm] = await Promise.all([
 	fetch('https://api.llama.fi/v2/chains').then((r) => r.json()),
 	fetch('https://chainid.network/chains.json').then((r) => r.json()),
+	// DefiLlama tags each chain with categories including 'EVM'. Used only to decide which
+	// unresolved chains are worth warning about, never to gate inclusion, so a change to this
+	// endpoint degrades the warnings without affecting the table.
+	fetch('https://api.llama.fi/config')
+		.then((r) => r.json())
+		.then((c) => new Set(Object.entries(c.chainCoingeckoIds ?? {}).filter(([, v]) => (v.categories ?? []).includes('EVM')).map(([name]) => name)))
+		.catch(() => null),
 ]);
 const registryById = new Map(registry.map((c) => [c.chainId, c]));
 
@@ -22,11 +29,12 @@ const ranked = llama
 	.sort((a, b) => b.tvlUsd - a.tvlUsd);
 
 // A chain with no resolvable id is skipped, but never silently: anything ranking above the eventual
-// cutoff is reported so a missing override is visible instead of invisible.
-const resolved = ranked.filter((c) => c.chainId !== null);
-const candidates = resolved.slice(0, config.topN);
+// cutoff that DefiLlama considers EVM is reported so a missing override stays visible.
+const candidates = ranked.filter((c) => c.chainId !== null).slice(0, config.topN);
 const cutoff = candidates.at(-1)?.tvlUsd ?? 0;
-const unresolved = ranked.filter((c) => c.chainId === null && c.tvlUsd >= cutoff);
+const unresolved = ranked.filter(
+	(c) => c.chainId === null && c.tvlUsd >= cutoff && (taggedEvm === null || taggedEvm.has(c.name)),
+);
 
 const pools = candidates.map((chain) => {
 	const fromRegistry = (registryById.get(chain.chainId)?.rpc ?? []).filter(
@@ -66,8 +74,9 @@ console.log(`\nwrote chains.json (${chains.length} chains)`);
 const fragile = chains.filter((c) => new Set(c.rpcUrls.map(operator)).size < 2);
 if (fragile.length) console.log(`${fragile.length} chain(s) with a single operator: ${fragile.map((c) => c.name).join(', ')}`);
 if (dropped.length) console.log(`${dropped.length} chain(s) dropped for unverifiable chain id: ${dropped.map((c) => c.name).join(', ')}`);
+if (taggedEvm === null) console.log("warning: DefiLlama's config endpoint was unreachable, so the unresolved-chain warning is unfiltered");
 if (unresolved.length) {
-	console.log(`\n${unresolved.length} chain(s) rank above the $${Math.round(cutoff / 1e6)}M cutoff but have no chain id.`);
+	console.log(`\n${unresolved.length} EVM-tagged chain(s) rank above the $${Math.round(cutoff / 1e6)}M cutoff but have no chain id.`);
 	console.log('Add a verified id to selection.json chainIdOverrides, or the name to exclude.names:');
 	for (const c of unresolved) console.log(`   $${String(Math.round(c.tvlUsd / 1e6)).padStart(6)}M  ${c.name}`);
 }
