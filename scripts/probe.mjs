@@ -19,7 +19,7 @@ const FACTORY = {
 };
 
 const { referenceChainId } = JSON.parse(readFileSync('config/chain-selection.json', 'utf8'));
-const documented = JSON.parse(readFileSync('config/documented.json', 'utf8'));
+const documented = JSON.parse(readFileSync('config/unprobeable-chains.json', 'utf8'));
 const { opcodes, controls } = JSON.parse(readFileSync('config/opcodes.json', 'utf8'));
 const { chains, topN, totalDefiTvlUsd, totalEvmTvlUsd } = JSON.parse(readFileSync('data/generated-chains.json', 'utf8'));
 

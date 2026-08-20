@@ -72,7 +72,7 @@ Anything unresolved stays `?`, excluded from the percentages and from the TVL fi
 | `config/opcodes.json` | which opcodes to measure, and the snippet for each |
 | `config/chain-selection.json` | how many chains, and the chain ids DefiLlama does not give us |
 | `config/known-rpcs.json` | endpoints added by hand, per chain id |
-| `config/documented.json` | the answer for a chain no probe reaches, with a source |
+| `config/unprobeable-chains.json` | the answer for a chain no probe reaches, with a source |
 | `data/generated-chains.json` | the resulting chain set, pinned, with a verified endpoint pool per chain |
 | `data/generated-results.json` | the measurement, one verdict per chain and opcode, with its evidence |
 

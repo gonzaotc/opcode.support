@@ -15,7 +15,7 @@ reached, why each rule exists, and what the method cannot answer. Do not restate
 | `config/opcodes.json` | adding an opcode |
 | `config/chain-selection.json` | topN, reference chain, known chain ids, exclusions |
 | `config/known-rpcs.json` | a chain needs endpoints the public registry does not list |
-| `config/documented.json` | a chain no probe reaches gets a sourced answer |
+| `config/unprobeable-chains.json` | a chain no probe reaches gets a sourced answer |
 | `data/generated-*.json` | never by hand: `npm run chains` and `npm run probe` write these |
 | `schema/results.schema.json` | `generated-results.json` shape changes |
 | `scripts/endpoints.mjs` | operator identity, pool ordering |
