@@ -1,0 +1,14 @@
+{
+	"name": "opcode.support",
+	"version": "0.1.0",
+	"private": true,
+	"type": "module",
+	"description": "Which EVM opcodes are supported on which chains, measured rather than documented",
+	"engines": { "node": ">=20" },
+	"scripts": {
+		"chains": "node scripts/build-chains.mjs",
+		"probe": "node scripts/probe.mjs",
+		"report": "node scripts/report.mjs",
+		"all": "npm run probe && npm run report"
+	}
+}

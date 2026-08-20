@@ -1,0 +1,23 @@
+{
+	"comment": "snippet = minimal bytecode that exercises the opcode with its stack inputs satisfied by PUSH0. Success means supported.",
+	"opcodes": [
+		{ "name": "CLZ", "byte": "0x1e", "snippet": "0x5f1e", "fork": "Fusaka", "eip": "EIP-7939", "enabled": true },
+		{ "name": "TLOAD", "byte": "0x5c", "snippet": "0x5f5c", "fork": "Cancun", "eip": "EIP-1153", "enabled": true },
+		{ "name": "TSTORE", "byte": "0x5d", "snippet": "0x5f5f5d", "fork": "Cancun", "eip": "EIP-1153", "enabled": true },
+
+		{ "name": "SHL", "byte": "0x1b", "snippet": "0x5f5f1b", "fork": "Constantinople", "eip": "EIP-145", "enabled": false },
+		{ "name": "EXTCODEHASH", "byte": "0x3f", "snippet": "0x5f3f", "fork": "Constantinople", "eip": "EIP-1052", "enabled": false },
+		{ "name": "CREATE2", "byte": "0xf5", "snippet": "0x5f5f5f5ff5", "fork": "Constantinople", "eip": "EIP-1014", "enabled": false },
+		{ "name": "CHAINID", "byte": "0x46", "snippet": "0x46", "fork": "Istanbul", "eip": "EIP-1344", "enabled": false },
+		{ "name": "SELFBALANCE", "byte": "0x47", "snippet": "0x47", "fork": "Istanbul", "eip": "EIP-1884", "enabled": false },
+		{ "name": "BASEFEE", "byte": "0x48", "snippet": "0x48", "fork": "London", "eip": "EIP-3198", "enabled": false },
+		{ "name": "PUSH0", "byte": "0x5f", "snippet": "0x5f", "fork": "Shanghai", "eip": "EIP-3855", "enabled": false },
+		{ "name": "MCOPY", "byte": "0x5e", "snippet": "0x5f5f5f5e", "fork": "Cancun", "eip": "EIP-5656", "enabled": false },
+		{ "name": "BLOBHASH", "byte": "0x49", "snippet": "0x5f49", "fork": "Cancun", "eip": "EIP-4844", "enabled": false },
+		{ "name": "BLOBBASEFEE", "byte": "0x4a", "snippet": "0x4a", "fork": "Cancun", "eip": "EIP-7516", "enabled": false }
+	],
+	"controls": {
+		"positive": { "name": "STOP", "snippet": "0x00", "comment": "defined in every fork, must succeed" },
+		"negative": { "name": "UNDEFINED", "snippet": "0x0c", "comment": "undefined in every fork, must fail" }
+	}
+}

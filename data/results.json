@@ -1,0 +1,2481 @@
+{
+	"checkedAt": "2026-08-20T16:01:09.043Z",
+	"opcodes": [
+		{
+			"name": "CLZ",
+			"byte": "0x1e",
+			"snippet": "0x5f1e",
+			"fork": "Fusaka",
+			"eip": "EIP-7939",
+			"enabled": true
+		},
+		{
+			"name": "TLOAD",
+			"byte": "0x5c",
+			"snippet": "0x5f5c",
+			"fork": "Cancun",
+			"eip": "EIP-1153",
+			"enabled": true
+		},
+		{
+			"name": "TSTORE",
+			"byte": "0x5d",
+			"snippet": "0x5f5f5d",
+			"fork": "Cancun",
+			"eip": "EIP-1153",
+			"enabled": true
+		}
+	],
+	"chains": [
+		{
+			"chainId": 1,
+			"name": "Ethereum",
+			"tvlUsd": 46435199919,
+			"rpcUrls": [
+				"https://1.rpc.thirdweb.com",
+				"https://ethereum.drpc.org",
+				"https://ethereum-rpc.publicnode.com",
+				"https://cloudflare-eth.com",
+				"https://mainnet.gateway.tenderly.co",
+				"https://rpc.flashbots.net",
+				"https://rpc.flashbots.net/fast",
+				"https://rpc.mevblocker.io",
+				"https://rpc.mevblocker.io/fast",
+				"https://rpc.mevblocker.io/noreverts",
+				"https://rpc.mevblocker.io/fullprivacy",
+				"https://eth.drpc.org"
+			],
+			"witnesses": [
+				{
+					"url": "https://1.rpc.thirdweb.com",
+					"client": "thirdweb/1.0",
+					"block": 25797376,
+					"calibrated": true,
+					"strategy": "stateOverride",
+					"rejectionExample": "invalid opcode: opcode 0xc not defined",
+					"opcodes": {
+						"CLZ": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				},
+				{
+					"url": "https://ethereum.drpc.org",
+					"client": "Geth/v10.0.0/drpc",
+					"block": 25797376,
+					"calibrated": true,
+					"strategy": "stateOverride",
+					"rejectionExample": "invalid opcode: opcode 0xc not defined",
+					"opcodes": {
+						"CLZ": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				}
+			],
+			"opcodes": {
+				"CLZ": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				},
+				"TLOAD": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				},
+				"TSTORE": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				}
+			}
+		},
+		{
+			"chainId": 56,
+			"name": "BSC",
+			"tvlUsd": 5289965522,
+			"rpcUrls": [
+				"https://56.rpc.thirdweb.com",
+				"https://bsc.drpc.org",
+				"https://bsc-dataseed1.bnbchain.org",
+				"https://bsc-dataseed2.bnbchain.org",
+				"https://bsc-dataseed3.bnbchain.org",
+				"https://bsc-dataseed4.bnbchain.org",
+				"https://bsc-dataseed1.defibit.io",
+				"https://bsc-dataseed2.defibit.io",
+				"https://bsc-dataseed3.defibit.io",
+				"https://bsc-dataseed4.defibit.io",
+				"https://bsc-dataseed1.ninicoin.io",
+				"https://bsc-dataseed2.ninicoin.io",
+				"https://bsc-dataseed3.ninicoin.io",
+				"https://bsc-dataseed4.ninicoin.io",
+				"https://bsc-rpc-public.chainpulse.cc"
+			],
+			"witnesses": [
+				{
+					"url": "https://56.rpc.thirdweb.com",
+					"client": "thirdweb/1.0",
+					"block": 117068182,
+					"calibrated": true,
+					"strategy": "stateOverride",
+					"rejectionExample": "invalid opcode: opcode 0xc not defined",
+					"opcodes": {
+						"CLZ": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				},
+				{
+					"url": "https://bsc.drpc.org",
+					"client": "Geth/v10.0.0/drpc",
+					"block": 117068190,
+					"calibrated": true,
+					"strategy": "stateOverride",
+					"rejectionExample": "invalid opcode: opcode 0xc not defined",
+					"opcodes": {
+						"CLZ": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TLOAD": {
+							"status": "unknown",
+							"reason": "endpoint-unavailable",
+							"evidence": "You reached Public endpoint rate limit, please upgrade to paid plan"
+						},
+						"TSTORE": {
+							"status": "unknown",
+							"reason": "endpoint-unavailable",
+							"evidence": "You reached Public endpoint rate limit, please upgrade to paid plan"
+						}
+					}
+				},
+				{
+					"url": "https://bsc-dataseed1.bnbchain.org",
+					"client": "Geth/v1.7.7-6c154fb3-20260723/linux-amd64/go1.26.5",
+					"block": 117068298,
+					"calibrated": true,
+					"strategy": "stateOverride",
+					"rejectionExample": "invalid opcode: opcode 0xc not defined",
+					"opcodes": {
+						"CLZ": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				}
+			],
+			"opcodes": {
+				"CLZ": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 3,
+					"evidence": "executed"
+				},
+				"TLOAD": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				},
+				"TSTORE": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				}
+			}
+		},
+		{
+			"chainId": 8453,
+			"name": "Base",
+			"tvlUsd": 5104446946,
+			"rpcUrls": [
+				"https://8453.rpc.thirdweb.com",
+				"https://base.drpc.org",
+				"https://base-rpc.publicnode.com",
+				"https://mainnet.base.org/",
+				"https://developer-access-mainnet.base.org/",
+				"https://base.gateway.tenderly.co",
+				"https://rpc.baseazul.dev"
+			],
+			"witnesses": [
+				{
+					"url": "https://8453.rpc.thirdweb.com",
+					"client": "thirdweb/1.0",
+					"block": 50226075,
+					"calibrated": true,
+					"strategy": "stateOverride",
+					"rejectionExample": "EVM error: OpcodeNotFound",
+					"opcodes": {
+						"CLZ": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				},
+				{
+					"url": "https://base.drpc.org",
+					"client": "Geth/v10.0.0/drpc",
+					"block": 50226076,
+					"calibrated": true,
+					"strategy": "stateOverride",
+					"rejectionExample": "EVM error: OpcodeNotFound",
+					"opcodes": {
+						"CLZ": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				}
+			],
+			"opcodes": {
+				"CLZ": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				},
+				"TLOAD": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				},
+				"TSTORE": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				}
+			}
+		},
+		{
+			"chainId": 999,
+			"name": "Hyperliquid L1",
+			"tvlUsd": 1427315133,
+			"rpcUrls": [
+				"https://999.rpc.thirdweb.com",
+				"https://hyperliquid.drpc.org",
+				"https://rpc.hyperliquid.xyz/evm",
+				"https://rpc.hypurrscan.io",
+				"https://gwan-ssl.wandevs.org:46891/"
+			],
+			"witnesses": [
+				{
+					"url": "https://999.rpc.thirdweb.com",
+					"client": "thirdweb/1.0",
+					"block": 43701818,
+					"calibrated": true,
+					"strategy": "stateOverride",
+					"rejectionExample": "EVM error: OpcodeNotFound",
+					"opcodes": {
+						"CLZ": {
+							"status": "unsupported",
+							"evidence": "EVM error: OpcodeNotFound",
+							"basis": "matches endpoint rejection fingerprint"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				},
+				{
+					"url": "https://hyperliquid.drpc.org",
+					"client": "Geth/v10.0.0/drpc",
+					"block": null,
+					"calibrated": false,
+					"strategy": null,
+					"rejected": {
+						"stateOverride": "positive control unreachable: the method eth_call does not exist/is not available",
+						"nullTo": "positive control unreachable: the method eth_call does not exist/is not available"
+					}
+				},
+				{
+					"url": "https://rpc.hyperliquid.xyz/evm",
+					"client": "hyperliquid evm Mainnet",
+					"block": 43701878,
+					"calibrated": true,
+					"strategy": "stateOverride",
+					"rejectionExample": "EVM error: OpcodeNotFound",
+					"opcodes": {
+						"CLZ": {
+							"status": "unsupported",
+							"evidence": "EVM error: OpcodeNotFound",
+							"basis": "matches endpoint rejection fingerprint"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				}
+			],
+			"opcodes": {
+				"CLZ": {
+					"status": "unsupported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "EVM error: OpcodeNotFound"
+				},
+				"TLOAD": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				},
+				"TSTORE": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				}
+			}
+		},
+		{
+			"chainId": 42161,
+			"name": "Arbitrum",
+			"tvlUsd": 1342935845,
+			"rpcUrls": [
+				"https://42161.rpc.thirdweb.com",
+				"https://arbitrum.drpc.org",
+				"https://arb1.arbitrum.io/rpc"
+			],
+			"witnesses": [
+				{
+					"url": "https://42161.rpc.thirdweb.com",
+					"client": "thirdweb/1.0",
+					"block": 496563732,
+					"calibrated": true,
+					"strategy": "stateOverride",
+					"rejectionExample": "invalid opcode: opcode 0xc not defined",
+					"opcodes": {
+						"CLZ": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				},
+				{
+					"url": "https://arbitrum.drpc.org",
+					"client": "Geth/v10.0.0/drpc",
+					"block": 496563740,
+					"calibrated": false,
+					"strategy": null,
+					"rejected": {
+						"stateOverride": "positive control unreachable: You've reached the usage limit for your current plan. To continue with higher limits and uninterrupted access, please upgrade here: https://www.1rpc.io/#pricing",
+						"nullTo": "negative control unreachable: You've reached the usage limit for your current plan. To continue with higher limits and uninterrupted access, please upgrade here: https://www.1rpc.io/#pricing"
+					}
+				},
+				{
+					"url": "https://arb1.arbitrum.io/rpc",
+					"client": "nitro/v3.11.3-rc.9-beb2108/linux-amd64/go1.25.12",
+					"block": 496563920,
+					"calibrated": true,
+					"strategy": "stateOverride",
+					"rejectionExample": "invalid opcode: opcode 0xc not defined",
+					"opcodes": {
+						"CLZ": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				}
+			],
+			"opcodes": {
+				"CLZ": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				},
+				"TLOAD": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				},
+				"TSTORE": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				}
+			}
+		},
+		{
+			"chainId": 143,
+			"name": "Monad",
+			"tvlUsd": 934694700,
+			"rpcUrls": [
+				"https://143.rpc.thirdweb.com",
+				"https://monad.drpc.org",
+				"https://rpc.monad.xyz"
+			],
+			"witnesses": [
+				{
+					"url": "https://143.rpc.thirdweb.com",
+					"client": "thirdweb/1.0",
+					"block": 97665840,
+					"calibrated": true,
+					"strategy": "stateOverride",
+					"rejectionExample": "execution reverted",
+					"opcodes": {
+						"CLZ": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				},
+				{
+					"url": "https://monad.drpc.org",
+					"client": "Geth/v10.0.0/drpc",
+					"block": 97665849,
+					"calibrated": false,
+					"strategy": null,
+					"rejected": {
+						"stateOverride": "positive control rejected: user-specified gas exceeds provider limit",
+						"nullTo": "positive control rejected: user-specified gas exceeds provider limit"
+					}
+				},
+				{
+					"url": "https://rpc.monad.xyz",
+					"client": "Monad/0.15.2",
+					"block": 97665854,
+					"calibrated": true,
+					"strategy": "stateOverride",
+					"rejectionExample": "execution reverted",
+					"opcodes": {
+						"CLZ": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				}
+			],
+			"opcodes": {
+				"CLZ": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				},
+				"TLOAD": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				},
+				"TSTORE": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				}
+			}
+		},
+		{
+			"chainId": 137,
+			"name": "Polygon",
+			"tvlUsd": 818454002,
+			"rpcUrls": [
+				"https://137.rpc.thirdweb.com",
+				"https://polygon.drpc.org",
+				"https://rpc-mainnet.matic.quiknode.pro",
+				"https://polygon.gateway.tenderly.co"
+			],
+			"witnesses": [
+				{
+					"url": "https://137.rpc.thirdweb.com",
+					"client": "thirdweb/1.0",
+					"block": 92357652,
+					"calibrated": true,
+					"strategy": "stateOverride",
+					"rejectionExample": "invalid opcode: opcode 0xc not defined",
+					"opcodes": {
+						"CLZ": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				},
+				{
+					"url": "https://polygon.drpc.org",
+					"client": "Geth/v10.0.0/drpc",
+					"block": 92357654,
+					"calibrated": true,
+					"strategy": "stateOverride",
+					"rejectionExample": "invalid opcode: opcode 0xc not defined",
+					"opcodes": {
+						"CLZ": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				}
+			],
+			"opcodes": {
+				"CLZ": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				},
+				"TLOAD": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				},
+				"TSTORE": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				}
+			}
+		},
+		{
+			"chainId": 9745,
+			"name": "Plasma",
+			"tvlUsd": 633241648,
+			"rpcUrls": [
+				"https://9745.rpc.thirdweb.com",
+				"https://rpc.plasma.to"
+			],
+			"witnesses": [
+				{
+					"url": "https://9745.rpc.thirdweb.com",
+					"client": "thirdweb/1.0",
+					"block": 30300957,
+					"calibrated": true,
+					"strategy": "stateOverride",
+					"rejectionExample": "EVM error: OpcodeNotFound",
+					"opcodes": {
+						"CLZ": {
+							"status": "unsupported",
+							"evidence": "EVM error: NotActivated",
+							"basis": "recognised evm rejection"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				},
+				{
+					"url": "https://rpc.plasma.to",
+					"client": "reth/v1.8.3-4219741/x86_64-unknown-linux-gnu",
+					"block": 30300960,
+					"calibrated": true,
+					"strategy": "stateOverride",
+					"rejectionExample": "EVM error: OpcodeNotFound",
+					"opcodes": {
+						"CLZ": {
+							"status": "unsupported",
+							"evidence": "EVM error: NotActivated",
+							"basis": "recognised evm rejection"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				}
+			],
+			"opcodes": {
+				"CLZ": {
+					"status": "unsupported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "EVM error: NotActivated"
+				},
+				"TLOAD": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				},
+				"TSTORE": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				}
+			}
+		},
+		{
+			"chainId": 4663,
+			"name": "Robinhood Chain",
+			"tvlUsd": 559523389,
+			"rpcUrls": [
+				"https://robinhood.drpc.org",
+				"https://rpc.mainnet.chain.robinhood.com"
+			],
+			"witnesses": [
+				{
+					"url": "https://robinhood.drpc.org",
+					"client": "Geth/v10.0.0/drpc",
+					"block": null,
+					"calibrated": false,
+					"strategy": null,
+					"rejected": {
+						"stateOverride": "positive control unreachable: the method eth_call does not exist/is not available",
+						"nullTo": "positive control unreachable: the method eth_call does not exist/is not available"
+					}
+				},
+				{
+					"url": "https://rpc.mainnet.chain.robinhood.com",
+					"client": "nitro/v3.11.3-rc.9-beb2108/linux-amd64/go1.25.12",
+					"block": 41546804,
+					"calibrated": true,
+					"strategy": "stateOverride",
+					"rejectionExample": "invalid opcode: opcode 0xc not defined",
+					"opcodes": {
+						"CLZ": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				}
+			],
+			"opcodes": {
+				"CLZ": {
+					"status": "unknown",
+					"confidence": "single-witness",
+					"observed": "supported",
+					"witnesses": 1
+				},
+				"TLOAD": {
+					"status": "unknown",
+					"confidence": "single-witness",
+					"observed": "supported",
+					"witnesses": 1
+				},
+				"TSTORE": {
+					"status": "unknown",
+					"confidence": "single-witness",
+					"observed": "supported",
+					"witnesses": 1
+				}
+			}
+		},
+		{
+			"chainId": 43114,
+			"name": "Avalanche",
+			"tvlUsd": 444895172,
+			"rpcUrls": [
+				"https://43114.rpc.thirdweb.com",
+				"https://avalanche.drpc.org",
+				"https://api.avax.network/ext/bc/C/rpc"
+			],
+			"witnesses": [
+				{
+					"url": "https://43114.rpc.thirdweb.com",
+					"client": "thirdweb/1.0",
+					"block": 93272239,
+					"calibrated": true,
+					"strategy": "stateOverride",
+					"rejectionExample": "invalid opcode: opcode 0xc not defined",
+					"opcodes": {
+						"CLZ": {
+							"status": "unsupported",
+							"evidence": "invalid opcode: opcode 0x1e not defined",
+							"basis": "matches endpoint rejection fingerprint"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				},
+				{
+					"url": "https://avalanche.drpc.org",
+					"client": "Geth/v10.0.0/drpc",
+					"block": 93272240,
+					"calibrated": true,
+					"strategy": "stateOverride",
+					"rejectionExample": "invalid opcode: opcode 0xc not defined",
+					"opcodes": {
+						"CLZ": {
+							"status": "unsupported",
+							"evidence": "invalid opcode: opcode 0x1e not defined",
+							"basis": "matches endpoint rejection fingerprint"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				}
+			],
+			"opcodes": {
+				"CLZ": {
+					"status": "unsupported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "invalid opcode: opcode 0x1e not defined"
+				},
+				"TLOAD": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				},
+				"TSTORE": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				}
+			}
+		},
+		{
+			"chainId": 10,
+			"name": "OP Mainnet",
+			"tvlUsd": 392546224,
+			"rpcUrls": [
+				"https://10.rpc.thirdweb.com",
+				"https://optimism.drpc.org",
+				"https://optimism-rpc.publicnode.com",
+				"https://mainnet.optimism.io",
+				"https://optimism.gateway.tenderly.co"
+			],
+			"witnesses": [
+				{
+					"url": "https://10.rpc.thirdweb.com",
+					"client": "thirdweb/1.0",
+					"block": 155821373,
+					"calibrated": true,
+					"strategy": "stateOverride",
+					"rejectionExample": "EVM error: OpcodeNotFound",
+					"opcodes": {
+						"CLZ": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				},
+				{
+					"url": "https://optimism.drpc.org",
+					"client": "Geth/v10.0.0/drpc",
+					"block": 155821374,
+					"calibrated": true,
+					"strategy": "nullTo",
+					"rejectionExample": "EVM error: OpcodeNotFound",
+					"opcodes": {
+						"CLZ": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "unknown",
+							"reason": "endpoint-unavailable",
+							"evidence": "You reached Public endpoint rate limit, please upgrade to paid plan"
+						}
+					}
+				},
+				{
+					"url": "https://optimism-rpc.publicnode.com",
+					"client": "op-reth/v0.0.0-dev-unknown/x86_64-linux",
+					"block": 155821394,
+					"calibrated": true,
+					"strategy": "stateOverride",
+					"rejectionExample": "EVM error: OpcodeNotFound",
+					"opcodes": {
+						"CLZ": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				}
+			],
+			"opcodes": {
+				"CLZ": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 3,
+					"evidence": "executed"
+				},
+				"TLOAD": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 3,
+					"evidence": "executed"
+				},
+				"TSTORE": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				}
+			}
+		},
+		{
+			"chainId": 25,
+			"name": "Cronos",
+			"tvlUsd": 255933026,
+			"rpcUrls": [
+				"https://25.rpc.thirdweb.com",
+				"https://cronos.drpc.org",
+				"https://evm.cronos.org"
+			],
+			"witnesses": [
+				{
+					"url": "https://25.rpc.thirdweb.com",
+					"client": "thirdweb/1.0",
+					"block": 89256408,
+					"calibrated": true,
+					"strategy": "stateOverride",
+					"rejectionExample": "rpc error: code = Internal desc = invalid opcode: opcode 0xc not defined",
+					"opcodes": {
+						"CLZ": {
+							"status": "unsupported",
+							"evidence": "rpc error: code = Internal desc = invalid opcode: opcode 0x1e not defined",
+							"basis": "matches endpoint rejection fingerprint"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				},
+				{
+					"url": "https://cronos.drpc.org",
+					"client": "Geth/v10.0.0/drpc",
+					"block": 89256425,
+					"calibrated": true,
+					"strategy": "stateOverride",
+					"rejectionExample": "rpc error: code = Internal desc = invalid opcode: opcode 0xc not defined",
+					"opcodes": {
+						"CLZ": {
+							"status": "unsupported",
+							"evidence": "rpc error: code = Internal desc = invalid opcode: opcode 0x1e not defined",
+							"basis": "matches endpoint rejection fingerprint"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				}
+			],
+			"opcodes": {
+				"CLZ": {
+					"status": "unsupported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "rpc error: code = Internal desc = invalid opcode: opcode 0x1e not defined"
+				},
+				"TLOAD": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				},
+				"TSTORE": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				}
+			}
+		},
+		{
+			"chainId": 57073,
+			"name": "Ink",
+			"tvlUsd": 125257696,
+			"rpcUrls": [
+				"https://57073.rpc.thirdweb.com",
+				"https://ink.drpc.org",
+				"https://rpc-gel.inkonchain.com",
+				"https://rpc-qnd.inkonchain.com"
+			],
+			"witnesses": [
+				{
+					"url": "https://57073.rpc.thirdweb.com",
+					"client": "thirdweb/1.0",
+					"block": 53743139,
+					"calibrated": true,
+					"strategy": "stateOverride",
+					"rejectionExample": "EVM error: OpcodeNotFound",
+					"opcodes": {
+						"CLZ": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				},
+				{
+					"url": "https://ink.drpc.org",
+					"client": "Geth/v10.0.0/drpc",
+					"block": 53743143,
+					"calibrated": true,
+					"strategy": "nullTo",
+					"rejectionExample": "EVM error: OpcodeNotFound",
+					"opcodes": {
+						"CLZ": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				}
+			],
+			"opcodes": {
+				"CLZ": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				},
+				"TLOAD": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				},
+				"TSTORE": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				}
+			}
+		},
+		{
+			"chainId": 100,
+			"name": "Gnosis",
+			"tvlUsd": 102570777,
+			"rpcUrls": [
+				"https://100.rpc.thirdweb.com",
+				"https://gnosis.drpc.org",
+				"https://gnosis-rpc.publicnode.com",
+				"https://rpc.gnosischain.com",
+				"https://rpc.gnosis.gateway.fm",
+				"https://gnosis.api.onfinality.io/public",
+				"https://gnosis.oat.farm"
+			],
+			"witnesses": [
+				{
+					"url": "https://100.rpc.thirdweb.com",
+					"client": "thirdweb/1.0",
+					"block": 47824904,
+					"calibrated": true,
+					"strategy": "stateOverride",
+					"rejectionExample": "EVM error: OpcodeNotFound",
+					"opcodes": {
+						"CLZ": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				},
+				{
+					"url": "https://gnosis.drpc.org",
+					"client": "Geth/v10.0.0/drpc",
+					"block": 47824905,
+					"calibrated": true,
+					"strategy": "stateOverride",
+					"rejectionExample": "invalid opcode: opcode 0xc not defined",
+					"opcodes": {
+						"CLZ": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				}
+			],
+			"opcodes": {
+				"CLZ": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				},
+				"TLOAD": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				},
+				"TSTORE": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				}
+			}
+		},
+		{
+			"chainId": 30,
+			"name": "Rootstock",
+			"tvlUsd": 76579816,
+			"rpcUrls": [
+				"https://30.rpc.thirdweb.com",
+				"https://rootstock.drpc.org",
+				"https://public-node.rsk.co",
+				"https://mycrypto.rsk.co"
+			],
+			"witnesses": [
+				{
+					"url": "https://30.rpc.thirdweb.com",
+					"client": "thirdweb/1.0",
+					"block": 9168115,
+					"calibrated": false,
+					"strategy": null,
+					"rejected": {
+						"stateOverride": "positive control rejected: State override is not allowed",
+						"nullTo": "negative control succeeded, endpoint does not execute the code"
+					}
+				},
+				{
+					"url": "https://rootstock.drpc.org",
+					"client": "Geth/v10.0.0/drpc",
+					"block": 9168114,
+					"calibrated": false,
+					"strategy": null,
+					"rejected": {
+						"stateOverride": "positive control unreachable: Can't route your request to suitable provider, if you specified certain providers revise the list",
+						"nullTo": "negative control succeeded, endpoint does not execute the code"
+					}
+				},
+				{
+					"url": "https://public-node.rsk.co",
+					"client": "RskJ/9.0.3/Linux/Java17/VETIVER-c19cf12",
+					"block": 9168115,
+					"calibrated": false,
+					"strategy": null,
+					"rejected": {
+						"stateOverride": "positive control rejected: State override is not allowed",
+						"nullTo": "negative control succeeded, endpoint does not execute the code"
+					}
+				},
+				{
+					"url": "https://mycrypto.rsk.co",
+					"client": "RskJ/9.0.3/Linux/Java17/VETIVER-c19cf12",
+					"block": 9168115,
+					"calibrated": false,
+					"strategy": null,
+					"rejected": {
+						"stateOverride": "positive control rejected: State override is not allowed",
+						"nullTo": "negative control succeeded, endpoint does not execute the code"
+					}
+				}
+			],
+			"opcodes": {
+				"CLZ": {
+					"status": "unknown",
+					"confidence": "no-calibrated-endpoint",
+					"witnesses": 0
+				},
+				"TLOAD": {
+					"status": "unknown",
+					"confidence": "no-calibrated-endpoint",
+					"witnesses": 0
+				},
+				"TSTORE": {
+					"status": "unknown",
+					"confidence": "no-calibrated-endpoint",
+					"witnesses": 0
+				}
+			}
+		},
+		{
+			"chainId": 5000,
+			"name": "Mantle",
+			"tvlUsd": 70713494,
+			"rpcUrls": [
+				"https://5000.rpc.thirdweb.com",
+				"https://mantle.drpc.org",
+				"https://mantle-rpc.publicnode.com",
+				"https://rpc.mantle.xyz"
+			],
+			"witnesses": [
+				{
+					"url": "https://5000.rpc.thirdweb.com",
+					"client": "thirdweb/1.0",
+					"block": 99555623,
+					"calibrated": true,
+					"strategy": "stateOverride",
+					"rejectionExample": "invalid opcode: opcode 0xc not defined",
+					"opcodes": {
+						"CLZ": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				},
+				{
+					"url": "https://mantle.drpc.org",
+					"client": "Geth/v10.0.0/drpc",
+					"block": 99555628,
+					"calibrated": true,
+					"strategy": "stateOverride",
+					"rejectionExample": "invalid opcode: opcode 0xc not defined",
+					"opcodes": {
+						"CLZ": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				}
+			],
+			"opcodes": {
+				"CLZ": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				},
+				"TLOAD": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				},
+				"TSTORE": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				}
+			}
+		},
+		{
+			"chainId": 31612,
+			"name": "Mezo",
+			"tvlUsd": 69746587,
+			"rpcUrls": [
+				"https://mezo.drpc.org",
+				"https://mezo-mainnet.boar.network",
+				"https://mainnet.mezo.public.validationcloud.io",
+				"https://rpc-internal.mezo.org"
+			],
+			"witnesses": [
+				{
+					"url": "https://mezo.drpc.org",
+					"client": "Geth/v10.0.0/drpc",
+					"block": 11265613,
+					"calibrated": true,
+					"strategy": "nullTo",
+					"rejectionExample": "rpc error: code = Internal desc = invalid opcode: opcode 0xc not defined",
+					"opcodes": {
+						"CLZ": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				},
+				{
+					"url": "https://mezo-mainnet.boar.network",
+					"client": "Mezod/12.0.0/amd64/go1.24.0",
+					"block": 11265618,
+					"calibrated": true,
+					"strategy": "stateOverride",
+					"rejectionExample": "rpc error: code = Internal desc = invalid opcode: opcode 0xc not defined",
+					"opcodes": {
+						"CLZ": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				}
+			],
+			"opcodes": {
+				"CLZ": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				},
+				"TLOAD": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				},
+				"TSTORE": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				}
+			}
+		},
+		{
+			"chainId": 747474,
+			"name": "Katana",
+			"tvlUsd": 59287718,
+			"rpcUrls": [
+				"https://747474.rpc.thirdweb.com",
+				"https://katana.drpc.org",
+				"https://rpc.katana.network",
+				"https://katana.gateway.tenderly.co/",
+				"https://rpc.katanarpc.com/"
+			],
+			"witnesses": [
+				{
+					"url": "https://747474.rpc.thirdweb.com",
+					"client": "thirdweb/1.0",
+					"block": 40498757,
+					"calibrated": true,
+					"strategy": "stateOverride",
+					"rejectionExample": "invalid opcode: opcode 0xc not defined",
+					"opcodes": {
+						"CLZ": {
+							"status": "unsupported",
+							"evidence": "invalid opcode: CLZ",
+							"basis": "recognised evm rejection"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				},
+				{
+					"url": "https://katana.drpc.org",
+					"client": "Geth/v10.0.0/drpc",
+					"block": 40498760,
+					"calibrated": true,
+					"strategy": "nullTo",
+					"rejectionExample": "EVM error: OpcodeNotFound",
+					"opcodes": {
+						"CLZ": {
+							"status": "unsupported",
+							"evidence": "EVM error: NotActivated",
+							"basis": "recognised evm rejection"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				}
+			],
+			"opcodes": {
+				"CLZ": {
+					"status": "unsupported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "invalid opcode: CLZ"
+				},
+				"TLOAD": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				},
+				"TSTORE": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				}
+			}
+		},
+		{
+			"chainId": 4326,
+			"name": "MegaETH",
+			"tvlUsd": 44288324,
+			"rpcUrls": [
+				"https://4326.rpc.thirdweb.com",
+				"https://megaeth.drpc.org",
+				"https://mainnet.megaeth.com/rpc"
+			],
+			"witnesses": [
+				{
+					"url": "https://4326.rpc.thirdweb.com",
+					"client": "thirdweb/1.0",
+					"block": 24444565,
+					"calibrated": true,
+					"strategy": "stateOverride",
+					"rejectionExample": "EVM error: OpcodeNotFound",
+					"opcodes": {
+						"CLZ": {
+							"status": "unsupported",
+							"evidence": "EVM error: NotActivated",
+							"basis": "recognised evm rejection"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				},
+				{
+					"url": "https://megaeth.drpc.org",
+					"client": "Geth/v10.0.0/drpc",
+					"block": 24444567,
+					"calibrated": true,
+					"strategy": "nullTo",
+					"rejectionExample": "EVM error: OpcodeNotFound",
+					"opcodes": {
+						"CLZ": {
+							"status": "unsupported",
+							"evidence": "EVM error: NotActivated",
+							"basis": "recognised evm rejection"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				}
+			],
+			"opcodes": {
+				"CLZ": {
+					"status": "unsupported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "EVM error: NotActivated"
+				},
+				"TLOAD": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				},
+				"TSTORE": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				}
+			}
+		},
+		{
+			"chainId": 4217,
+			"name": "Tempo",
+			"tvlUsd": 42763664,
+			"rpcUrls": [
+				"https://rpc.tempo.xyz",
+				"https://tempo.drpc.org",
+				"https://rpc.mainnet.tempo.xyz"
+			],
+			"witnesses": [
+				{
+					"url": "https://rpc.tempo.xyz",
+					"client": "tempo/v1.13.1-6d9d0d5/x86_64-unknown-linux-gnu",
+					"block": 35678369,
+					"calibrated": true,
+					"strategy": "stateOverride",
+					"rejectionExample": "EVM error: OpcodeNotFound",
+					"opcodes": {
+						"CLZ": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				},
+				{
+					"url": "https://tempo.drpc.org",
+					"client": "Geth/v10.0.0/drpc",
+					"block": 35678372,
+					"calibrated": true,
+					"strategy": "nullTo",
+					"rejectionExample": "EVM error: OpcodeNotFound",
+					"opcodes": {
+						"CLZ": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				}
+			],
+			"opcodes": {
+				"CLZ": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				},
+				"TLOAD": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				},
+				"TSTORE": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				}
+			}
+		},
+		{
+			"chainId": 988,
+			"name": "Stable",
+			"tvlUsd": 37019893,
+			"rpcUrls": [
+				"https://988.rpc.thirdweb.com",
+				"https://stable.drpc.org",
+				"https://rpc.stable.xyz"
+			],
+			"witnesses": [
+				{
+					"url": "https://988.rpc.thirdweb.com",
+					"client": "thirdweb/1.0",
+					"block": 36281021,
+					"calibrated": true,
+					"strategy": "stateOverride",
+					"rejectionExample": "rpc error: code = Internal desc = invalid opcode: opcode 0xc not defined",
+					"opcodes": {
+						"CLZ": {
+							"status": "unsupported",
+							"evidence": "rpc error: code = Internal desc = invalid opcode: CLZ",
+							"basis": "recognised evm rejection"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				},
+				{
+					"url": "https://stable.drpc.org",
+					"client": "Geth/v10.0.0/drpc",
+					"block": 36281025,
+					"calibrated": true,
+					"strategy": "nullTo",
+					"rejectionExample": "rpc error: code = Internal desc = invalid opcode: opcode 0xc not defined",
+					"opcodes": {
+						"CLZ": {
+							"status": "unsupported",
+							"evidence": "rpc error: code = Internal desc = invalid opcode: CLZ",
+							"basis": "recognised evm rejection"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				}
+			],
+			"opcodes": {
+				"CLZ": {
+					"status": "unsupported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "rpc error: code = Internal desc = invalid opcode: CLZ"
+				},
+				"TLOAD": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				},
+				"TSTORE": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				}
+			}
+		},
+		{
+			"chainId": 1329,
+			"name": "Sei",
+			"tvlUsd": 34212775,
+			"rpcUrls": [
+				"https://1329.rpc.thirdweb.com",
+				"https://sei.drpc.org",
+				"https://evm-rpc.sei-apis.com"
+			],
+			"witnesses": [
+				{
+					"url": "https://1329.rpc.thirdweb.com",
+					"client": "thirdweb/1.0",
+					"block": 227444526,
+					"calibrated": true,
+					"strategy": "stateOverride",
+					"rejectionExample": "invalid opcode: opcode 0xc not defined",
+					"opcodes": {
+						"CLZ": {
+							"status": "unsupported",
+							"evidence": "invalid opcode: opcode 0x1e not defined",
+							"basis": "matches endpoint rejection fingerprint"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				},
+				{
+					"url": "https://sei.drpc.org",
+					"client": "Geth/v10.0.0/drpc",
+					"block": 227444523,
+					"calibrated": true,
+					"strategy": "nullTo",
+					"rejectionExample": "invalid opcode: opcode 0xc not defined",
+					"opcodes": {
+						"CLZ": {
+							"status": "unsupported",
+							"evidence": "invalid opcode: opcode 0x1e not defined",
+							"basis": "matches endpoint rejection fingerprint"
+						},
+						"TLOAD": {
+							"status": "unknown",
+							"reason": "endpoint-unavailable",
+							"evidence": "Temporary internal error. Please retry, trace-id: f2d0e1d1cb62c7fba12f6bb62b66f50c"
+						},
+						"TSTORE": {
+							"status": "unknown",
+							"reason": "endpoint-unavailable",
+							"evidence": "Temporary internal error. Please retry, trace-id: c551cc561a2e85aec4d74daca90657e6"
+						}
+					}
+				},
+				{
+					"url": "https://evm-rpc.sei-apis.com",
+					"client": "Geth/linux-amd64/go1.25.8",
+					"block": 227444668,
+					"calibrated": true,
+					"strategy": "stateOverride",
+					"rejectionExample": "invalid opcode: opcode 0xc not defined",
+					"opcodes": {
+						"CLZ": {
+							"status": "unsupported",
+							"evidence": "invalid opcode: opcode 0x1e not defined",
+							"basis": "matches endpoint rejection fingerprint"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				}
+			],
+			"opcodes": {
+				"CLZ": {
+					"status": "unsupported",
+					"confidence": "confirmed",
+					"witnesses": 3,
+					"evidence": "invalid opcode: opcode 0x1e not defined"
+				},
+				"TLOAD": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				},
+				"TSTORE": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				}
+			}
+		},
+		{
+			"chainId": 80094,
+			"name": "Berachain",
+			"tvlUsd": 33488445,
+			"rpcUrls": [
+				"https://80094.rpc.thirdweb.com",
+				"https://berachain.drpc.org",
+				"https://berachain-rpc.publicnode.com",
+				"https://rpc.berachain.com",
+				"https://rpc.berachain-apis.com"
+			],
+			"witnesses": [
+				{
+					"url": "https://80094.rpc.thirdweb.com",
+					"client": "thirdweb/1.0",
+					"block": 25113437,
+					"calibrated": true,
+					"strategy": "nullTo",
+					"rejectionExample": "EVM error: OpcodeNotFound",
+					"opcodes": {
+						"CLZ": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				},
+				{
+					"url": "https://berachain.drpc.org",
+					"client": "Geth/v10.0.0/drpc",
+					"block": 25113448,
+					"calibrated": true,
+					"strategy": "nullTo",
+					"rejectionExample": "EVM error: OpcodeNotFound",
+					"opcodes": {
+						"CLZ": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				}
+			],
+			"opcodes": {
+				"CLZ": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				},
+				"TLOAD": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				},
+				"TSTORE": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				}
+			}
+		},
+		{
+			"chainId": 81457,
+			"name": "Blast",
+			"tvlUsd": 30904039,
+			"rpcUrls": [
+				"https://81457.rpc.thirdweb.com",
+				"https://blast.drpc.org",
+				"https://rpc.blast.io"
+			],
+			"witnesses": [
+				{
+					"url": "https://81457.rpc.thirdweb.com",
+					"client": "thirdweb/1.0",
+					"block": 39215891,
+					"calibrated": true,
+					"strategy": "stateOverride",
+					"rejectionExample": "invalid opcode: opcode 0xc not defined",
+					"opcodes": {
+						"CLZ": {
+							"status": "unsupported",
+							"evidence": "invalid opcode: opcode 0x1e not defined",
+							"basis": "matches endpoint rejection fingerprint"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				},
+				{
+					"url": "https://blast.drpc.org",
+					"client": "Geth/v10.0.0/drpc",
+					"block": 39215892,
+					"calibrated": true,
+					"strategy": "stateOverride",
+					"rejectionExample": "invalid opcode: opcode 0xc not defined",
+					"opcodes": {
+						"CLZ": {
+							"status": "unsupported",
+							"evidence": "invalid opcode: opcode 0x1e not defined",
+							"basis": "matches endpoint rejection fingerprint"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				}
+			],
+			"opcodes": {
+				"CLZ": {
+					"status": "unsupported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "invalid opcode: opcode 0x1e not defined"
+				},
+				"TLOAD": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				},
+				"TSTORE": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				}
+			}
+		},
+		{
+			"chainId": 59144,
+			"name": "Linea",
+			"tvlUsd": 30543474,
+			"rpcUrls": [
+				"https://59144.rpc.thirdweb.com",
+				"https://linea.drpc.org",
+				"https://linea-rpc.publicnode.com",
+				"https://rpc.linea.build"
+			],
+			"witnesses": [
+				{
+					"url": "https://59144.rpc.thirdweb.com",
+					"client": "thirdweb/1.0",
+					"block": 31773956,
+					"calibrated": true,
+					"strategy": "stateOverride",
+					"rejectionExample": "invalid opcode: opcode 0xc not defined",
+					"opcodes": {
+						"CLZ": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				},
+				{
+					"url": "https://linea.drpc.org",
+					"client": "Geth/v10.0.0/drpc",
+					"block": 31773956,
+					"calibrated": true,
+					"strategy": "stateOverride",
+					"rejectionExample": "invalid opcode: opcode 0xc not defined",
+					"opcodes": {
+						"CLZ": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				}
+			],
+			"opcodes": {
+				"CLZ": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				},
+				"TLOAD": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				},
+				"TSTORE": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				}
+			}
+		},
+		{
+			"chainId": 480,
+			"name": "World Chain",
+			"tvlUsd": 30471253,
+			"rpcUrls": [
+				"https://480.rpc.thirdweb.com",
+				"https://worldchain.drpc.org",
+				"https://worldchain-mainnet.g.alchemy.com/public",
+				"https://worldchain-mainnet.gateway.tenderly.co"
+			],
+			"witnesses": [
+				{
+					"url": "https://480.rpc.thirdweb.com",
+					"client": "thirdweb/1.0",
+					"block": 33952982,
+					"calibrated": true,
+					"strategy": "nullTo",
+					"rejectionExample": "We are not able to process your request at this time. Please contact thirdweb support 42c85313-75b6-4b47-9888-58c7d011f9fa.",
+					"opcodes": {
+						"CLZ": {
+							"status": "unsupported",
+							"evidence": "EVM error: NotActivated",
+							"basis": "recognised evm rejection"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				},
+				{
+					"url": "https://worldchain.drpc.org",
+					"client": "Geth/v10.0.0/drpc",
+					"block": 33952994,
+					"calibrated": true,
+					"strategy": "nullTo",
+					"rejectionExample": "EVM error: OpcodeNotFound",
+					"opcodes": {
+						"CLZ": {
+							"status": "unsupported",
+							"evidence": "EVM error: NotActivated",
+							"basis": "recognised evm rejection"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				}
+			],
+			"opcodes": {
+				"CLZ": {
+					"status": "unsupported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "EVM error: NotActivated"
+				},
+				"TLOAD": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				},
+				"TSTORE": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				}
+			}
+		},
+		{
+			"chainId": 130,
+			"name": "Unichain",
+			"tvlUsd": 29970441,
+			"rpcUrls": [
+				"https://130.rpc.thirdweb.com",
+				"https://unichain.drpc.org",
+				"https://mainnet.unichain.org"
+			],
+			"witnesses": [
+				{
+					"url": "https://130.rpc.thirdweb.com",
+					"client": "thirdweb/1.0",
+					"block": 56493248,
+					"calibrated": true,
+					"strategy": "stateOverride",
+					"rejectionExample": "EVM error: OpcodeNotFound",
+					"opcodes": {
+						"CLZ": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				},
+				{
+					"url": "https://unichain.drpc.org",
+					"client": "Geth/v10.0.0/drpc",
+					"block": 56493254,
+					"calibrated": true,
+					"strategy": "nullTo",
+					"rejectionExample": "EVM error: OpcodeNotFound",
+					"opcodes": {
+						"CLZ": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				}
+			],
+			"opcodes": {
+				"CLZ": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				},
+				"TLOAD": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				},
+				"TSTORE": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				}
+			}
+		},
+		{
+			"chainId": 295,
+			"name": "Hedera",
+			"tvlUsd": 23222091,
+			"rpcUrls": [
+				"https://295.rpc.thirdweb.com",
+				"https://mainnet.hashio.io/api",
+				"https://hedera.linkpool.pro"
+			],
+			"witnesses": [
+				{
+					"url": "https://295.rpc.thirdweb.com",
+					"client": "thirdweb/1.0",
+					"block": 99081616,
+					"calibrated": true,
+					"strategy": "nullTo",
+					"rejectionExample": "[Request ID: 4e7984f6-2022-42b1-ab94-450de6441186] Error occurred during transaction simulation: CONTRACT_EXECUTION_EXCEPTION",
+					"opcodes": {
+						"CLZ": {
+							"status": "unsupported",
+							"evidence": "[Request ID: 6ebf12e5-2a0b-47c3-bd2e-a6a40e9ff30f] Error occurred during transaction simulation: CONTRACT_EXECUTION_EXCEPTION",
+							"basis": "recognised evm rejection"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				},
+				{
+					"url": "https://mainnet.hashio.io/api",
+					"client": "relay/0.78.2",
+					"block": 99081617,
+					"calibrated": true,
+					"strategy": "nullTo",
+					"rejectionExample": "[Request ID: ed3f9e10-1a36-48a3-8e6e-fad69bd6349e] Error occurred during transaction simulation: CONTRACT_EXECUTION_EXCEPTION",
+					"opcodes": {
+						"CLZ": {
+							"status": "unsupported",
+							"evidence": "[Request ID: cb0c8888-60ba-48c4-8844-ed64adad6bc9] Error occurred during transaction simulation: CONTRACT_EXECUTION_EXCEPTION",
+							"basis": "recognised evm rejection"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				}
+			],
+			"opcodes": {
+				"CLZ": {
+					"status": "unsupported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "[Request ID: 6ebf12e5-2a0b-47c3-bd2e-a6a40e9ff30f] Error occurred during transaction simulation: CONTRACT_EXECUTION_EXCEPTION"
+				},
+				"TLOAD": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				},
+				"TSTORE": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				}
+			}
+		},
+		{
+			"chainId": 252,
+			"name": "Fraxtal",
+			"tvlUsd": 18647217,
+			"rpcUrls": [
+				"https://252.rpc.thirdweb.com",
+				"https://fraxtal.drpc.org",
+				"https://rpc.frax.com"
+			],
+			"witnesses": [
+				{
+					"url": "https://252.rpc.thirdweb.com",
+					"client": "thirdweb/1.0",
+					"block": 40215453,
+					"calibrated": true,
+					"strategy": "stateOverride",
+					"rejectionExample": "EVM error: OpcodeNotFound",
+					"opcodes": {
+						"CLZ": {
+							"status": "unsupported",
+							"evidence": "EVM error: NotActivated",
+							"basis": "recognised evm rejection"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				},
+				{
+					"url": "https://fraxtal.drpc.org",
+					"client": "Geth/v10.0.0/drpc",
+					"block": 40215454,
+					"calibrated": true,
+					"strategy": "stateOverride",
+					"rejectionExample": "EVM error: OpcodeNotFound",
+					"opcodes": {
+						"CLZ": {
+							"status": "unsupported",
+							"evidence": "EVM error: NotActivated",
+							"basis": "recognised evm rejection"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				}
+			],
+			"opcodes": {
+				"CLZ": {
+					"status": "unsupported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "EVM error: NotActivated"
+				},
+				"TLOAD": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				},
+				"TSTORE": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				}
+			}
+		},
+		{
+			"chainId": 1672,
+			"name": "Pharos",
+			"tvlUsd": 16825012,
+			"rpcUrls": [
+				"https://pharos.drpc.org",
+				"https://api.zan.top/pharos-mainnet",
+				"https://rpc.pharos.xyz"
+			],
+			"witnesses": [
+				{
+					"url": "https://pharos.drpc.org",
+					"client": "Geth/v10.0.0/drpc",
+					"block": 15463714,
+					"calibrated": true,
+					"strategy": "stateOverride",
+					"rejectionExample": "An undefined instruction has been encountered.",
+					"opcodes": {
+						"CLZ": {
+							"status": "unsupported",
+							"evidence": "An undefined instruction has been encountered.",
+							"basis": "matches endpoint rejection fingerprint"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				},
+				{
+					"url": "https://api.zan.top/pharos-mainnet",
+					"client": "portal/1.0.0",
+					"block": 15463723,
+					"calibrated": false,
+					"strategy": null,
+					"rejected": {
+						"stateOverride": "positive control rejected: cu limit exceeded; Method \"eth_call\" is not available for unregistered accounts. Please visit https://zan.top/ and register to unlock more.",
+						"nullTo": "positive control rejected: cu limit exceeded; Request too fast per second. Please visit https://zan.top/ and register to unlock more."
+					}
+				},
+				{
+					"url": "https://rpc.pharos.xyz",
+					"client": "portal/1.0.0",
+					"block": 15463729,
+					"calibrated": true,
+					"strategy": "stateOverride",
+					"rejectionExample": "An undefined instruction has been encountered.",
+					"opcodes": {
+						"CLZ": {
+							"status": "unsupported",
+							"evidence": "An undefined instruction has been encountered.",
+							"basis": "matches endpoint rejection fingerprint"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed"
+						}
+					}
+				}
+			],
+			"opcodes": {
+				"CLZ": {
+					"status": "unsupported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "An undefined instruction has been encountered."
+				},
+				"TLOAD": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				},
+				"TSTORE": {
+					"status": "supported",
+					"confidence": "confirmed",
+					"witnesses": 2,
+					"evidence": "executed"
+				}
+			}
+		}
+	]
+}
