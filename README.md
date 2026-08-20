@@ -34,8 +34,8 @@ executing them and would do the same. Both are present among the top 30 chains t
 
 Two further rules keep the table honest:
 
-- A verdict needs **two independently calibrated endpoints in agreement**. One endpoint is one
-  witness, and witnesses can be wrong.
+- A verdict needs **two calibrated endpoints run by different operators to agree**. One endpoint is
+  one witness, and two endpoints behind the same provider are still one witness.
 - Failures that are not attributable to the EVM, such as rate limits and plan quotas, are recorded as
   unconfirmed rather than counted as unsupported. An unrecognised failure is left unattributed too,
   so a novel rejection wording degrades to unconfirmed instead of a wrong verdict.
@@ -64,11 +64,16 @@ set `enabled` to true. Several are already defined and switched off.
 
 ## Chain list
 
-`chains.json` is generated from DefiLlama TVL joined against `ethereum-lists/chains`, then pinned.
-It is pinned on purpose: a list that reshuffles weekly makes the table impossible to compare over
-time. DefiLlama alone is not sufficient, since some EVM chains carry no chain id there, so
-`extra-rpcs.json` supplies additional endpoints and the generator keeps only those that answer
-`eth_chainId` correctly.
+`chains.json` is generated from DefiLlama TVL, then pinned. It is pinned on purpose: a list that
+reshuffles weekly makes the table impossible to compare over time.
+
+Identity is never taken on trust. `ethereum-lists/chains` is used only as a source of endpoints, since
+its metadata is unreliable for this purpose, and a chain is included only once a live endpoint
+confirms its `eth_chainId`. Chains ranking above the cutoff without a resolvable id are reported as a
+TODO rather than dropped silently. Selection rules live in `selection.json`.
+
+Each pool is ordered so chain-operated endpoints come first and consecutive endpoints have different
+operators, with operator reach inferred from how many chains a domain serves.
 
 ## Limits
 

@@ -1,42 +1,73 @@
-// Regenerates chains.json: top N EVM chains by DefiLlama TVL, with a health-checked RPC pool.
+// Regenerates chains.json: the top N EVM chains by DefiLlama TVL, each with a verified, operator
+// diversified RPC pool. Nothing here trusts a name: a chain is only included once an endpoint
+// confirms its chain id.
 import { writeFileSync, readFileSync, existsSync } from 'node:fs';
-import { healthy } from './rpc.mjs';
+import { rpc } from './rpc.mjs';
+import { diversify, operator, operatorReach } from './endpoints.mjs';
 
-const TOP_N = 30;
-
-// DefiLlama omits chainId for some EVM chains.
-const MISSING_CHAIN_ID = { 'Hyperliquid L1': 999, Sei: 1329, Story: 1514 };
-// Carry a chainId in DefiLlama but are not EVM execution environments.
-const NOT_EVM = new Set([728126428]);
-
+const config = JSON.parse(readFileSync('selection.json', 'utf8'));
 const extraRpcs = existsSync('extra-rpcs.json') ? JSON.parse(readFileSync('extra-rpcs.json', 'utf8')) : {};
+const excluded = new Set(config.exclude.names);
+const overrides = config.chainIdOverrides;
 
 const [llama, registry] = await Promise.all([
 	fetch('https://api.llama.fi/v2/chains').then((r) => r.json()),
 	fetch('https://chainid.network/chains.json').then((r) => r.json()),
 ]);
-const byId = new Map(registry.map((c) => [c.chainId, c]));
+const registryById = new Map(registry.map((c) => [c.chainId, c]));
 
-const candidates = [];
-for (const c of llama) {
-	const chainId = c.chainId ?? MISSING_CHAIN_ID[c.name];
-	if (chainId == null || NOT_EVM.has(chainId) || !byId.has(chainId)) continue;
-	candidates.push({ chainId, name: c.name, tvlUsd: Math.round(c.tvl ?? 0) });
-}
-candidates.sort((a, b) => b.tvlUsd - a.tvlUsd);
+const ranked = llama
+	.filter((c) => !excluded.has(c.name))
+	.map((c) => ({ name: c.name, chainId: c.chainId ?? overrides[c.name] ?? null, tvlUsd: Math.round(c.tvl ?? 0) }))
+	.sort((a, b) => b.tvlUsd - a.tvlUsd);
+
+// A chain with no resolvable id is skipped, but never silently: anything ranking above the eventual
+// cutoff is reported so a missing override is visible instead of invisible.
+const resolved = ranked.filter((c) => c.chainId !== null);
+const candidates = resolved.slice(0, config.topN);
+const cutoff = candidates.at(-1)?.tvlUsd ?? 0;
+const unresolved = ranked.filter((c) => c.chainId === null && c.tvlUsd >= cutoff);
+
+const pools = candidates.map((chain) => {
+	const fromRegistry = (registryById.get(chain.chainId)?.rpc ?? []).filter(
+		(u) => u.startsWith('https://') && !u.includes('${'),
+	);
+	return [...new Set([...(extraRpcs[chain.chainId] ?? []), ...fromRegistry])];
+});
+const reach = operatorReach(pools);
 
 const chains = [];
-for (const chain of candidates.slice(0, TOP_N)) {
-	const pool = [
-		...(extraRpcs[chain.chainId] ?? []),
-		...(byId.get(chain.chainId).rpc ?? []).filter((u) => u.startsWith('https://') && !u.includes('${')),
-	];
-	const unique = [...new Set(pool)];
-	const checks = await Promise.all(unique.map((u) => healthy(u, chain.chainId)));
-	const rpcUrls = unique.filter((_, i) => checks[i]);
+const dropped = [];
+for (const [index, chain] of candidates.entries()) {
+	const ordered = diversify(pools[index], reach);
+	// The endpoint itself is the authority on which chain it serves.
+	const ids = await Promise.all(ordered.map((url) => rpc(url, 'eth_chainId', [], { attempts: 2 })));
+	const rpcUrls = ordered.filter((_, i) => Number.parseInt(ids[i].result, 16) === chain.chainId);
+
+	if (rpcUrls.length === 0) {
+		dropped.push(chain);
+		console.log(`${String(chain.chainId).padStart(9)}  ${chain.name.padEnd(20)} DROPPED, no endpoint confirmed this chain id`);
+		continue;
+	}
+
 	chains.push({ ...chain, rpcUrls });
-	console.log(`${String(chain.chainId).padStart(9)}  ${chain.name.padEnd(20)} ${rpcUrls.length}/${unique.length} healthy`);
+	const operators = new Set(rpcUrls.map(operator)).size;
+	console.log(
+		`${String(chain.chainId).padStart(9)}  ${chain.name.padEnd(20)} ${rpcUrls.length}/${ordered.length} verified, ${operators} operator(s), leading with ${operator(rpcUrls[0])}`,
+	);
 }
 
-writeFileSync('chains.json', `${JSON.stringify({ generatedAt: new Date().toISOString(), source: 'defillama tvl + ethereum-lists/chains', chains }, null, '\t')}\n`);
-console.log(`\nwrote chains.json (${chains.length} chains, ${chains.filter((c) => c.rpcUrls.length < 2).length} with fewer than 2 healthy RPCs)`);
+writeFileSync(
+	'chains.json',
+	`${JSON.stringify({ generatedAt: new Date().toISOString(), source: 'defillama tvl, rpc pools from extra-rpcs.json and ethereum-lists/chains, every endpoint verified by eth_chainId', chains }, null, '\t')}\n`,
+);
+
+console.log(`\nwrote chains.json (${chains.length} chains)`);
+const fragile = chains.filter((c) => new Set(c.rpcUrls.map(operator)).size < 2);
+if (fragile.length) console.log(`${fragile.length} chain(s) with a single operator: ${fragile.map((c) => c.name).join(', ')}`);
+if (dropped.length) console.log(`${dropped.length} chain(s) dropped for unverifiable chain id: ${dropped.map((c) => c.name).join(', ')}`);
+if (unresolved.length) {
+	console.log(`\n${unresolved.length} chain(s) rank above the $${Math.round(cutoff / 1e6)}M cutoff but have no chain id.`);
+	console.log('Add a verified id to selection.json chainIdOverrides, or the name to exclude.names:');
+	for (const c of unresolved) console.log(`   $${String(Math.round(c.tvlUsd / 1e6)).padStart(6)}M  ${c.name}`);
+}
