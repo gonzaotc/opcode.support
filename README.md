@@ -2,7 +2,7 @@
 
 Which EVM opcodes are supported on which chains, measured periodically against live nodes.
 
-- **Last updated:** 20 August 2026, 21:04 UTC
+- **Last updated:** 21 August 2026, 06:52 UTC
 - **Chain set and TVL pinned:** 20 August 2026, 20:09 UTC
 - **Refreshed:** daily at 06:00 UTC
 - **How this is measured:** [METHOD.md](./METHOD.md)
@@ -80,7 +80,7 @@ The top 50 EVM chains by TVL, ranked by DefiLlama with endpoints from `ethereum-
 - `~` observed, but by a single operator, so not confirmed: Robinhood Chain, Anubis
 - `*` from a primary source because no probe reaches that chain: Tron ([source](https://api.trongrid.io/wallet/getchainparameters))
 - generic evidence, a rejection that named no cause, so consistent with an undefined opcode but with anything else too: Rootstock CLZ, Hedera CLZ, ZKsync Era CLZ, Sonic CLZ, Abstract CLZ
-- both operators answered with the same client string, so possibly one node behind two names: BSC, Hyperliquid L1, Avalanche, Flare, X Layer, Gnosis, Mezo, Berachain, Fraxtal
+- both operators answered with the same client string, so possibly one node behind two names: Hyperliquid L1, Avalanche, Flare, Gnosis, Mezo, Berachain, Fraxtal
 
 ## Method
 
