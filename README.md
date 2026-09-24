@@ -2,7 +2,7 @@
 
 Which EVM opcodes are supported on which chains, measured periodically against live nodes.
 
-- **Last updated:** 23 September 2026, 10:59 UTC
+- **Last updated:** 24 September 2026, 11:19 UTC
 - **Chain set and TVL pinned:** 20 August 2026, 20:09 UTC
 - **Refreshed:** daily at 06:00 UTC
 - **How this is measured:** [METHOD.md](./METHOD.md)
@@ -16,7 +16,7 @@ The top 50 EVM chains by TVL, ranked by DefiLlama with endpoints from `ethereum-
 | opcode | byte | fork | EIP | supported |
 | --- | --- | --- | --- | --- |
 | `PUSH0` | `0x5f` | Shanghai | EIP-3855 | **96%** (48 of 50) |
-| `CLZ` | `0x1e` | Fusaka | EIP-7939 | **48%** (24 of 50) |
+| `CLZ` | `0x1e` | Fusaka | EIP-7939 | **52%** (26 of 50) |
 | `TLOAD` | `0x5c` | Cancun | EIP-1153 | **92%** (46 of 50) |
 | `TSTORE` | `0x5d` | Cancun | EIP-1153 | **92%** (46 of 50) |
 
@@ -46,7 +46,7 @@ The top 50 EVM chains by TVL, ranked by DefiLlama with endpoints from `ethereum-
 | 20 | Rootstock | 30 | $77M | yes | no | yes | yes |
 | 21 | Mantle | 5000 | $71M | yes | yes | yes | yes |
 | 22 | Mezo | 31612 | $71M | yes | yes | yes | yes |
-| 23 | Katana | 747474 | $60M | yes | no | yes | yes |
+| 23 | Katana | 747474 | $60M | yes | yes | yes | yes |
 | 24 | MegaETH | 4326 | $44M | yes | no | yes | yes |
 | 25 | Tempo | 4217 | $43M | yes | yes | yes | yes |
 | 26 | Stable | 988 | $37M | yes | yes | yes | yes |
@@ -72,7 +72,7 @@ The top 50 EVM chains by TVL, ranked by DefiLlama with endpoints from `ethereum-
 | 46 | Immutable zkEVM | 13371 | $11M | yes | no | yes | yes |
 | 47 | ReyaChain | 1729 | $11M | yes | yes | yes | yes |
 | 48 | Ronin | 2020 | $11M | yes | no | yes | yes |
-| 49 | BOB | 60808 | $10M | yes | no | yes | yes |
+| 49 | BOB | 60808 | $10M | yes | yes | yes | yes |
 | 50 | Merlin | 4200 | $9M | yes | no | no | no |
 
 - `yes` supported
@@ -80,7 +80,7 @@ The top 50 EVM chains by TVL, ranked by DefiLlama with endpoints from `ethereum-
 - `~` observed, but by a single operator, so not confirmed: Robinhood Chain, Anubis
 - `*` from a primary source because no probe reaches that chain: Tron ([source](https://api.trongrid.io/wallet/getchainparameters))
 - generic evidence, a rejection that named no cause, so consistent with an undefined opcode but with anything else too: Rootstock CLZ, Hedera CLZ, ZKsync Era CLZ, Abstract CLZ
-- both operators answered with the same client string, so possibly one node behind two names: Hyperliquid L1, Flare, Gnosis, Mezo, Berachain, Hedera, Fraxtal, Celo
+- both operators answered with the same client string, so possibly one node behind two names: BSC, Hyperliquid L1, Flare, X Layer, Gnosis, Mezo, Berachain, Hedera, Fraxtal
 
 ## Method
 
