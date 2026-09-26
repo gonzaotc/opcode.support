@@ -1,5 +1,5 @@
 {
-	"checkedAt": "2026-09-25T11:23:31.594Z",
+	"checkedAt": "2026-09-26T11:00:22.138Z",
 	"chainSetPinnedAt": "2026-08-20T20:09:03.164Z",
 	"opcodes": [
 		{
@@ -34,13 +34,13 @@
 	"coverage": {
 		"cells": 200,
 		"byConfidence": {
-			"confirmed": 188,
+			"confirmed": 184,
 			"no-calibrated-endpoint": 4,
-			"single-operator": 8
+			"single-operator": 12
 		},
 		"byGrade": {
-			"executed": 156,
-			"specific": 28,
+			"executed": 153,
+			"specific": 27,
 			"generic": 4
 		}
 	},
@@ -50,7 +50,7 @@
 		"totalEvmUsd": 71231346428,
 		"selectedUsd": 71019507755,
 		"analyzedUsd": 71019507755,
-		"confirmedUsd": 65170282817,
+		"confirmedUsd": 65159369715,
 		"unscanned": []
 	},
 	"snippetCheck": {
@@ -103,7 +103,7 @@
 				{
 					"url": "https://rpc.flashbots.net",
 					"client": "reth/v1.11.2-793a3d5/x86_64-unknown-linux-gnu",
-					"block": 26054128,
+					"block": 26061171,
 					"strategy": "stateOverride",
 					"calibrated": false,
 					"rejected": "positive control rejected: rpc method is not whitelisted"
@@ -111,7 +111,7 @@
 				{
 					"url": "https://rpc.flashbots.net",
 					"client": "reth/v1.11.2-793a3d5/x86_64-unknown-linux-gnu",
-					"block": 26054128,
+					"block": 26061171,
 					"strategy": "nullTo",
 					"calibrated": false,
 					"rejected": "positive control rejected: rpc method is not whitelisted"
@@ -119,7 +119,7 @@
 				{
 					"url": "https://rpc.flashbots.net",
 					"client": "reth/v1.11.2-793a3d5/x86_64-unknown-linux-gnu",
-					"block": 26054128,
+					"block": 26061171,
 					"strategy": "factory",
 					"calibrated": false,
 					"rejected": "positive control rejected: rpc method is not whitelisted"
@@ -127,7 +127,7 @@
 				{
 					"url": "https://rpc.mevblocker.io",
 					"client": "MEVblocker",
-					"block": 26054128,
+					"block": 26061171,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -157,10 +157,10 @@
 				{
 					"url": "https://rpc.mevblocker.io",
 					"client": "MEVblocker",
-					"block": 26054128,
+					"block": 26061171,
 					"strategy": "nullTo",
 					"calibrated": true,
-					"rejectionExample": "invalid opcode: opcode 0xc not defined",
+					"rejectionExample": "EVM error: OpcodeNotFound",
 					"opcodes": {
 						"PUSH0": {
 							"status": "supported",
@@ -187,7 +187,7 @@
 				{
 					"url": "https://rpc.mevblocker.io",
 					"client": "MEVblocker",
-					"block": 26054128,
+					"block": 26061171,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -217,7 +217,7 @@
 				{
 					"url": "https://mainnet.gateway.tenderly.co",
 					"client": "Tenderly/1.0",
-					"block": 26054128,
+					"block": 26061171,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -247,7 +247,7 @@
 				{
 					"url": "https://mainnet.gateway.tenderly.co",
 					"client": "Tenderly/1.0",
-					"block": 26054128,
+					"block": 26061171,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -277,7 +277,7 @@
 				{
 					"url": "https://mainnet.gateway.tenderly.co",
 					"client": "Tenderly/1.0",
-					"block": 26054128,
+					"block": 26061171,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -407,8 +407,8 @@
 				},
 				{
 					"url": "https://bsc-dataseed1.bnbchain.org",
-					"client": "Geth/v1.7.7/linux-amd64/go1.25.12",
-					"block": 123939991,
+					"client": "Geth/v1.7.7-6c154fb3-20260723/linux-amd64/go1.26.5",
+					"block": 124128815,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -437,8 +437,8 @@
 				},
 				{
 					"url": "https://bsc-dataseed1.bnbchain.org",
-					"client": "Geth/v1.7.7/linux-amd64/go1.25.12",
-					"block": 123939991,
+					"client": "Geth/v1.7.7-6c154fb3-20260723/linux-amd64/go1.26.5",
+					"block": 124128815,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -467,8 +467,8 @@
 				},
 				{
 					"url": "https://bsc-dataseed1.bnbchain.org",
-					"client": "Geth/v1.7.7/linux-amd64/go1.25.12",
-					"block": 123939991,
+					"client": "Geth/v1.7.7-6c154fb3-20260723/linux-amd64/go1.26.5",
+					"block": 124128815,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted: 0x",
@@ -497,8 +497,8 @@
 				},
 				{
 					"url": "https://bsc-dataseed1.defibit.io",
-					"client": "Geth/v1.7.7-6c154fb3-20260723/linux-amd64/go1.26.5",
-					"block": 123939994,
+					"client": "Geth/v1.7.7/linux-amd64/go1.25.12",
+					"block": 124128818,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -527,8 +527,8 @@
 				},
 				{
 					"url": "https://bsc-dataseed1.defibit.io",
-					"client": "Geth/v1.7.7-6c154fb3-20260723/linux-amd64/go1.26.5",
-					"block": 123939994,
+					"client": "Geth/v1.7.7/linux-amd64/go1.25.12",
+					"block": 124128818,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -557,8 +557,8 @@
 				},
 				{
 					"url": "https://bsc-dataseed1.defibit.io",
-					"client": "Geth/v1.7.7-6c154fb3-20260723/linux-amd64/go1.26.5",
-					"block": 123939994,
+					"client": "Geth/v1.7.7/linux-amd64/go1.25.12",
+					"block": 124128818,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted: 0x",
@@ -655,8 +655,8 @@
 			"witnesses": [
 				{
 					"url": "https://rpc.baseazul.dev",
-					"client": "reth/v2.5.2-5877708/x86_64-unknown-linux-gnu/base/v1.4.0",
-					"block": 51772936,
+					"client": "reth/v2.5.2-5877708/x86_64-unknown-linux-gnu/base/v1.4.2",
+					"block": 51815438,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -685,8 +685,8 @@
 				},
 				{
 					"url": "https://rpc.baseazul.dev",
-					"client": "reth/v2.5.2-5877708/x86_64-unknown-linux-gnu/base/v1.4.0",
-					"block": 51772936,
+					"client": "reth/v2.5.2-5877708/x86_64-unknown-linux-gnu/base/v1.4.2",
+					"block": 51815438,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -715,8 +715,8 @@
 				},
 				{
 					"url": "https://rpc.baseazul.dev",
-					"client": "reth/v2.5.2-5877708/x86_64-unknown-linux-gnu/base/v1.4.0",
-					"block": 51772936,
+					"client": "reth/v2.5.2-5877708/x86_64-unknown-linux-gnu/base/v1.4.2",
+					"block": 51815438,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -746,7 +746,7 @@
 				{
 					"url": "https://mainnet.base.org/",
 					"client": "reth/v2.5.2-76a8261/x86_64-unknown-linux-gnu/base/v1.3.2",
-					"block": 51772937,
+					"block": 51815439,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -776,7 +776,7 @@
 				{
 					"url": "https://mainnet.base.org/",
 					"client": "reth/v2.5.2-76a8261/x86_64-unknown-linux-gnu/base/v1.3.2",
-					"block": 51772937,
+					"block": 51815439,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -792,9 +792,9 @@
 							"grade": "executed"
 						},
 						"TLOAD": {
-							"status": "unknown",
-							"reason": "endpoint-unavailable",
-							"evidence": "over rate limit"
+							"status": "supported",
+							"evidence": "executed",
+							"grade": "executed"
 						},
 						"TSTORE": {
 							"status": "supported",
@@ -806,7 +806,7 @@
 				{
 					"url": "https://mainnet.base.org/",
 					"client": "reth/v2.5.2-76a8261/x86_64-unknown-linux-gnu/base/v1.3.2",
-					"block": 51772937,
+					"block": 51815439,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -864,7 +864,7 @@
 				"TLOAD": {
 					"status": "supported",
 					"confidence": "confirmed",
-					"witnesses": 5,
+					"witnesses": 6,
 					"operators": 2,
 					"strategies": [
 						"stateOverride",
@@ -901,7 +901,7 @@
 				{
 					"url": "https://api.trongrid.io/jsonrpc",
 					"client": "TRON/v4.8.2.2/Linux/Java1.8",
-					"block": 86554281,
+					"block": 86582608,
 					"strategy": "stateOverride",
 					"calibrated": false,
 					"rejected": "positive control rejected: method parameters invalid"
@@ -909,7 +909,7 @@
 				{
 					"url": "https://api.trongrid.io/jsonrpc",
 					"client": "TRON/v4.8.2.2/Linux/Java1.8",
-					"block": 86554281,
+					"block": 86582608,
 					"strategy": "nullTo",
 					"calibrated": false,
 					"rejected": "positive control rejected: invalid address"
@@ -917,7 +917,7 @@
 				{
 					"url": "https://api.trongrid.io/jsonrpc",
 					"client": "TRON/v4.8.2.2/Linux/Java1.8",
-					"block": 86554281,
+					"block": 86582608,
 					"strategy": "factory",
 					"calibrated": false,
 					"rejected": "strategy unavailable on this chain"
@@ -925,15 +925,15 @@
 				{
 					"url": "https://tron.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 86554281,
+					"block": null,
 					"strategy": "stateOverride",
 					"calibrated": false,
-					"rejected": "positive control unreachable: Can't route your request to suitable provider, if you specified certain providers revise the list"
+					"rejected": "positive control unreachable: the method eth_call does not exist/is not available"
 				},
 				{
 					"url": "https://tron.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 86554281,
+					"block": null,
 					"strategy": "nullTo",
 					"calibrated": false,
 					"rejected": "positive control rejected: invalid address"
@@ -941,7 +941,7 @@
 				{
 					"url": "https://tron.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 86554281,
+					"block": null,
 					"strategy": "factory",
 					"calibrated": false,
 					"rejected": "strategy unavailable on this chain"
@@ -1013,7 +1013,7 @@
 				{
 					"url": "https://rpc.hyperliquid.xyz/evm",
 					"client": "hyperliquid evm Mainnet",
-					"block": 46846757,
+					"block": 46933097,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -1043,7 +1043,7 @@
 				{
 					"url": "https://rpc.hyperliquid.xyz/evm",
 					"client": "hyperliquid evm Mainnet",
-					"block": 46846757,
+					"block": 46933097,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -1073,7 +1073,7 @@
 				{
 					"url": "https://rpc.hyperliquid.xyz/evm",
 					"client": "hyperliquid evm Mainnet",
-					"block": 46846757,
+					"block": 46933097,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -1103,7 +1103,7 @@
 				{
 					"url": "https://rpc.hypurrscan.io",
 					"client": "hyperliquid evm Mainnet",
-					"block": 46846761,
+					"block": 46933100,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -1133,7 +1133,7 @@
 				{
 					"url": "https://rpc.hypurrscan.io",
 					"client": "hyperliquid evm Mainnet",
-					"block": 46846761,
+					"block": 46933100,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -1163,7 +1163,7 @@
 				{
 					"url": "https://rpc.hypurrscan.io",
 					"client": "hyperliquid evm Mainnet",
-					"block": 46846761,
+					"block": 46933100,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -1261,8 +1261,8 @@
 			"witnesses": [
 				{
 					"url": "https://arb1.arbitrum.io/rpc",
-					"client": "nitro/v3.12.0-rc.3+ebe9e83-20260916T211740Z/linux-arm64/go1.25.12",
-					"block": 508746441,
+					"client": "nitro/v3.12.0-rc.3+ebe9e83-20260916T211740Z/linux-amd64/go1.25.12",
+					"block": 509060324,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -1291,8 +1291,8 @@
 				},
 				{
 					"url": "https://arb1.arbitrum.io/rpc",
-					"client": "nitro/v3.12.0-rc.3+ebe9e83-20260916T211740Z/linux-arm64/go1.25.12",
-					"block": 508746441,
+					"client": "nitro/v3.12.0-rc.3+ebe9e83-20260916T211740Z/linux-amd64/go1.25.12",
+					"block": 509060324,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -1321,8 +1321,8 @@
 				},
 				{
 					"url": "https://arb1.arbitrum.io/rpc",
-					"client": "nitro/v3.12.0-rc.3+ebe9e83-20260916T211740Z/linux-arm64/go1.25.12",
-					"block": 508746441,
+					"client": "nitro/v3.12.0-rc.3+ebe9e83-20260916T211740Z/linux-amd64/go1.25.12",
+					"block": 509060324,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -1352,7 +1352,7 @@
 				{
 					"url": "https://arbitrum-one-rpc.publicnode.com",
 					"client": "nitro/v3599aca-modified/linux-amd64/go1.25.12",
-					"block": 508746449,
+					"block": 509060328,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -1382,7 +1382,7 @@
 				{
 					"url": "https://arbitrum-one-rpc.publicnode.com",
 					"client": "nitro/v3599aca-modified/linux-amd64/go1.25.12",
-					"block": 508746449,
+					"block": 509060328,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -1412,7 +1412,7 @@
 				{
 					"url": "https://arbitrum-one-rpc.publicnode.com",
 					"client": "nitro/v3599aca-modified/linux-amd64/go1.25.12",
-					"block": 508746449,
+					"block": 509060328,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -1508,7 +1508,7 @@
 				{
 					"url": "https://rpc.monad.xyz",
 					"client": "Monad/0.16.2",
-					"block": 107879518,
+					"block": 108161000,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -1538,7 +1538,7 @@
 				{
 					"url": "https://rpc.monad.xyz",
 					"client": "Monad/0.16.2",
-					"block": 107879518,
+					"block": 108161000,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -1568,7 +1568,7 @@
 				{
 					"url": "https://rpc.monad.xyz",
 					"client": "Monad/0.16.2",
-					"block": 107879518,
+					"block": 108161000,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -1598,7 +1598,7 @@
 				{
 					"url": "https://monad.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 107879521,
+					"block": 108161003,
 					"strategy": "stateOverride",
 					"calibrated": false,
 					"rejected": "positive control unreachable: user-specified gas exceeds provider limit"
@@ -1606,7 +1606,7 @@
 				{
 					"url": "https://monad.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 107879521,
+					"block": 108161003,
 					"strategy": "nullTo",
 					"calibrated": false,
 					"rejected": "positive control unreachable: user-specified gas exceeds provider limit"
@@ -1614,15 +1614,15 @@
 				{
 					"url": "https://monad.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 107879521,
+					"block": 108161003,
 					"strategy": "factory",
 					"calibrated": false,
-					"rejected": "positive control unreachable: the method eth_call does not exist/is not available"
+					"rejected": "positive control unreachable: user-specified gas exceeds provider limit"
 				},
 				{
 					"url": "https://143.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 107879707,
+					"block": 108161176,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -1652,7 +1652,7 @@
 				{
 					"url": "https://143.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 107879707,
+					"block": 108161176,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -1682,7 +1682,7 @@
 				{
 					"url": "https://143.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 107879707,
+					"block": 108161176,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -1778,8 +1778,8 @@
 			"witnesses": [
 				{
 					"url": "https://rpc-mainnet.matic.quiknode.pro",
-					"client": "bor/matic-mainnet-full-polygon-ora-iad-h00/v2.10.1/linux-amd64/go1.26.5",
-					"block": 94420060,
+					"client": "bor/matic-mainnet-full-polygon-ora-iad-i04/v2.10.1/linux-amd64/go1.26.5",
+					"block": 94476728,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -1808,8 +1808,8 @@
 				},
 				{
 					"url": "https://rpc-mainnet.matic.quiknode.pro",
-					"client": "bor/matic-mainnet-full-polygon-ora-iad-h00/v2.10.1/linux-amd64/go1.26.5",
-					"block": 94420060,
+					"client": "bor/matic-mainnet-full-polygon-ora-iad-i04/v2.10.1/linux-amd64/go1.26.5",
+					"block": 94476728,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -1838,8 +1838,8 @@
 				},
 				{
 					"url": "https://rpc-mainnet.matic.quiknode.pro",
-					"client": "bor/matic-mainnet-full-polygon-ora-iad-h00/v2.10.1/linux-amd64/go1.26.5",
-					"block": 94420060,
+					"client": "bor/matic-mainnet-full-polygon-ora-iad-i04/v2.10.1/linux-amd64/go1.26.5",
+					"block": 94476728,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -1869,7 +1869,7 @@
 				{
 					"url": "https://polygon.gateway.tenderly.co",
 					"client": "Tenderly/1.0",
-					"block": 94420061,
+					"block": 94476729,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -1899,7 +1899,7 @@
 				{
 					"url": "https://polygon.gateway.tenderly.co",
 					"client": "Tenderly/1.0",
-					"block": 94420061,
+					"block": 94476729,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -1929,7 +1929,7 @@
 				{
 					"url": "https://polygon.gateway.tenderly.co",
 					"client": "Tenderly/1.0",
-					"block": 94420061,
+					"block": 94476729,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -2024,7 +2024,7 @@
 				{
 					"url": "https://rpc.plasma.to",
 					"client": "reth/v1.11.3-d6324d6/x86_64-unknown-linux-gnu",
-					"block": 33394297,
+					"block": 33479300,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -2054,7 +2054,7 @@
 				{
 					"url": "https://rpc.plasma.to",
 					"client": "reth/v1.11.3-d6324d6/x86_64-unknown-linux-gnu",
-					"block": 33394297,
+					"block": 33479300,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -2084,7 +2084,7 @@
 				{
 					"url": "https://rpc.plasma.to",
 					"client": "reth/v1.11.3-d6324d6/x86_64-unknown-linux-gnu",
-					"block": 33394297,
+					"block": 33479300,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -2114,7 +2114,7 @@
 				{
 					"url": "https://9745.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 33394298,
+					"block": 33479301,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -2144,7 +2144,7 @@
 				{
 					"url": "https://9745.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 33394298,
+					"block": 33479301,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -2174,7 +2174,7 @@
 				{
 					"url": "https://9745.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 33394298,
+					"block": 33479301,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -2268,7 +2268,7 @@
 				{
 					"url": "https://rpc.mainnet.chain.robinhood.com",
 					"client": "nitro/v3.12.0-rc.3+ebe9e83-20260916T211740Z/linux-amd64/go1.25.12",
-					"block": 72186393,
+					"block": 73028640,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -2298,7 +2298,7 @@
 				{
 					"url": "https://rpc.mainnet.chain.robinhood.com",
 					"client": "nitro/v3.12.0-rc.3+ebe9e83-20260916T211740Z/linux-amd64/go1.25.12",
-					"block": 72186393,
+					"block": 73028640,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -2328,7 +2328,7 @@
 				{
 					"url": "https://rpc.mainnet.chain.robinhood.com",
 					"client": "nitro/v3.12.0-rc.3+ebe9e83-20260916T211740Z/linux-amd64/go1.25.12",
-					"block": 72186393,
+					"block": 73028640,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -2419,7 +2419,7 @@
 				{
 					"url": "https://api.avax.network/ext/bc/C/rpc",
 					"client": "avalanchego/1.15.1 [database=v1.4.5, rpcchainvm=46, commit=e52991468c34ec624f2503c07a1ed13eb86ce376, go=1.25.10]",
-					"block": 96120968,
+					"block": 96188996,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -2449,7 +2449,7 @@
 				{
 					"url": "https://api.avax.network/ext/bc/C/rpc",
 					"client": "avalanchego/1.15.1 [database=v1.4.5, rpcchainvm=46, commit=e52991468c34ec624f2503c07a1ed13eb86ce376, go=1.25.10]",
-					"block": 96120968,
+					"block": 96188996,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -2479,7 +2479,7 @@
 				{
 					"url": "https://api.avax.network/ext/bc/C/rpc",
 					"client": "avalanchego/1.15.1 [database=v1.4.5, rpcchainvm=46, commit=e52991468c34ec624f2503c07a1ed13eb86ce376, go=1.25.10]",
-					"block": 96120968,
+					"block": 96188996,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -2509,7 +2509,7 @@
 				{
 					"url": "https://avalanche-c-chain-rpc.publicnode.com",
 					"client": "avalanchego/1.15.0 [database=v1.4.5, rpcchainvm=46, commit=70bd6d063b7343fd2cd8217200aaf77b57f19f68, go=1.25.14]",
-					"block": 96120972,
+					"block": 96189000,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -2539,7 +2539,7 @@
 				{
 					"url": "https://avalanche-c-chain-rpc.publicnode.com",
 					"client": "avalanchego/1.15.0 [database=v1.4.5, rpcchainvm=46, commit=70bd6d063b7343fd2cd8217200aaf77b57f19f68, go=1.25.14]",
-					"block": 96120972,
+					"block": 96189000,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -2569,7 +2569,7 @@
 				{
 					"url": "https://avalanche-c-chain-rpc.publicnode.com",
 					"client": "avalanchego/1.15.0 [database=v1.4.5, rpcchainvm=46, commit=70bd6d063b7343fd2cd8217200aaf77b57f19f68, go=1.25.14]",
-					"block": 96120972,
+					"block": 96189000,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -2666,7 +2666,7 @@
 				{
 					"url": "https://mainnet.optimism.io",
 					"client": "op-reth/v2.4.2-f863ff4c/x86_64-linux",
-					"block": 157368233,
+					"block": 157410733,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -2696,7 +2696,7 @@
 				{
 					"url": "https://mainnet.optimism.io",
 					"client": "op-reth/v2.4.2-f863ff4c/x86_64-linux",
-					"block": 157368233,
+					"block": 157410733,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -2726,7 +2726,7 @@
 				{
 					"url": "https://mainnet.optimism.io",
 					"client": "op-reth/v2.4.2-f863ff4c/x86_64-linux",
-					"block": 157368233,
+					"block": 157410733,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -2756,7 +2756,7 @@
 				{
 					"url": "https://optimism.gateway.tenderly.co",
 					"client": "Tenderly/1.0",
-					"block": 157368234,
+					"block": 157410735,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -2786,7 +2786,7 @@
 				{
 					"url": "https://optimism.gateway.tenderly.co",
 					"client": "Tenderly/1.0",
-					"block": 157368234,
+					"block": 157410735,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -2816,7 +2816,7 @@
 				{
 					"url": "https://optimism.gateway.tenderly.co",
 					"client": "Tenderly/1.0",
-					"block": 157368234,
+					"block": 157410735,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -2912,7 +2912,7 @@
 				{
 					"url": "https://evm.cronos.org",
 					"client": "Version dev ()\nCompiled at  using Go go1.25.0 (arm64)",
-					"block": 96072642,
+					"block": 96273432,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "rpc error: code = Internal desc = invalid opcode: opcode 0xc not defined",
@@ -2942,7 +2942,7 @@
 				{
 					"url": "https://evm.cronos.org",
 					"client": "Version dev ()\nCompiled at  using Go go1.25.0 (arm64)",
-					"block": 96072642,
+					"block": 96273432,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "rpc error: code = Internal desc = invalid opcode: opcode 0xc not defined",
@@ -2972,7 +2972,7 @@
 				{
 					"url": "https://evm.cronos.org",
 					"client": "Version dev ()\nCompiled at  using Go go1.25.0 (arm64)",
-					"block": 96072642,
+					"block": 96273432,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -3002,7 +3002,7 @@
 				{
 					"url": "https://cronos-evm-rpc.publicnode.com",
 					"client": "Version dev ()\nCompiled at  using Go go1.25.11 (amd64)",
-					"block": 96072649,
+					"block": 96273438,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "rpc error: code = Internal desc = invalid opcode: opcode 0xc not defined",
@@ -3032,7 +3032,7 @@
 				{
 					"url": "https://cronos-evm-rpc.publicnode.com",
 					"client": "Version dev ()\nCompiled at  using Go go1.25.11 (amd64)",
-					"block": 96072649,
+					"block": 96273438,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "rpc error: code = Internal desc = invalid opcode: opcode 0xc not defined",
@@ -3062,7 +3062,7 @@
 				{
 					"url": "https://cronos-evm-rpc.publicnode.com",
 					"client": "Version dev ()\nCompiled at  using Go go1.25.11 (amd64)",
-					"block": 96072649,
+					"block": 96273438,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -3157,7 +3157,7 @@
 				{
 					"url": "https://rpc.anubispace.org",
 					"client": "Geth/v1.0.1-48a956cb-20260418/linux-amd64/go1.26.1",
-					"block": 14806042,
+					"block": 14891015,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -3187,7 +3187,7 @@
 				{
 					"url": "https://rpc.anubispace.org",
 					"client": "Geth/v1.0.1-48a956cb-20260418/linux-amd64/go1.26.1",
-					"block": 14806042,
+					"block": 14891015,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -3217,7 +3217,7 @@
 				{
 					"url": "https://rpc.anubispace.org",
 					"client": "Geth/v1.0.1-48a956cb-20260418/linux-amd64/go1.26.1",
-					"block": 14806042,
+					"block": 14891015,
 					"strategy": "factory",
 					"calibrated": false,
 					"rejected": "strategy unavailable on this chain"
@@ -3225,7 +3225,7 @@
 				{
 					"url": "https://rpc2.anubispace.org",
 					"client": "Geth/v1.0.1-1ee6f5dd-20260520/linux-amd64/go1.26.1",
-					"block": 14806045,
+					"block": 14891020,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -3255,7 +3255,7 @@
 				{
 					"url": "https://rpc2.anubispace.org",
 					"client": "Geth/v1.0.1-1ee6f5dd-20260520/linux-amd64/go1.26.1",
-					"block": 14806045,
+					"block": 14891020,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -3285,7 +3285,7 @@
 				{
 					"url": "https://rpc2.anubispace.org",
 					"client": "Geth/v1.0.1-1ee6f5dd-20260520/linux-amd64/go1.26.1",
-					"block": 14806045,
+					"block": 14891020,
 					"strategy": "factory",
 					"calibrated": false,
 					"rejected": "strategy unavailable on this chain"
@@ -3352,7 +3352,7 @@
 				{
 					"url": "https://rpc-gel.inkonchain.com",
 					"client": "op-reth/v2.4.4-rc.1-7e167ae2/x86_64-linux",
-					"block": 56836839,
+					"block": 56921839,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -3382,7 +3382,7 @@
 				{
 					"url": "https://rpc-gel.inkonchain.com",
 					"client": "op-reth/v2.4.4-rc.1-7e167ae2/x86_64-linux",
-					"block": 56836839,
+					"block": 56921839,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -3412,7 +3412,7 @@
 				{
 					"url": "https://rpc-gel.inkonchain.com",
 					"client": "op-reth/v2.4.4-rc.1-7e167ae2/x86_64-linux",
-					"block": 56836839,
+					"block": 56921839,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -3442,7 +3442,7 @@
 				{
 					"url": "https://ink.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 56836843,
+					"block": 56921843,
 					"strategy": "stateOverride",
 					"calibrated": false,
 					"rejected": "positive control unreachable: Can't route your request to suitable provider, if you specified certain providers revise the list"
@@ -3450,7 +3450,7 @@
 				{
 					"url": "https://ink.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 56836843,
+					"block": 56921843,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -3480,7 +3480,7 @@
 				{
 					"url": "https://ink.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 56836843,
+					"block": 56921843,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -3577,7 +3577,7 @@
 				{
 					"url": "https://rpc.au.cc/flare",
 					"client": "v0.15.4",
-					"block": 70596844,
+					"block": 70671933,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -3607,7 +3607,7 @@
 				{
 					"url": "https://rpc.au.cc/flare",
 					"client": "v0.15.4",
-					"block": 70596844,
+					"block": 70671933,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -3637,7 +3637,7 @@
 				{
 					"url": "https://rpc.au.cc/flare",
 					"client": "v0.15.4",
-					"block": 70596844,
+					"block": 70671933,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -3667,7 +3667,7 @@
 				{
 					"url": "https://flare-api.flare.network/ext/C/rpc",
 					"client": "v0.15.4",
-					"block": 70596851,
+					"block": 70671939,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -3697,7 +3697,7 @@
 				{
 					"url": "https://flare-api.flare.network/ext/C/rpc",
 					"client": "v0.15.4",
-					"block": 70596851,
+					"block": 70671939,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -3727,7 +3727,7 @@
 				{
 					"url": "https://flare-api.flare.network/ext/C/rpc",
 					"client": "v0.15.4",
-					"block": 70596851,
+					"block": 70671939,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -3826,7 +3826,7 @@
 				{
 					"url": "https://xlayerrpc.okx.com",
 					"client": "reth/v1.10.2-5101851/x86_64-unknown-linux-gnu/xlayer/v0.1.0",
-					"block": 71566221,
+					"block": 71651232,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -3838,7 +3838,7 @@
 						},
 						"CLZ": {
 							"status": "unsupported",
-							"evidence": "EVM error: NotActivated",
+							"evidence": "invalid opcode: CLZ",
 							"grade": "specific"
 						},
 						"TLOAD": {
@@ -3856,10 +3856,10 @@
 				{
 					"url": "https://xlayerrpc.okx.com",
 					"client": "reth/v1.10.2-5101851/x86_64-unknown-linux-gnu/xlayer/v0.1.0",
-					"block": 71566221,
+					"block": 71651232,
 					"strategy": "nullTo",
 					"calibrated": true,
-					"rejectionExample": "EVM error: OpcodeNotFound",
+					"rejectionExample": "invalid opcode: opcode 0xc not defined",
 					"opcodes": {
 						"PUSH0": {
 							"status": "supported",
@@ -3886,7 +3886,7 @@
 				{
 					"url": "https://xlayerrpc.okx.com",
 					"client": "reth/v1.10.2-5101851/x86_64-unknown-linux-gnu/xlayer/v0.1.0",
-					"block": 71566221,
+					"block": 71651232,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -3915,11 +3915,11 @@
 				},
 				{
 					"url": "https://rpc.xlayer.tech",
-					"client": "reth/v1.10.2-5101851/x86_64-unknown-linux-gnu/xlayer/v0.1.0",
-					"block": 71566226,
+					"client": "Geth/rpc-out/v0.1.0-untagged-997cccde-20260617/linux-amd64/go1.24.4",
+					"block": 71651236,
 					"strategy": "stateOverride",
 					"calibrated": true,
-					"rejectionExample": "EVM error: OpcodeNotFound",
+					"rejectionExample": "invalid opcode: opcode 0xc not defined",
 					"opcodes": {
 						"PUSH0": {
 							"status": "supported",
@@ -3928,7 +3928,7 @@
 						},
 						"CLZ": {
 							"status": "unsupported",
-							"evidence": "invalid opcode: CLZ",
+							"evidence": "EVM error: NotActivated",
 							"grade": "specific"
 						},
 						"TLOAD": {
@@ -3945,11 +3945,11 @@
 				},
 				{
 					"url": "https://rpc.xlayer.tech",
-					"client": "reth/v1.10.2-5101851/x86_64-unknown-linux-gnu/xlayer/v0.1.0",
-					"block": 71566226,
+					"client": "Geth/rpc-out/v0.1.0-untagged-997cccde-20260617/linux-amd64/go1.24.4",
+					"block": 71651236,
 					"strategy": "nullTo",
 					"calibrated": true,
-					"rejectionExample": "EVM error: OpcodeNotFound",
+					"rejectionExample": "invalid opcode: opcode 0xc not defined",
 					"opcodes": {
 						"PUSH0": {
 							"status": "supported",
@@ -3958,7 +3958,7 @@
 						},
 						"CLZ": {
 							"status": "unsupported",
-							"evidence": "invalid opcode: CLZ",
+							"evidence": "EVM error: NotActivated",
 							"grade": "specific"
 						},
 						"TLOAD": {
@@ -3975,8 +3975,8 @@
 				},
 				{
 					"url": "https://rpc.xlayer.tech",
-					"client": "reth/v1.10.2-5101851/x86_64-unknown-linux-gnu/xlayer/v0.1.0",
-					"block": 71566226,
+					"client": "Geth/rpc-out/v0.1.0-untagged-997cccde-20260617/linux-amd64/go1.24.4",
+					"block": 71651236,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -4015,7 +4015,6 @@
 						"nullTo",
 						"factory"
 					],
-					"sharedClient": true,
 					"evidence": "executed",
 					"grade": "executed"
 				},
@@ -4029,8 +4028,7 @@
 						"nullTo",
 						"factory"
 					],
-					"sharedClient": true,
-					"evidence": "EVM error: NotActivated",
+					"evidence": "invalid opcode: CLZ",
 					"grade": "specific"
 				},
 				"TLOAD": {
@@ -4043,7 +4041,6 @@
 						"nullTo",
 						"factory"
 					],
-					"sharedClient": true,
 					"evidence": "executed",
 					"grade": "executed"
 				},
@@ -4057,7 +4054,6 @@
 						"nullTo",
 						"factory"
 					],
-					"sharedClient": true,
 					"evidence": "executed",
 					"grade": "executed"
 				}
@@ -4076,7 +4072,7 @@
 				{
 					"url": "https://rpc-pulsechain.g4mm4.io",
 					"client": "erigon/2.4.0/linux-amd64/go1.20.12",
-					"block": 27635237,
+					"block": 27643516,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -4106,7 +4102,7 @@
 				{
 					"url": "https://rpc-pulsechain.g4mm4.io",
 					"client": "erigon/2.4.0/linux-amd64/go1.20.12",
-					"block": 27635237,
+					"block": 27643516,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -4136,7 +4132,7 @@
 				{
 					"url": "https://rpc-pulsechain.g4mm4.io",
 					"client": "erigon/2.4.0/linux-amd64/go1.20.12",
-					"block": 27635237,
+					"block": 27643516,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -4166,7 +4162,7 @@
 				{
 					"url": "https://rpc.pulsechain.com",
 					"client": "erigon/2.4.1/linux-amd64/go1.20.12",
-					"block": 27635237,
+					"block": 27643516,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -4196,7 +4192,7 @@
 				{
 					"url": "https://rpc.pulsechain.com",
 					"client": "erigon/2.4.1/linux-amd64/go1.20.12",
-					"block": 27635237,
+					"block": 27643516,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -4226,7 +4222,7 @@
 				{
 					"url": "https://rpc.pulsechain.com",
 					"client": "erigon/2.4.1/linux-amd64/go1.20.12",
-					"block": 27635237,
+					"block": 27643516,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -4324,7 +4320,7 @@
 				{
 					"url": "https://rpc.gnosis.gateway.fm",
 					"client": "Tenderly/1.0",
-					"block": 48430608,
+					"block": 48447303,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -4354,7 +4350,7 @@
 				{
 					"url": "https://rpc.gnosis.gateway.fm",
 					"client": "Tenderly/1.0",
-					"block": 48430608,
+					"block": 48447303,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -4384,7 +4380,7 @@
 				{
 					"url": "https://rpc.gnosis.gateway.fm",
 					"client": "Tenderly/1.0",
-					"block": 48430608,
+					"block": 48447303,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -4414,7 +4410,7 @@
 				{
 					"url": "https://rpc.gnosischain.com",
 					"client": "Tenderly/1.0",
-					"block": 48430610,
+					"block": 48447304,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -4444,7 +4440,7 @@
 				{
 					"url": "https://rpc.gnosischain.com",
 					"client": "Tenderly/1.0",
-					"block": 48430610,
+					"block": 48447304,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -4474,7 +4470,7 @@
 				{
 					"url": "https://rpc.gnosischain.com",
 					"client": "Tenderly/1.0",
-					"block": 48430610,
+					"block": 48447304,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -4575,7 +4571,7 @@
 				{
 					"url": "https://public-node.rsk.co",
 					"client": "RskJ/9.0.3/Linux/Java17/VETIVER-c19cf12",
-					"block": 9270316,
+					"block": 9273118,
 					"strategy": "stateOverride",
 					"calibrated": false,
 					"rejected": "positive control rejected: State override is not allowed"
@@ -4583,7 +4579,7 @@
 				{
 					"url": "https://public-node.rsk.co",
 					"client": "RskJ/9.0.3/Linux/Java17/VETIVER-c19cf12",
-					"block": 9270316,
+					"block": 9273118,
 					"strategy": "nullTo",
 					"calibrated": false,
 					"rejected": "negative control succeeded, endpoint does not execute the code"
@@ -4591,7 +4587,7 @@
 				{
 					"url": "https://public-node.rsk.co",
 					"client": "RskJ/9.0.3/Linux/Java17/VETIVER-c19cf12",
-					"block": 9270316,
+					"block": 9273118,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "empty return",
@@ -4621,7 +4617,7 @@
 				{
 					"url": "https://rootstock.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 9270316,
+					"block": 9273118,
 					"strategy": "stateOverride",
 					"calibrated": false,
 					"rejected": "positive control unreachable: Can't route your request to suitable provider, if you specified certain providers revise the list"
@@ -4629,7 +4625,7 @@
 				{
 					"url": "https://rootstock.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 9270316,
+					"block": 9273118,
 					"strategy": "nullTo",
 					"calibrated": false,
 					"rejected": "negative control succeeded, endpoint does not execute the code"
@@ -4637,7 +4633,7 @@
 				{
 					"url": "https://rootstock.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 9270316,
+					"block": 9273118,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "empty return",
@@ -4724,7 +4720,7 @@
 				{
 					"url": "https://rpc.mantle.xyz",
 					"client": "Geth/v1.17.3-stable-e5fa26ca/linux-amd64/go1.26.8",
-					"block": 101102479,
+					"block": 101144982,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -4754,7 +4750,7 @@
 				{
 					"url": "https://rpc.mantle.xyz",
 					"client": "Geth/v1.17.3-stable-e5fa26ca/linux-amd64/go1.26.8",
-					"block": 101102479,
+					"block": 101144982,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -4784,7 +4780,7 @@
 				{
 					"url": "https://rpc.mantle.xyz",
 					"client": "Geth/v1.17.3-stable-e5fa26ca/linux-amd64/go1.26.8",
-					"block": 101102479,
+					"block": 101144982,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -4814,7 +4810,7 @@
 				{
 					"url": "https://mantle-rpc.publicnode.com",
 					"client": "Geth/v1.17.3-stable-e33cd26c/linux-amd64/go1.24.13",
-					"block": 101102485,
+					"block": 101144986,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -4844,7 +4840,7 @@
 				{
 					"url": "https://mantle-rpc.publicnode.com",
 					"client": "Geth/v1.17.3-stable-e33cd26c/linux-amd64/go1.24.13",
-					"block": 101102485,
+					"block": 101144986,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -4874,7 +4870,7 @@
 				{
 					"url": "https://mantle-rpc.publicnode.com",
 					"client": "Geth/v1.17.3-stable-e33cd26c/linux-amd64/go1.24.13",
-					"block": 101102485,
+					"block": 101144986,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -4970,7 +4966,7 @@
 				{
 					"url": "https://mezo-mainnet.boar.network",
 					"client": "Mezod/13.0.0/amd64/go1.24.0",
-					"block": 12088468,
+					"block": 12109275,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "rpc error: code = Internal desc = invalid opcode: opcode 0xc not defined",
@@ -5000,7 +4996,7 @@
 				{
 					"url": "https://mezo-mainnet.boar.network",
 					"client": "Mezod/13.0.0/amd64/go1.24.0",
-					"block": 12088468,
+					"block": 12109275,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "rpc error: code = Internal desc = invalid opcode: opcode 0xc not defined",
@@ -5030,7 +5026,7 @@
 				{
 					"url": "https://mezo-mainnet.boar.network",
 					"client": "Mezod/13.0.0/amd64/go1.24.0",
-					"block": 12088468,
+					"block": 12109275,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -5060,7 +5056,7 @@
 				{
 					"url": "https://rpc-internal.mezo.org",
 					"client": "Mezod/13.0.0/amd64/go1.24.0",
-					"block": 12088469,
+					"block": 12109275,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "rpc error: code = Internal desc = invalid opcode: opcode 0xc not defined",
@@ -5090,7 +5086,7 @@
 				{
 					"url": "https://rpc-internal.mezo.org",
 					"client": "Mezod/13.0.0/amd64/go1.24.0",
-					"block": 12088469,
+					"block": 12109275,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "rpc error: code = Internal desc = invalid opcode: opcode 0xc not defined",
@@ -5120,7 +5116,7 @@
 				{
 					"url": "https://rpc-internal.mezo.org",
 					"client": "Mezod/13.0.0/amd64/go1.24.0",
-					"block": 12088469,
+					"block": 12109275,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -5220,7 +5216,7 @@
 				{
 					"url": "https://rpc.katana.network",
 					"client": "Tenderly/1.0",
-					"block": 43592473,
+					"block": 43677472,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -5250,7 +5246,7 @@
 				{
 					"url": "https://rpc.katana.network",
 					"client": "Tenderly/1.0",
-					"block": 43592473,
+					"block": 43677472,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -5280,10 +5276,10 @@
 				{
 					"url": "https://rpc.katana.network",
 					"client": "Tenderly/1.0",
-					"block": 43592473,
+					"block": 43677472,
 					"strategy": "factory",
 					"calibrated": true,
-					"rejectionExample": "rate-limit exceeded",
+					"rejectionExample": "execution reverted",
 					"opcodes": {
 						"PUSH0": {
 							"status": "supported",
@@ -5296,21 +5292,21 @@
 							"grade": "executed"
 						},
 						"TLOAD": {
-							"status": "supported",
-							"evidence": "executed",
-							"grade": "executed"
+							"status": "unknown",
+							"reason": "unattributable-error",
+							"evidence": "rate-limit exceeded"
 						},
 						"TSTORE": {
-							"status": "supported",
-							"evidence": "executed",
-							"grade": "executed"
+							"status": "unknown",
+							"reason": "unattributable-error",
+							"evidence": "rate-limit exceeded"
 						}
 					}
 				},
 				{
 					"url": "https://rpc.katanarpc.com/",
 					"client": "conduit-op-reth/v2.3.0-711ad0d/x86_64-unknown-linux-gnu",
-					"block": 43592481,
+					"block": 43677479,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -5340,7 +5336,7 @@
 				{
 					"url": "https://rpc.katanarpc.com/",
 					"client": "conduit-op-reth/v2.3.0-711ad0d/x86_64-unknown-linux-gnu",
-					"block": 43592481,
+					"block": 43677479,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -5370,7 +5366,7 @@
 				{
 					"url": "https://rpc.katanarpc.com/",
 					"client": "conduit-op-reth/v2.3.0-711ad0d/x86_64-unknown-linux-gnu",
-					"block": 43592481,
+					"block": 43677479,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -5428,7 +5424,7 @@
 				"TLOAD": {
 					"status": "supported",
 					"confidence": "confirmed",
-					"witnesses": 6,
+					"witnesses": 5,
 					"operators": 2,
 					"strategies": [
 						"stateOverride",
@@ -5441,7 +5437,7 @@
 				"TSTORE": {
 					"status": "supported",
 					"confidence": "confirmed",
-					"witnesses": 6,
+					"witnesses": 5,
 					"operators": 2,
 					"strategies": [
 						"stateOverride",
@@ -5465,8 +5461,8 @@
 			"witnesses": [
 				{
 					"url": "https://mainnet.megaeth.com/rpc",
-					"client": "mega-reth/v2.2.1-7d0dbf3@mnet-ore-rpc-2",
-					"block": 27538275,
+					"client": "mega-reth/v2.2.1-7d0dbf3@mnet-ash-rpc-2",
+					"block": 27623275,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -5495,8 +5491,8 @@
 				},
 				{
 					"url": "https://mainnet.megaeth.com/rpc",
-					"client": "mega-reth/v2.2.1-7d0dbf3@mnet-ore-rpc-2",
-					"block": 27538275,
+					"client": "mega-reth/v2.2.1-7d0dbf3@mnet-ash-rpc-2",
+					"block": 27623275,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -5525,8 +5521,8 @@
 				},
 				{
 					"url": "https://mainnet.megaeth.com/rpc",
-					"client": "mega-reth/v2.2.1-7d0dbf3@mnet-ore-rpc-2",
-					"block": 27538275,
+					"client": "mega-reth/v2.2.1-7d0dbf3@mnet-ash-rpc-2",
+					"block": 27623275,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -5556,7 +5552,7 @@
 				{
 					"url": "https://megaeth.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 27538278,
+					"block": 27623276,
 					"strategy": "stateOverride",
 					"calibrated": false,
 					"rejected": "positive control unreachable: Can't route your request to suitable provider, if you specified certain providers revise the list"
@@ -5564,7 +5560,7 @@
 				{
 					"url": "https://megaeth.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 27538278,
+					"block": 27623276,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -5594,7 +5590,7 @@
 				{
 					"url": "https://megaeth.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 27538278,
+					"block": 27623276,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -5690,7 +5686,7 @@
 				{
 					"url": "https://rpc.tempo.xyz",
 					"client": "tempo/v1.15.0-464e519/x86_64-unknown-linux-gnu",
-					"block": 41170382,
+					"block": 41322659,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -5720,7 +5716,7 @@
 				{
 					"url": "https://rpc.tempo.xyz",
 					"client": "tempo/v1.15.0-464e519/x86_64-unknown-linux-gnu",
-					"block": 41170382,
+					"block": 41322659,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -5750,7 +5746,7 @@
 				{
 					"url": "https://rpc.tempo.xyz",
 					"client": "tempo/v1.15.0-464e519/x86_64-unknown-linux-gnu",
-					"block": 41170382,
+					"block": 41322659,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -5780,7 +5776,7 @@
 				{
 					"url": "https://tempo.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 41170385,
+					"block": 41322661,
 					"strategy": "stateOverride",
 					"calibrated": false,
 					"rejected": "positive control unreachable: Can't route your request to suitable provider, if you specified certain providers revise the list"
@@ -5788,7 +5784,7 @@
 				{
 					"url": "https://tempo.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 41170385,
+					"block": 41322661,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -5818,7 +5814,7 @@
 				{
 					"url": "https://tempo.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 41170385,
+					"block": 41322661,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -5914,7 +5910,7 @@
 				{
 					"url": "https://rpc.stable.xyz",
 					"client": "Version dev ()\nCompiled at  using Go go1.25.0 (amd64)",
-					"block": 40688781,
+					"block": 40809085,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "rpc error: code = Internal desc = invalid opcode: opcode 0xc not defined",
@@ -5944,7 +5940,7 @@
 				{
 					"url": "https://rpc.stable.xyz",
 					"client": "Version dev ()\nCompiled at  using Go go1.25.0 (amd64)",
-					"block": 40688781,
+					"block": 40809085,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "rpc error: code = Internal desc = invalid opcode: opcode 0xc not defined",
@@ -5974,7 +5970,7 @@
 				{
 					"url": "https://rpc.stable.xyz",
 					"client": "Version dev ()\nCompiled at  using Go go1.25.0 (amd64)",
-					"block": 40688781,
+					"block": 40809085,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -6004,15 +6000,61 @@
 				{
 					"url": "https://stable.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 40688787,
+					"block": 40809090,
 					"strategy": "stateOverride",
 					"calibrated": false,
-					"rejected": "positive control unreachable: Can't route your request to suitable provider, if you specified certain providers revise the list"
+					"rejected": "positive control unreachable: the method eth_call does not exist/is not available"
 				},
 				{
 					"url": "https://stable.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 40688787,
+					"block": 40809090,
+					"strategy": "nullTo",
+					"calibrated": false,
+					"rejected": "positive control unreachable: the method eth_call does not exist/is not available"
+				},
+				{
+					"url": "https://stable.drpc.org",
+					"client": "Geth/v10.0.0/drpc",
+					"block": 40809090,
+					"strategy": "factory",
+					"calibrated": false,
+					"rejected": "positive control unreachable: the method eth_call does not exist/is not available"
+				},
+				{
+					"url": "https://988.rpc.thirdweb.com",
+					"client": "thirdweb/1.0",
+					"block": 40809164,
+					"strategy": "stateOverride",
+					"calibrated": true,
+					"rejectionExample": "rpc error: code = Internal desc = invalid opcode: opcode 0xc not defined",
+					"opcodes": {
+						"PUSH0": {
+							"status": "supported",
+							"evidence": "executed",
+							"grade": "executed"
+						},
+						"CLZ": {
+							"status": "supported",
+							"evidence": "executed",
+							"grade": "executed"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed",
+							"grade": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed",
+							"grade": "executed"
+						}
+					}
+				},
+				{
+					"url": "https://988.rpc.thirdweb.com",
+					"client": "thirdweb/1.0",
+					"block": 40809164,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "rpc error: code = Internal desc = invalid opcode: opcode 0xc not defined",
@@ -6040,9 +6082,9 @@
 					}
 				},
 				{
-					"url": "https://stable.drpc.org",
-					"client": "Geth/v10.0.0/drpc",
-					"block": 40688787,
+					"url": "https://988.rpc.thirdweb.com",
+					"client": "thirdweb/1.0",
+					"block": 40809164,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -6074,7 +6116,7 @@
 				"PUSH0": {
 					"status": "supported",
 					"confidence": "confirmed",
-					"witnesses": 5,
+					"witnesses": 6,
 					"operators": 2,
 					"strategies": [
 						"stateOverride",
@@ -6087,7 +6129,7 @@
 				"CLZ": {
 					"status": "supported",
 					"confidence": "confirmed",
-					"witnesses": 5,
+					"witnesses": 6,
 					"operators": 2,
 					"strategies": [
 						"stateOverride",
@@ -6100,7 +6142,7 @@
 				"TLOAD": {
 					"status": "supported",
 					"confidence": "confirmed",
-					"witnesses": 5,
+					"witnesses": 6,
 					"operators": 2,
 					"strategies": [
 						"stateOverride",
@@ -6113,7 +6155,7 @@
 				"TSTORE": {
 					"status": "supported",
 					"confidence": "confirmed",
-					"witnesses": 5,
+					"witnesses": 6,
 					"operators": 2,
 					"strategies": [
 						"stateOverride",
@@ -6138,7 +6180,7 @@
 				{
 					"url": "https://evm-rpc.sei-apis.com",
 					"client": "Geth/linux-amd64/go1.25.8",
-					"block": 234029786,
+					"block": 234210920,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -6168,7 +6210,7 @@
 				{
 					"url": "https://evm-rpc.sei-apis.com",
 					"client": "Geth/linux-amd64/go1.25.8",
-					"block": 234029786,
+					"block": 234210920,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -6198,7 +6240,7 @@
 				{
 					"url": "https://evm-rpc.sei-apis.com",
 					"client": "Geth/linux-amd64/go1.25.8",
-					"block": 234029786,
+					"block": 234210920,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -6228,15 +6270,15 @@
 				{
 					"url": "https://sei.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 234029778,
+					"block": 234210911,
 					"strategy": "stateOverride",
 					"calibrated": false,
-					"rejected": "positive control unreachable: Temporary internal error. Please retry, trace-id: 540a3f41c84b66910d19837b96a54e39"
+					"rejected": "positive control unreachable: Can't route your request to suitable provider, if you specified certain providers revise the list"
 				},
 				{
 					"url": "https://sei.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 234029778,
+					"block": 234210911,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -6266,25 +6308,25 @@
 				{
 					"url": "https://sei.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 234029778,
+					"block": 234210911,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
 					"opcodes": {
 						"PUSH0": {
-							"status": "supported",
-							"evidence": "executed",
-							"grade": "executed"
+							"status": "unknown",
+							"reason": "endpoint-unavailable",
+							"evidence": "Temporary internal error. Please retry, trace-id: 54bc7c34b92c974b2ba22bcccb6dbe7c"
 						},
 						"CLZ": {
-							"status": "unsupported",
-							"evidence": "execution reverted",
-							"grade": "generic"
+							"status": "unknown",
+							"reason": "endpoint-unavailable",
+							"evidence": "the method eth_call does not exist/is not available"
 						},
 						"TLOAD": {
-							"status": "supported",
-							"evidence": "executed",
-							"grade": "executed"
+							"status": "unknown",
+							"reason": "endpoint-unavailable",
+							"evidence": "the method eth_call does not exist/is not available"
 						},
 						"TSTORE": {
 							"status": "supported",
@@ -6298,7 +6340,7 @@
 				"PUSH0": {
 					"status": "supported",
 					"confidence": "confirmed",
-					"witnesses": 5,
+					"witnesses": 4,
 					"operators": 2,
 					"strategies": [
 						"stateOverride",
@@ -6311,7 +6353,7 @@
 				"CLZ": {
 					"status": "unsupported",
 					"confidence": "confirmed",
-					"witnesses": 5,
+					"witnesses": 4,
 					"operators": 2,
 					"strategies": [
 						"stateOverride",
@@ -6324,7 +6366,7 @@
 				"TLOAD": {
 					"status": "supported",
 					"confidence": "confirmed",
-					"witnesses": 5,
+					"witnesses": 4,
 					"operators": 2,
 					"strategies": [
 						"stateOverride",
@@ -6362,7 +6404,7 @@
 				{
 					"url": "https://rpc.berachain-apis.com",
 					"client": "bera-reth/v1.4.4-aa9bc73/x86_64-unknown-linux-gnu",
-					"block": 26660289,
+					"block": 26702791,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -6392,7 +6434,7 @@
 				{
 					"url": "https://rpc.berachain-apis.com",
 					"client": "bera-reth/v1.4.4-aa9bc73/x86_64-unknown-linux-gnu",
-					"block": 26660289,
+					"block": 26702791,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -6422,7 +6464,7 @@
 				{
 					"url": "https://rpc.berachain-apis.com",
 					"client": "bera-reth/v1.4.4-aa9bc73/x86_64-unknown-linux-gnu",
-					"block": 26660289,
+					"block": 26702791,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -6452,7 +6494,7 @@
 				{
 					"url": "https://rpc.berachain.com",
 					"client": "bera-reth/v1.4.4-aa9bc73/x86_64-unknown-linux-gnu",
-					"block": 26660289,
+					"block": 26702792,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -6482,7 +6524,7 @@
 				{
 					"url": "https://rpc.berachain.com",
 					"client": "bera-reth/v1.4.4-aa9bc73/x86_64-unknown-linux-gnu",
-					"block": 26660289,
+					"block": 26702792,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -6512,7 +6554,7 @@
 				{
 					"url": "https://rpc.berachain.com",
 					"client": "bera-reth/v1.4.4-aa9bc73/x86_64-unknown-linux-gnu",
-					"block": 26660289,
+					"block": 26702792,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -6611,7 +6653,7 @@
 				{
 					"url": "https://rpc.blast.io",
 					"client": "Geth/v0.1.0-unstable/linux-amd64/go1.24.11",
-					"block": 40762741,
+					"block": 40805244,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -6641,7 +6683,7 @@
 				{
 					"url": "https://rpc.blast.io",
 					"client": "Geth/v0.1.0-unstable/linux-amd64/go1.24.11",
-					"block": 40762741,
+					"block": 40805244,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -6671,7 +6713,7 @@
 				{
 					"url": "https://rpc.blast.io",
 					"client": "Geth/v0.1.0-unstable/linux-amd64/go1.24.11",
-					"block": 40762741,
+					"block": 40805244,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -6701,7 +6743,7 @@
 				{
 					"url": "https://blast-rpc.publicnode.com",
 					"client": "Geth/v0.1.0-unstable-b8210548-20260212/linux-amd64/go1.24.13",
-					"block": 40762742,
+					"block": 40805244,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -6731,7 +6773,7 @@
 				{
 					"url": "https://blast-rpc.publicnode.com",
 					"client": "Geth/v0.1.0-unstable-b8210548-20260212/linux-amd64/go1.24.13",
-					"block": 40762742,
+					"block": 40805244,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -6761,7 +6803,7 @@
 				{
 					"url": "https://blast-rpc.publicnode.com",
 					"client": "Geth/v0.1.0-unstable-b8210548-20260212/linux-amd64/go1.24.13",
-					"block": 40762742,
+					"block": 40805244,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -6856,7 +6898,7 @@
 				{
 					"url": "https://rpc.linea.build",
 					"client": "Geth/v1.17.4-stable-36a7dc72/linux-amd64/go1.26.5",
-					"block": 32139768,
+					"block": 32149915,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -6886,7 +6928,7 @@
 				{
 					"url": "https://rpc.linea.build",
 					"client": "Geth/v1.17.4-stable-36a7dc72/linux-amd64/go1.26.5",
-					"block": 32139768,
+					"block": 32149915,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -6916,7 +6958,7 @@
 				{
 					"url": "https://rpc.linea.build",
 					"client": "Geth/v1.17.4-stable-36a7dc72/linux-amd64/go1.26.5",
-					"block": 32139768,
+					"block": 32149915,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -6946,7 +6988,7 @@
 				{
 					"url": "https://linea-rpc.publicnode.com",
 					"client": "Geth/v1.17.0-stable-0cf3d3ba/linux-amd64/go1.24.13",
-					"block": 32139768,
+					"block": 32149915,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -6976,7 +7018,7 @@
 				{
 					"url": "https://linea-rpc.publicnode.com",
 					"client": "Geth/v1.17.0-stable-0cf3d3ba/linux-amd64/go1.24.13",
-					"block": 32139768,
+					"block": 32149915,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -7006,7 +7048,7 @@
 				{
 					"url": "https://linea-rpc.publicnode.com",
 					"client": "Geth/v1.17.0-stable-0cf3d3ba/linux-amd64/go1.24.13",
-					"block": 32139768,
+					"block": 32149915,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -7102,7 +7144,7 @@
 				{
 					"url": "https://worldchain-mainnet.g.alchemy.com/public",
 					"client": "world-chain/v2.4.3-dcd2e94/x86_64-unknown-linux-gnu",
-					"block": 35499833,
+					"block": 35542333,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -7132,7 +7174,7 @@
 				{
 					"url": "https://worldchain-mainnet.g.alchemy.com/public",
 					"client": "world-chain/v2.4.3-dcd2e94/x86_64-unknown-linux-gnu",
-					"block": 35499833,
+					"block": 35542333,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -7162,7 +7204,7 @@
 				{
 					"url": "https://worldchain-mainnet.g.alchemy.com/public",
 					"client": "world-chain/v2.4.3-dcd2e94/x86_64-unknown-linux-gnu",
-					"block": 35499833,
+					"block": 35542333,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -7192,7 +7234,7 @@
 				{
 					"url": "https://worldchain-mainnet.gateway.tenderly.co",
 					"client": "Tenderly/1.0",
-					"block": 35499834,
+					"block": 35542333,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -7222,7 +7264,7 @@
 				{
 					"url": "https://worldchain-mainnet.gateway.tenderly.co",
 					"client": "Tenderly/1.0",
-					"block": 35499834,
+					"block": 35542333,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -7252,7 +7294,7 @@
 				{
 					"url": "https://worldchain-mainnet.gateway.tenderly.co",
 					"client": "Tenderly/1.0",
-					"block": 35499834,
+					"block": 35542333,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -7347,7 +7389,7 @@
 				{
 					"url": "https://mainnet.unichain.org",
 					"client": null,
-					"block": 59586946,
+					"block": 59671945,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -7377,7 +7419,7 @@
 				{
 					"url": "https://mainnet.unichain.org",
 					"client": null,
-					"block": 59586946,
+					"block": 59671945,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -7407,7 +7449,7 @@
 				{
 					"url": "https://mainnet.unichain.org",
 					"client": null,
-					"block": 59586946,
+					"block": 59671945,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -7437,7 +7479,7 @@
 				{
 					"url": "https://unichain-rpc.publicnode.com",
 					"client": "op-reth/v0.0.0-dev-unknown/x86_64-linux",
-					"block": 59586951,
+					"block": 59671948,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -7467,7 +7509,7 @@
 				{
 					"url": "https://unichain-rpc.publicnode.com",
 					"client": "op-reth/v0.0.0-dev-unknown/x86_64-linux",
-					"block": 59586951,
+					"block": 59671948,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -7497,7 +7539,7 @@
 				{
 					"url": "https://unichain-rpc.publicnode.com",
 					"client": "op-reth/v0.0.0-dev-unknown/x86_64-linux",
-					"block": 59586951,
+					"block": 59671948,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -7592,7 +7634,7 @@
 				{
 					"url": "https://mainnet.hashio.io/api",
 					"client": "relay/0.78.4",
-					"block": 100372336,
+					"block": 100407531,
 					"strategy": "stateOverride",
 					"calibrated": false,
 					"rejected": "negative control succeeded, endpoint does not execute the code"
@@ -7600,10 +7642,10 @@
 				{
 					"url": "https://mainnet.hashio.io/api",
 					"client": "relay/0.78.4",
-					"block": 100372336,
+					"block": 100407531,
 					"strategy": "nullTo",
 					"calibrated": true,
-					"rejectionExample": "[Request ID: 0da2d436-2fbb-44b8-ad89-0d2878713c3e] Error occurred during transaction simulation: CONTRACT_EXECUTION_EXCEPTION",
+					"rejectionExample": "[Request ID: 4e41f300-9a30-4d90-981b-b4b6b9564094] Error occurred during transaction simulation: CONTRACT_EXECUTION_EXCEPTION",
 					"opcodes": {
 						"PUSH0": {
 							"status": "supported",
@@ -7612,7 +7654,7 @@
 						},
 						"CLZ": {
 							"status": "unsupported",
-							"evidence": "[Request ID: 11164d62-66c0-4cbe-bbd9-fa57f623e9bc] Error occurred during transaction simulation: CONTRACT_EXECUTION_EXCEPTION",
+							"evidence": "[Request ID: aa84ab95-7803-4e6f-9d47-7e45f7cbd492] Error occurred during transaction simulation: CONTRACT_EXECUTION_EXCEPTION",
 							"grade": "generic"
 						},
 						"TLOAD": {
@@ -7630,10 +7672,10 @@
 				{
 					"url": "https://mainnet.hashio.io/api",
 					"client": "relay/0.78.4",
-					"block": 100372336,
+					"block": 100407531,
 					"strategy": "factory",
 					"calibrated": true,
-					"rejectionExample": "[Request ID: 776bec0a-52fe-4910-bf3c-ac9bebad7bed] execution reverted: CONTRACT_REVERT_EXECUTED",
+					"rejectionExample": "[Request ID: d78ea784-86d2-4063-905f-72f3464f9ec8] execution reverted: CONTRACT_REVERT_EXECUTED",
 					"opcodes": {
 						"PUSH0": {
 							"status": "supported",
@@ -7642,7 +7684,7 @@
 						},
 						"CLZ": {
 							"status": "unsupported",
-							"evidence": "[Request ID: 8402964b-2445-4676-a719-43a67f93b35c] execution reverted: CONTRACT_REVERT_EXECUTED",
+							"evidence": "[Request ID: d780af49-8de5-40e7-8751-236bbf632883] execution reverted: CONTRACT_REVERT_EXECUTED",
 							"grade": "generic"
 						},
 						"TLOAD": {
@@ -7660,7 +7702,7 @@
 				{
 					"url": "https://hedera.linkpool.pro",
 					"client": "relay/0.78.4",
-					"block": 100372337,
+					"block": 100407532,
 					"strategy": "stateOverride",
 					"calibrated": false,
 					"rejected": "negative control succeeded, endpoint does not execute the code"
@@ -7668,10 +7710,10 @@
 				{
 					"url": "https://hedera.linkpool.pro",
 					"client": "relay/0.78.4",
-					"block": 100372337,
+					"block": 100407532,
 					"strategy": "nullTo",
 					"calibrated": true,
-					"rejectionExample": "[Request ID: 2b2dae58-fb9d-4133-999b-e0669aa04e97] Error occurred during transaction simulation: CONTRACT_EXECUTION_EXCEPTION",
+					"rejectionExample": "[Request ID: 7b88bcb1-5a4a-408f-ade6-e91d62c9341c] Error occurred during transaction simulation: CONTRACT_EXECUTION_EXCEPTION",
 					"opcodes": {
 						"PUSH0": {
 							"status": "supported",
@@ -7680,7 +7722,7 @@
 						},
 						"CLZ": {
 							"status": "unsupported",
-							"evidence": "[Request ID: dd33fb94-30e0-49cc-bf3b-5042648c3606] Error occurred during transaction simulation: CONTRACT_EXECUTION_EXCEPTION",
+							"evidence": "[Request ID: 23cc9a39-af1b-4c85-a3e2-0a55c6b61007] Error occurred during transaction simulation: CONTRACT_EXECUTION_EXCEPTION",
 							"grade": "generic"
 						},
 						"TLOAD": {
@@ -7698,10 +7740,10 @@
 				{
 					"url": "https://hedera.linkpool.pro",
 					"client": "relay/0.78.4",
-					"block": 100372337,
+					"block": 100407532,
 					"strategy": "factory",
 					"calibrated": true,
-					"rejectionExample": "[Request ID: d9a31981-3541-4b48-b8ed-aa0bbaeaa451] execution reverted: CONTRACT_REVERT_EXECUTED",
+					"rejectionExample": "[Request ID: 081fac9e-ae63-44d3-8f40-cbab44052b0e] execution reverted: CONTRACT_REVERT_EXECUTED",
 					"opcodes": {
 						"PUSH0": {
 							"status": "supported",
@@ -7710,7 +7752,7 @@
 						},
 						"CLZ": {
 							"status": "unsupported",
-							"evidence": "[Request ID: 3ca6bd63-60dd-4335-8dce-28f8c0b50405] execution reverted: CONTRACT_REVERT_EXECUTED",
+							"evidence": "[Request ID: 217209c5-216e-4889-a065-bdfbaa427a12] execution reverted: CONTRACT_REVERT_EXECUTED",
 							"grade": "generic"
 						},
 						"TLOAD": {
@@ -7750,7 +7792,7 @@
 						"factory"
 					],
 					"sharedClient": true,
-					"evidence": "[Request ID: 11164d62-66c0-4cbe-bbd9-fa57f623e9bc] Error occurred during transaction simulation: CONTRACT_EXECUTION_EXCEPTION",
+					"evidence": "[Request ID: aa84ab95-7803-4e6f-9d47-7e45f7cbd492] Error occurred during transaction simulation: CONTRACT_EXECUTION_EXCEPTION",
 					"grade": "generic"
 				},
 				"TLOAD": {
@@ -7794,7 +7836,7 @@
 				{
 					"url": "https://rpc.morphl2.io",
 					"client": "Geth/v2.2.6-mainnet-5744b8f6/linux-amd64/go1.24.0",
-					"block": 27345806,
+					"block": 27395334,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -7824,7 +7866,7 @@
 				{
 					"url": "https://rpc.morphl2.io",
 					"client": "Geth/v2.2.6-mainnet-5744b8f6/linux-amd64/go1.24.0",
-					"block": 27345806,
+					"block": 27395334,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -7854,7 +7896,7 @@
 				{
 					"url": "https://rpc.morphl2.io",
 					"client": "Geth/v2.2.6-mainnet-5744b8f6/linux-amd64/go1.24.0",
-					"block": 27345806,
+					"block": 27395334,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -7884,7 +7926,7 @@
 				{
 					"url": "https://2818.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 27345808,
+					"block": 27395336,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -7914,7 +7956,7 @@
 				{
 					"url": "https://2818.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 27345808,
+					"block": 27395336,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -7944,7 +7986,7 @@
 				{
 					"url": "https://2818.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 27345808,
+					"block": 27395336,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -8042,7 +8084,7 @@
 				{
 					"url": "https://evm.kava-rpc.com",
 					"client": "Version dev ()\nCompiled at  using Go go1.25.5 (amd64)",
-					"block": 22733000,
+					"block": 22747838,
 					"strategy": "stateOverride",
 					"calibrated": false,
 					"rejected": "negative control succeeded, endpoint does not execute the code"
@@ -8050,7 +8092,7 @@
 				{
 					"url": "https://evm.kava-rpc.com",
 					"client": "Version dev ()\nCompiled at  using Go go1.25.5 (amd64)",
-					"block": 22733000,
+					"block": 22747838,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "rpc error: code = Internal desc = invalid opcode: opcode 0xc not defined",
@@ -8080,7 +8122,7 @@
 				{
 					"url": "https://evm.kava-rpc.com",
 					"client": "Version dev ()\nCompiled at  using Go go1.25.5 (amd64)",
-					"block": 22733000,
+					"block": 22747838,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -8110,7 +8152,7 @@
 				{
 					"url": "https://evm.kava.io",
 					"client": "Version dev ()\nCompiled at  using Go go1.22.9 (arm64)",
-					"block": 22733000,
+					"block": 22747838,
 					"strategy": "stateOverride",
 					"calibrated": false,
 					"rejected": "negative control succeeded, endpoint does not execute the code"
@@ -8118,7 +8160,7 @@
 				{
 					"url": "https://evm.kava.io",
 					"client": "Version dev ()\nCompiled at  using Go go1.22.9 (arm64)",
-					"block": 22733000,
+					"block": 22747838,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "rpc error: code = Internal desc = invalid opcode: opcode 0xc not defined",
@@ -8148,7 +8190,7 @@
 				{
 					"url": "https://evm.kava.io",
 					"client": "Version dev ()\nCompiled at  using Go go1.22.9 (arm64)",
-					"block": 22733000,
+					"block": 22747838,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -8239,7 +8281,7 @@
 				{
 					"url": "https://rpc.frax.com",
 					"client": "reth/v2.2.0-7680d6d/x86_64-unknown-linux-gnu",
-					"block": 41762301,
+					"block": 41804800,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -8269,7 +8311,7 @@
 				{
 					"url": "https://rpc.frax.com",
 					"client": "reth/v2.2.0-7680d6d/x86_64-unknown-linux-gnu",
-					"block": 41762301,
+					"block": 41804800,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -8299,7 +8341,7 @@
 				{
 					"url": "https://rpc.frax.com",
 					"client": "reth/v2.2.0-7680d6d/x86_64-unknown-linux-gnu",
-					"block": 41762301,
+					"block": 41804800,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -8329,7 +8371,7 @@
 				{
 					"url": "https://fraxtal-rpc.publicnode.com",
 					"client": "reth/v2.2.0-7680d6d/x86_64-unknown-linux-gnu",
-					"block": 41762302,
+					"block": 41804801,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -8359,7 +8401,7 @@
 				{
 					"url": "https://fraxtal-rpc.publicnode.com",
 					"client": "reth/v2.2.0-7680d6d/x86_64-unknown-linux-gnu",
-					"block": 41762302,
+					"block": 41804801,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -8389,7 +8431,7 @@
 				{
 					"url": "https://fraxtal-rpc.publicnode.com",
 					"client": "reth/v2.2.0-7680d6d/x86_64-unknown-linux-gnu",
-					"block": 41762302,
+					"block": 41804801,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -8489,7 +8531,7 @@
 				{
 					"url": "https://rpc.pharos.xyz",
 					"client": "portal/1.0.0",
-					"block": 18525090,
+					"block": 18616512,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "An undefined instruction has been encountered.",
@@ -8519,7 +8561,7 @@
 				{
 					"url": "https://rpc.pharos.xyz",
 					"client": "portal/1.0.0",
-					"block": 18525090,
+					"block": 18616512,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "An undefined instruction has been encountered.",
@@ -8549,7 +8591,7 @@
 				{
 					"url": "https://rpc.pharos.xyz",
 					"client": "portal/1.0.0",
-					"block": 18525090,
+					"block": 18616512,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted: ",
@@ -8579,7 +8621,7 @@
 				{
 					"url": "https://api.zan.top/pharos-mainnet",
 					"client": "portal/1.0.0",
-					"block": 18525101,
+					"block": 18616514,
 					"strategy": "stateOverride",
 					"calibrated": false,
 					"rejected": "positive control rejected: cu limit exceeded; Method \"eth_call\" is not available for unregistered accounts. Please visit https://zan.top/ and register to unlock more."
@@ -8587,7 +8629,7 @@
 				{
 					"url": "https://api.zan.top/pharos-mainnet",
 					"client": "portal/1.0.0",
-					"block": 18525101,
+					"block": 18616514,
 					"strategy": "nullTo",
 					"calibrated": false,
 					"rejected": "positive control rejected: cu limit exceeded; Method \"eth_call\" is not available for unregistered accounts. Please visit https://zan.top/ and register to unlock more."
@@ -8595,7 +8637,7 @@
 				{
 					"url": "https://api.zan.top/pharos-mainnet",
 					"client": "portal/1.0.0",
-					"block": 18525101,
+					"block": 18616514,
 					"strategy": "factory",
 					"calibrated": false,
 					"rejected": "positive control rejected: cu limit exceeded; Method \"eth_call\" is not available for unregistered accounts. Please visit https://zan.top/ and register to unlock more."
@@ -8603,7 +8645,7 @@
 				{
 					"url": "https://pharos.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 18525101,
+					"block": 18616497,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "An undefined instruction has been encountered.",
@@ -8633,7 +8675,7 @@
 				{
 					"url": "https://pharos.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 18525101,
+					"block": 18616497,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "An undefined instruction has been encountered.",
@@ -8663,7 +8705,7 @@
 				{
 					"url": "https://pharos.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 18525101,
+					"block": 18616497,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted: ",
@@ -8759,7 +8801,7 @@
 				{
 					"url": "https://node.mainnet.etherlink.com",
 					"client": "octez-evm-node/octez-evm-node 0.66 (build: 0)-9cfabac8/Unix/ocamlc.5.3.0",
-					"block": 54225761,
+					"block": 54304749,
 					"strategy": "stateOverride",
 					"calibrated": false,
 					"rejected": "negative control succeeded, endpoint does not execute the code"
@@ -8767,7 +8809,7 @@
 				{
 					"url": "https://node.mainnet.etherlink.com",
 					"client": "octez-evm-node/octez-evm-node 0.66 (build: 0)-9cfabac8/Unix/ocamlc.5.3.0",
-					"block": 54225761,
+					"block": 54304749,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "The transaction failed: Halt { reason: OpcodeNotFound, gas: ResultGas { limit: 30000000, spent: 30000000, refunded: 0, floor_gas: 21040, intrinsic_gas: 53018 }, logs: [] }.",
@@ -8797,7 +8839,7 @@
 				{
 					"url": "https://node.mainnet.etherlink.com",
 					"client": "octez-evm-node/octez-evm-node 0.66 (build: 0)-9cfabac8/Unix/ocamlc.5.3.0",
-					"block": 54225761,
+					"block": 54304749,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -8827,7 +8869,7 @@
 				{
 					"url": "https://etherlink.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 54225763,
+					"block": 54304746,
 					"strategy": "stateOverride",
 					"calibrated": false,
 					"rejected": "positive control unreachable: Can't route your request to suitable provider, if you specified certain providers revise the list"
@@ -8835,7 +8877,7 @@
 				{
 					"url": "https://etherlink.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 54225763,
+					"block": 54304746,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "The transaction failed: Halt { reason: OpcodeNotFound, gas: ResultGas { limit: 30000000, spent: 30000000, refunded: 0, floor_gas: 21040, intrinsic_gas: 53018 }, logs: [] }.",
@@ -8865,7 +8907,7 @@
 				{
 					"url": "https://etherlink.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 54225763,
+					"block": 54304746,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -8958,40 +9000,10 @@
 				{
 					"url": "https://forno.celo.org",
 					"client": "reth/v2.2.0-1fc77b9/x86_64-unknown-linux-gnu",
-					"block": 78434557,
+					"block": 78519551,
 					"strategy": "stateOverride",
 					"calibrated": true,
-					"rejectionExample": "invalid opcode: opcode 0xc not defined",
-					"opcodes": {
-						"PUSH0": {
-							"status": "supported",
-							"evidence": "executed",
-							"grade": "executed"
-						},
-						"CLZ": {
-							"status": "unsupported",
-							"evidence": "invalid opcode: CLZ",
-							"grade": "specific"
-						},
-						"TLOAD": {
-							"status": "supported",
-							"evidence": "executed",
-							"grade": "executed"
-						},
-						"TSTORE": {
-							"status": "supported",
-							"evidence": "executed",
-							"grade": "executed"
-						}
-					}
-				},
-				{
-					"url": "https://forno.celo.org",
-					"client": "reth/v2.2.0-1fc77b9/x86_64-unknown-linux-gnu",
-					"block": 78434557,
-					"strategy": "nullTo",
-					"calibrated": true,
-					"rejectionExample": "invalid opcode: opcode 0xc not defined",
+					"rejectionExample": "EVM error: OpcodeNotFound",
 					"opcodes": {
 						"PUSH0": {
 							"status": "supported",
@@ -9018,7 +9030,37 @@
 				{
 					"url": "https://forno.celo.org",
 					"client": "reth/v2.2.0-1fc77b9/x86_64-unknown-linux-gnu",
-					"block": 78434557,
+					"block": 78519551,
+					"strategy": "nullTo",
+					"calibrated": true,
+					"rejectionExample": "EVM error: OpcodeNotFound",
+					"opcodes": {
+						"PUSH0": {
+							"status": "supported",
+							"evidence": "executed",
+							"grade": "executed"
+						},
+						"CLZ": {
+							"status": "unsupported",
+							"evidence": "EVM error: NotActivated",
+							"grade": "specific"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed",
+							"grade": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed",
+							"grade": "executed"
+						}
+					}
+				},
+				{
+					"url": "https://forno.celo.org",
+					"client": "reth/v2.2.0-1fc77b9/x86_64-unknown-linux-gnu",
+					"block": 78519551,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -9048,7 +9090,7 @@
 				{
 					"url": "https://celo-rpc.publicnode.com",
 					"client": "reth/v2.2.0-1fc77b9/x86_64-unknown-linux-gnu",
-					"block": 78434562,
+					"block": 78519561,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -9078,7 +9120,7 @@
 				{
 					"url": "https://celo-rpc.publicnode.com",
 					"client": "reth/v2.2.0-1fc77b9/x86_64-unknown-linux-gnu",
-					"block": 78434562,
+					"block": 78519561,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -9108,7 +9150,7 @@
 				{
 					"url": "https://celo-rpc.publicnode.com",
 					"client": "reth/v2.2.0-1fc77b9/x86_64-unknown-linux-gnu",
-					"block": 78434562,
+					"block": 78519561,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -9162,7 +9204,7 @@
 						"factory"
 					],
 					"sharedClient": true,
-					"evidence": "invalid opcode: CLZ",
+					"evidence": "EVM error: NotActivated",
 					"grade": "specific"
 				},
 				"TLOAD": {
@@ -9207,7 +9249,7 @@
 				{
 					"url": "https://mainnet.era.zksync.io",
 					"client": "zkSync/v2.0",
-					"block": 72212727,
+					"block": 72227291,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -9237,7 +9279,7 @@
 				{
 					"url": "https://mainnet.era.zksync.io",
 					"client": "zkSync/v2.0",
-					"block": 72212727,
+					"block": 72227291,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -9267,7 +9309,7 @@
 				{
 					"url": "https://mainnet.era.zksync.io",
 					"client": "zkSync/v2.0",
-					"block": 72212727,
+					"block": 72227291,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -9297,7 +9339,7 @@
 				{
 					"url": "https://zksync.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 72212727,
+					"block": 72227291,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -9327,7 +9369,7 @@
 				{
 					"url": "https://zksync.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 72212727,
+					"block": 72227291,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -9357,7 +9399,7 @@
 				{
 					"url": "https://zksync.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 72212727,
+					"block": 72227291,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -9452,7 +9494,7 @@
 				{
 					"url": "https://rpc.soniclabs.com",
 					"client": "Sonic/v2.2.2-15a02389-1789482841/linux-amd64/go1.27.1",
-					"block": 79885587,
+					"block": 79935235,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "execution unsuccessful",
@@ -9482,7 +9524,7 @@
 				{
 					"url": "https://rpc.soniclabs.com",
 					"client": "Sonic/v2.2.2-15a02389-1789482841/linux-amd64/go1.27.1",
-					"block": 79885587,
+					"block": 79935235,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "execution unsuccessful",
@@ -9512,7 +9554,7 @@
 				{
 					"url": "https://rpc.soniclabs.com",
 					"client": "Sonic/v2.2.2-15a02389-1789482841/linux-amd64/go1.27.1",
-					"block": 79885587,
+					"block": 79935235,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -9542,7 +9584,7 @@
 				{
 					"url": "https://sonic-rpc.publicnode.com",
 					"client": "Sonic/v2.2.2-15a02389-1789482841/linux-amd64/go1.26.8",
-					"block": 79885590,
+					"block": 79935236,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "execution unsuccessful",
@@ -9572,7 +9614,7 @@
 				{
 					"url": "https://sonic-rpc.publicnode.com",
 					"client": "Sonic/v2.2.2-15a02389-1789482841/linux-amd64/go1.26.8",
-					"block": 79885590,
+					"block": 79935236,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "execution unsuccessful",
@@ -9602,7 +9644,7 @@
 				{
 					"url": "https://sonic-rpc.publicnode.com",
 					"client": "Sonic/v2.2.2-15a02389-1789482841/linux-amd64/go1.26.8",
-					"block": 79885590,
+					"block": 79935236,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -9697,7 +9739,7 @@
 				{
 					"url": "https://rpc.rollux.com",
 					"client": "Geth/v0.1.0-unstable-36831023/linux-amd64/go1.20.8",
-					"block": 51485042,
+					"block": 51527544,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -9727,7 +9769,7 @@
 				{
 					"url": "https://rpc.rollux.com",
 					"client": "Geth/v0.1.0-unstable-36831023/linux-amd64/go1.20.8",
-					"block": 51485042,
+					"block": 51527544,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -9757,7 +9799,7 @@
 				{
 					"url": "https://rpc.rollux.com",
 					"client": "Geth/v0.1.0-unstable-36831023/linux-amd64/go1.20.8",
-					"block": 51485042,
+					"block": 51527544,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -9787,7 +9829,7 @@
 				{
 					"url": "https://570.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 51485043,
+					"block": 51527546,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -9817,7 +9859,7 @@
 				{
 					"url": "https://570.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 51485043,
+					"block": 51527546,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -9847,7 +9889,7 @@
 				{
 					"url": "https://570.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 51485043,
+					"block": 51527546,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -9943,7 +9985,7 @@
 				{
 					"url": "https://api.mainnet.abs.xyz",
 					"client": "zkSync/v2.0",
-					"block": 85452469,
+					"block": 85606622,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -9973,7 +10015,7 @@
 				{
 					"url": "https://api.mainnet.abs.xyz",
 					"client": "zkSync/v2.0",
-					"block": 85452469,
+					"block": 85606622,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -10003,7 +10045,7 @@
 				{
 					"url": "https://api.mainnet.abs.xyz",
 					"client": "zkSync/v2.0",
-					"block": 85452469,
+					"block": 85606622,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -10033,7 +10075,31 @@
 				{
 					"url": "https://abstract.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 85452484,
+					"block": 85606622,
+					"strategy": "stateOverride",
+					"calibrated": false,
+					"rejected": "positive control unreachable: Can't route your request to suitable provider, if you specified certain providers revise the list"
+				},
+				{
+					"url": "https://abstract.drpc.org",
+					"client": "Geth/v10.0.0/drpc",
+					"block": 85606622,
+					"strategy": "nullTo",
+					"calibrated": false,
+					"rejected": "positive control unreachable: the method eth_call does not exist/is not available"
+				},
+				{
+					"url": "https://abstract.drpc.org",
+					"client": "Geth/v10.0.0/drpc",
+					"block": 85606622,
+					"strategy": "factory",
+					"calibrated": false,
+					"rejected": "strategy unavailable on this chain"
+				},
+				{
+					"url": "https://2741.rpc.thirdweb.com",
+					"client": "thirdweb/1.0",
+					"block": 85606658,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -10061,17 +10127,39 @@
 					}
 				},
 				{
-					"url": "https://abstract.drpc.org",
-					"client": "Geth/v10.0.0/drpc",
-					"block": 85452484,
+					"url": "https://2741.rpc.thirdweb.com",
+					"client": "thirdweb/1.0",
+					"block": 85606658,
 					"strategy": "nullTo",
-					"calibrated": false,
-					"rejected": "positive control unreachable: Temporary internal error. Please retry, trace-id: 5968c8ff0d89f4489b23ed2b5642e95b"
+					"calibrated": true,
+					"rejectionExample": "execution reverted",
+					"opcodes": {
+						"PUSH0": {
+							"status": "supported",
+							"evidence": "executed",
+							"grade": "executed"
+						},
+						"CLZ": {
+							"status": "unsupported",
+							"evidence": "execution reverted",
+							"grade": "generic"
+						},
+						"TLOAD": {
+							"status": "supported",
+							"evidence": "executed",
+							"grade": "executed"
+						},
+						"TSTORE": {
+							"status": "supported",
+							"evidence": "executed",
+							"grade": "executed"
+						}
+					}
 				},
 				{
-					"url": "https://abstract.drpc.org",
-					"client": "Geth/v10.0.0/drpc",
-					"block": 85452484,
+					"url": "https://2741.rpc.thirdweb.com",
+					"client": "thirdweb/1.0",
+					"block": 85606658,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -10103,7 +10191,7 @@
 				"PUSH0": {
 					"status": "supported",
 					"confidence": "confirmed",
-					"witnesses": 5,
+					"witnesses": 6,
 					"operators": 2,
 					"strategies": [
 						"stateOverride",
@@ -10116,7 +10204,7 @@
 				"CLZ": {
 					"status": "unsupported",
 					"confidence": "confirmed",
-					"witnesses": 5,
+					"witnesses": 6,
 					"operators": 2,
 					"strategies": [
 						"stateOverride",
@@ -10129,7 +10217,7 @@
 				"TLOAD": {
 					"status": "supported",
 					"confidence": "confirmed",
-					"witnesses": 5,
+					"witnesses": 6,
 					"operators": 2,
 					"strategies": [
 						"stateOverride",
@@ -10142,7 +10230,7 @@
 				"TSTORE": {
 					"status": "supported",
 					"confidence": "confirmed",
-					"witnesses": 5,
+					"witnesses": 6,
 					"operators": 2,
 					"strategies": [
 						"stateOverride",
@@ -10166,7 +10254,7 @@
 				{
 					"url": "https://mainnet.evm.nodes.onflow.org",
 					"client": "flow-evm-gateway@v1.5.7",
-					"block": 79684841,
+					"block": 79791061,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "failed transaction: invalid opcode: opcode 0xc not defined",
@@ -10196,7 +10284,7 @@
 				{
 					"url": "https://mainnet.evm.nodes.onflow.org",
 					"client": "flow-evm-gateway@v1.5.7",
-					"block": 79684841,
+					"block": 79791061,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "failed transaction: invalid opcode: opcode 0xc not defined",
@@ -10226,7 +10314,7 @@
 				{
 					"url": "https://mainnet.evm.nodes.onflow.org",
 					"client": "flow-evm-gateway@v1.5.7",
-					"block": 79684841,
+					"block": 79791061,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -10256,7 +10344,7 @@
 				{
 					"url": "https://747.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 79684844,
+					"block": 79791062,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "failed transaction: invalid opcode: opcode 0xc not defined",
@@ -10286,7 +10374,7 @@
 				{
 					"url": "https://747.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 79684844,
+					"block": 79791062,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "failed transaction: invalid opcode: opcode 0xc not defined",
@@ -10316,7 +10404,7 @@
 				{
 					"url": "https://747.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 79684844,
+					"block": 79791062,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -10411,7 +10499,7 @@
 				{
 					"url": "https://rpc.fluent.xyz",
 					"client": null,
-					"block": 16565506,
+					"block": 16650507,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -10441,7 +10529,7 @@
 				{
 					"url": "https://rpc.fluent.xyz",
 					"client": null,
-					"block": 16565506,
+					"block": 16650507,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -10471,7 +10559,7 @@
 				{
 					"url": "https://rpc.fluent.xyz",
 					"client": null,
-					"block": 16565506,
+					"block": 16650507,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -10501,7 +10589,7 @@
 				{
 					"url": "https://25363.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 16565527,
+					"block": 16650527,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -10531,7 +10619,7 @@
 				{
 					"url": "https://25363.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 16565527,
+					"block": 16650527,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -10561,7 +10649,7 @@
 				{
 					"url": "https://25363.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 16565527,
+					"block": 16650527,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -10656,7 +10744,7 @@
 				{
 					"url": "https://rpc.immutable.com",
 					"client": "Geth/v1.0.0-beta.17-952166b1/linux-amd64/go1.21.13",
-					"block": 44026181,
+					"block": 44068682,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -10686,7 +10774,7 @@
 				{
 					"url": "https://rpc.immutable.com",
 					"client": "Geth/v1.0.0-beta.17-952166b1/linux-amd64/go1.21.13",
-					"block": 44026181,
+					"block": 44068682,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -10716,7 +10804,7 @@
 				{
 					"url": "https://rpc.immutable.com",
 					"client": "Geth/v1.0.0-beta.17-952166b1/linux-amd64/go1.21.13",
-					"block": 44026181,
+					"block": 44068682,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -10746,7 +10834,7 @@
 				{
 					"url": "https://immutable-zkevm.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 44026182,
+					"block": 44068681,
 					"strategy": "stateOverride",
 					"calibrated": false,
 					"rejected": "positive control unreachable: Can't route your request to suitable provider, if you specified certain providers revise the list"
@@ -10754,116 +10842,68 @@
 				{
 					"url": "https://immutable-zkevm.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 44026182,
+					"block": 44068681,
 					"strategy": "nullTo",
-					"calibrated": true,
-					"rejectionExample": "invalid opcode: opcode 0xc not defined",
-					"opcodes": {
-						"PUSH0": {
-							"status": "supported",
-							"evidence": "executed",
-							"grade": "executed"
-						},
-						"CLZ": {
-							"status": "unsupported",
-							"evidence": "invalid opcode: opcode 0x1e not defined",
-							"grade": "specific"
-						},
-						"TLOAD": {
-							"status": "supported",
-							"evidence": "executed",
-							"grade": "executed"
-						},
-						"TSTORE": {
-							"status": "supported",
-							"evidence": "executed",
-							"grade": "executed"
-						}
-					}
+					"calibrated": false,
+					"rejected": "positive control unreachable: the method eth_call does not exist/is not available"
 				},
 				{
 					"url": "https://immutable-zkevm.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 44026182,
+					"block": 44068681,
 					"strategy": "factory",
-					"calibrated": true,
-					"rejectionExample": "execution reverted",
-					"opcodes": {
-						"PUSH0": {
-							"status": "supported",
-							"evidence": "executed",
-							"grade": "executed"
-						},
-						"CLZ": {
-							"status": "unsupported",
-							"evidence": "execution reverted",
-							"grade": "generic"
-						},
-						"TLOAD": {
-							"status": "supported",
-							"evidence": "executed",
-							"grade": "executed"
-						},
-						"TSTORE": {
-							"status": "supported",
-							"evidence": "executed",
-							"grade": "executed"
-						}
-					}
+					"calibrated": false,
+					"rejected": "strategy unavailable on this chain"
 				}
 			],
 			"opcodes": {
 				"PUSH0": {
-					"status": "supported",
-					"confidence": "confirmed",
-					"witnesses": 5,
-					"operators": 2,
+					"status": "unknown",
+					"confidence": "single-operator",
+					"observed": "supported",
+					"witnesses": 3,
+					"operators": 1,
 					"strategies": [
 						"stateOverride",
 						"nullTo",
 						"factory"
-					],
-					"evidence": "executed",
-					"grade": "executed"
+					]
 				},
 				"CLZ": {
-					"status": "unsupported",
-					"confidence": "confirmed",
-					"witnesses": 5,
-					"operators": 2,
+					"status": "unknown",
+					"confidence": "single-operator",
+					"observed": "unsupported",
+					"witnesses": 3,
+					"operators": 1,
 					"strategies": [
 						"stateOverride",
 						"nullTo",
 						"factory"
-					],
-					"evidence": "invalid opcode: opcode 0x1e not defined",
-					"grade": "specific"
+					]
 				},
 				"TLOAD": {
-					"status": "supported",
-					"confidence": "confirmed",
-					"witnesses": 5,
-					"operators": 2,
+					"status": "unknown",
+					"confidence": "single-operator",
+					"observed": "supported",
+					"witnesses": 3,
+					"operators": 1,
 					"strategies": [
 						"stateOverride",
 						"nullTo",
 						"factory"
-					],
-					"evidence": "executed",
-					"grade": "executed"
+					]
 				},
 				"TSTORE": {
-					"status": "supported",
-					"confidence": "confirmed",
-					"witnesses": 5,
-					"operators": 2,
+					"status": "unknown",
+					"confidence": "single-operator",
+					"observed": "supported",
+					"witnesses": 3,
+					"operators": 1,
 					"strategies": [
 						"stateOverride",
 						"nullTo",
 						"factory"
-					],
-					"evidence": "executed",
-					"grade": "executed"
+					]
 				}
 			}
 		},
@@ -10879,7 +10919,7 @@
 				{
 					"url": "https://rpc.reya.network",
 					"client": "nitro/vdevelopment/linux-amd64/go1.25.14",
-					"block": 242135704,
+					"block": 242955180,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -10909,7 +10949,7 @@
 				{
 					"url": "https://rpc.reya.network",
 					"client": "nitro/vdevelopment/linux-amd64/go1.25.14",
-					"block": 242135704,
+					"block": 242955180,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -10939,7 +10979,7 @@
 				{
 					"url": "https://rpc.reya.network",
 					"client": "nitro/vdevelopment/linux-amd64/go1.25.14",
-					"block": 242135704,
+					"block": 242955180,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -10969,7 +11009,7 @@
 				{
 					"url": "https://1729.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 242135736,
+					"block": 242955215,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -10999,7 +11039,7 @@
 				{
 					"url": "https://1729.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 242135736,
+					"block": 242955215,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -11029,7 +11069,7 @@
 				{
 					"url": "https://1729.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 242135736,
+					"block": 242955215,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -11124,8 +11164,8 @@
 			"witnesses": [
 				{
 					"url": "https://api.roninchain.com/rpc",
-					"client": "conduit-op-reth/v2.2.3-38f6b93/x86_64-unknown-linux-gnu",
-					"block": 61433277,
+					"client": "conduit-op-reth/v2.3.0-711ad0d/x86_64-unknown-linux-gnu",
+					"block": 61475784,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -11154,8 +11194,8 @@
 				},
 				{
 					"url": "https://api.roninchain.com/rpc",
-					"client": "conduit-op-reth/v2.2.3-38f6b93/x86_64-unknown-linux-gnu",
-					"block": 61433277,
+					"client": "conduit-op-reth/v2.3.0-711ad0d/x86_64-unknown-linux-gnu",
+					"block": 61475784,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -11184,8 +11224,8 @@
 				},
 				{
 					"url": "https://api.roninchain.com/rpc",
-					"client": "conduit-op-reth/v2.2.3-38f6b93/x86_64-unknown-linux-gnu",
-					"block": 61433277,
+					"client": "conduit-op-reth/v2.3.0-711ad0d/x86_64-unknown-linux-gnu",
+					"block": 61475784,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -11215,7 +11255,7 @@
 				{
 					"url": "https://ronin.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 61433274,
+					"block": 61475758,
 					"strategy": "stateOverride",
 					"calibrated": false,
 					"rejected": "positive control unreachable: Can't route your request to suitable provider, if you specified certain providers revise the list"
@@ -11223,15 +11263,15 @@
 				{
 					"url": "https://ronin.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 61433274,
+					"block": 61475758,
 					"strategy": "nullTo",
 					"calibrated": false,
-					"rejected": "positive control unreachable: Temporary internal error. Please retry, trace-id: 850723e49110684925c6d3cb17eeccdb"
+					"rejected": "positive control unreachable: the method eth_call does not exist/is not available"
 				},
 				{
 					"url": "https://ronin.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 61433274,
+					"block": 61475758,
 					"strategy": "factory",
 					"calibrated": false,
 					"rejected": "strategy unavailable on this chain"
@@ -11239,7 +11279,7 @@
 				{
 					"url": "https://2020.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 61433300,
+					"block": 61475806,
 					"strategy": "stateOverride",
 					"calibrated": false,
 					"rejected": "negative control unreachable: Can't route your request to suitable provider, if you specified certain providers revise the list"
@@ -11247,10 +11287,10 @@
 				{
 					"url": "https://2020.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 61433300,
+					"block": 61475806,
 					"strategy": "nullTo",
 					"calibrated": true,
-					"rejectionExample": "We are not able to process your request at this time. Please contact thirdweb support 296ef74a-0ac7-47a4-bbc5-88125d75cc58.",
+					"rejectionExample": "We are not able to process your request at this time. Please contact thirdweb support 2b6c9185-5b2f-462e-bde7-74ccb039e26b.",
 					"opcodes": {
 						"PUSH0": {
 							"status": "supported",
@@ -11260,7 +11300,7 @@
 						"CLZ": {
 							"status": "unknown",
 							"reason": "unattributable-error",
-							"evidence": "We are not able to process your request at this time. Please contact thirdweb support 746fcecc-432b-4494-9bcc-47e71b6d34d3."
+							"evidence": "We are not able to process your request at this time. Please contact thirdweb support b04cb886-2f08-47c7-b737-afea83cd1492."
 						},
 						"TLOAD": {
 							"status": "supported",
@@ -11277,7 +11317,7 @@
 				{
 					"url": "https://2020.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 61433300,
+					"block": 61475806,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -11373,7 +11413,7 @@
 				{
 					"url": "https://rpc.gobob.xyz",
 					"client": "conduit-op-reth/v2.3.0-711ad0d/x86_64-unknown-linux-gnu",
-					"block": 38736681,
+					"block": 38779188,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -11403,7 +11443,7 @@
 				{
 					"url": "https://rpc.gobob.xyz",
 					"client": "conduit-op-reth/v2.3.0-711ad0d/x86_64-unknown-linux-gnu",
-					"block": 38736681,
+					"block": 38779188,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -11433,7 +11473,7 @@
 				{
 					"url": "https://rpc.gobob.xyz",
 					"client": "conduit-op-reth/v2.3.0-711ad0d/x86_64-unknown-linux-gnu",
-					"block": 38736681,
+					"block": 38779188,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -11463,7 +11503,7 @@
 				{
 					"url": "https://bob.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 38736680,
+					"block": 38779183,
 					"strategy": "stateOverride",
 					"calibrated": false,
 					"rejected": "positive control unreachable: Can't route your request to suitable provider, if you specified certain providers revise the list"
@@ -11471,7 +11511,7 @@
 				{
 					"url": "https://bob.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 38736680,
+					"block": 38779183,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "EVM error: OpcodeNotFound",
@@ -11501,7 +11541,7 @@
 				{
 					"url": "https://bob.drpc.org",
 					"client": "Geth/v10.0.0/drpc",
-					"block": 38736680,
+					"block": 38779183,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -11596,7 +11636,7 @@
 				{
 					"url": "https://rpc.merlinchain.io",
 					"client": "cdk-erigon/v2.0.3/linux-amd64/go1.21.5",
-					"block": 31957521,
+					"block": 31978233,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -11626,7 +11666,7 @@
 				{
 					"url": "https://rpc.merlinchain.io",
 					"client": "cdk-erigon/v2.0.3/linux-amd64/go1.21.5",
-					"block": 31957521,
+					"block": 31978233,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -11656,7 +11696,7 @@
 				{
 					"url": "https://rpc.merlinchain.io",
 					"client": "cdk-erigon/v2.0.3/linux-amd64/go1.21.5",
-					"block": 31957521,
+					"block": 31978233,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",
@@ -11686,7 +11726,7 @@
 				{
 					"url": "https://4200.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 31957523,
+					"block": 31978235,
 					"strategy": "stateOverride",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -11716,7 +11756,7 @@
 				{
 					"url": "https://4200.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 31957523,
+					"block": 31978235,
 					"strategy": "nullTo",
 					"calibrated": true,
 					"rejectionExample": "invalid opcode: opcode 0xc not defined",
@@ -11746,7 +11786,7 @@
 				{
 					"url": "https://4200.rpc.thirdweb.com",
 					"client": "thirdweb/1.0",
-					"block": 31957523,
+					"block": 31978235,
 					"strategy": "factory",
 					"calibrated": true,
 					"rejectionExample": "execution reverted",

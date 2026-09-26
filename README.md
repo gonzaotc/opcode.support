@@ -2,7 +2,7 @@
 
 Which EVM opcodes are supported on which chains, measured periodically against live nodes.
 
-- **Last updated:** 25 September 2026, 11:23 UTC
+- **Last updated:** 26 September 2026, 11:00 UTC
 - **Chain set and TVL pinned:** 20 August 2026, 20:09 UTC
 - **Refreshed:** daily at 06:00 UTC
 - **How this is measured:** [METHOD.md](./METHOD.md)
@@ -69,7 +69,7 @@ The top 50 EVM chains by TVL, ranked by DefiLlama with endpoints from `ethereum-
 | 43 | Abstract | 2741 | $12M | yes | no | yes | yes |
 | 44 | Flow | 747 | $12M | yes | yes | yes | yes |
 | 45 | Fluent | 25363 | $11M | yes | yes | yes | yes |
-| 46 | Immutable zkEVM | 13371 | $11M | yes | no | yes | yes |
+| 46 | Immutable zkEVM | 13371 | $11M | yes~ | no~ | yes~ | yes~ |
 | 47 | ReyaChain | 1729 | $11M | yes | yes | yes | yes |
 | 48 | Ronin | 2020 | $11M | yes | no | yes | yes |
 | 49 | BOB | 60808 | $10M | yes | yes | yes | yes |
@@ -77,10 +77,10 @@ The top 50 EVM chains by TVL, ranked by DefiLlama with endpoints from `ethereum-
 
 - `yes` supported
 - `no` unsupported
-- `~` observed, but by a single operator, so not confirmed: Robinhood Chain, Anubis
+- `~` observed, but by a single operator, so not confirmed: Robinhood Chain, Anubis, Immutable zkEVM
 - `*` from a primary source because no probe reaches that chain: Tron ([source](https://api.trongrid.io/wallet/getchainparameters))
 - generic evidence, a rejection that named no cause, so consistent with an undefined opcode but with anything else too: Rootstock CLZ, Hedera CLZ, ZKsync Era CLZ, Abstract CLZ
-- both operators answered with the same client string, so possibly one node behind two names: Hyperliquid L1, Flare, X Layer, Gnosis, Mezo, Berachain, Hedera, Fraxtal, Celo
+- both operators answered with the same client string, so possibly one node behind two names: Hyperliquid L1, Flare, Gnosis, Mezo, Berachain, Hedera, Fraxtal, Celo
 
 ## Method
 
