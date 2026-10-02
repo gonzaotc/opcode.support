@@ -2,14 +2,14 @@
 
 Which EVM opcodes are supported on which chains, measured periodically against live nodes.
 
-- **Last updated:** 1 October 2026, 12:39 UTC
+- **Last updated:** 2 October 2026, 12:03 UTC
 - **Chain set and TVL pinned:** 20 August 2026, 20:09 UTC
 - **Refreshed:** daily at 06:00 UTC
 - **How this is measured:** [METHOD.md](./METHOD.md)
 
 ## Representativeness
 
-The top 50 EVM chains by TVL, ranked by DefiLlama with endpoints from `ethereum-lists/chains`. The last run answered **99.7% of EVM TVL** ($71.0B), of which **91.5%** ($65.2B) is confirmed by two operators on every opcode.
+The top 50 EVM chains by TVL, ranked by DefiLlama with endpoints from `ethereum-lists/chains`. The last run answered **99.7% of EVM TVL** ($71.0B), of which **90.6%** ($64.5B) is confirmed by two operators on every opcode.
 
 ## Summary
 
@@ -32,7 +32,7 @@ The top 50 EVM chains by TVL, ranked by DefiLlama with endpoints from `ethereum-
 | 6 | Arbitrum | 42161 | $1.4B | yes | yes | yes | yes |
 | 7 | Monad | 143 | $939M | yes | yes | yes | yes |
 | 8 | Polygon | 137 | $820M | yes | yes | yes | yes |
-| 9 | Plasma | 9745 | $633M | yes | no | yes | yes |
+| 9 | Plasma | 9745 | $633M | yes | no~ | yes~ | yes |
 | 10 | Robinhood Chain | 4663 | $558M | yes~ | yes~ | yes~ | yes~ |
 | 11 | Avalanche | 43114 | $456M | yes | no | yes | yes |
 | 12 | OP Mainnet | 10 | $400M | yes | yes | yes | yes |
@@ -77,10 +77,10 @@ The top 50 EVM chains by TVL, ranked by DefiLlama with endpoints from `ethereum-
 
 - `yes` supported
 - `no` unsupported
-- `~` observed, but by a single operator, so not confirmed: Robinhood Chain, Anubis
+- `~` observed, but by a single operator, so not confirmed: Plasma, Robinhood Chain, Anubis
 - `*` from a primary source because no probe reaches that chain: Tron ([source](https://api.trongrid.io/wallet/getchainparameters))
 - generic evidence, a rejection that named no cause, so consistent with an undefined opcode but with anything else too: Rootstock CLZ, Hedera CLZ, ZKsync Era CLZ, Abstract CLZ
-- both operators answered with the same client string, so possibly one node behind two names: BSC, Base, Hyperliquid L1, Flare, Gnosis, Mezo, Berachain, Fraxtal
+- both operators answered with the same client string, so possibly one node behind two names: Base, Hyperliquid L1, Flare, Gnosis, Mezo, Berachain, Fraxtal
 
 ## Method
 
