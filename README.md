@@ -2,7 +2,7 @@
 
 Which EVM opcodes are supported on which chains, measured periodically against live nodes.
 
-- **Last updated:** 3 October 2026, 11:16 UTC
+- **Last updated:** 4 October 2026, 11:57 UTC
 - **Chain set and TVL pinned:** 20 August 2026, 20:09 UTC
 - **Refreshed:** daily at 06:00 UTC
 - **How this is measured:** [METHOD.md](./METHOD.md)
@@ -64,7 +64,7 @@ The top 50 EVM chains by TVL, ranked by DefiLlama with endpoints from `ethereum-
 | 38 | Etherlink | 42793 | $16M | yes | yes | yes | yes |
 | 39 | Celo | 42220 | $16M | yes | no | yes | yes |
 | 40 | ZKsync Era | 324 | $15M | yes | no | yes | yes |
-| 41 | Sonic | 146 | $15M | yes | yes | yes | yes |
+| 41 | Sonic | 146 | $15M | yes~ | yes~ | yes~ | yes~ |
 | 42 | Rollux | 570 | $13M | no | no | no | no |
 | 43 | Abstract | 2741 | $12M | yes | no | yes | yes |
 | 44 | Flow | 747 | $12M | yes | yes | yes | yes |
@@ -77,7 +77,7 @@ The top 50 EVM chains by TVL, ranked by DefiLlama with endpoints from `ethereum-
 
 - `yes` supported
 - `no` unsupported
-- `~` observed, but by a single operator, so not confirmed: Robinhood Chain, Anubis
+- `~` observed, but by a single operator, so not confirmed: Robinhood Chain, Anubis, Sonic
 - `*` from a primary source because no probe reaches that chain: Tron ([source](https://api.trongrid.io/wallet/getchainparameters))
 - generic evidence, a rejection that named no cause, so consistent with an undefined opcode but with anything else too: Rootstock CLZ, Hedera CLZ, ZKsync Era CLZ, Abstract CLZ
 - both operators answered with the same client string, so possibly one node behind two names: BSC, Base, Hyperliquid L1, Flare, Gnosis, Mezo, Berachain, Fraxtal
