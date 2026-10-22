@@ -2,7 +2,7 @@
 
 Which EVM opcodes are supported on which chains, measured periodically against live nodes.
 
-- **Last updated:** 21 October 2026, 11:22 UTC
+- **Last updated:** 22 October 2026, 11:21 UTC
 - **Chain set and TVL pinned:** 20 August 2026, 20:09 UTC
 - **Refreshed:** daily at 06:00 UTC
 - **How this is measured:** [METHOD.md](./METHOD.md)
@@ -16,7 +16,7 @@ The top 50 EVM chains by TVL, ranked by DefiLlama with endpoints from `ethereum-
 | opcode | byte | fork | EIP | supported |
 | --- | --- | --- | --- | --- |
 | `PUSH0` | `0x5f` | Shanghai | EIP-3855 | **96%** (48 of 50) |
-| `CLZ` | `0x1e` | Fusaka | EIP-7939 | **54%** (27 of 50) |
+| `CLZ` | `0x1e` | Fusaka | EIP-7939 | **56%** (28 of 50) |
 | `TLOAD` | `0x5c` | Cancun | EIP-1153 | **92%** (46 of 50) |
 | `TSTORE` | `0x5d` | Cancun | EIP-1153 | **92%** (46 of 50) |
 
@@ -36,7 +36,7 @@ The top 50 EVM chains by TVL, ranked by DefiLlama with endpoints from `ethereum-
 | 10 | Robinhood Chain | 4663 | $558M | yes~ | yes~ | yes~ | yes~ |
 | 11 | Avalanche | 43114 | $456M | yes | no | yes | yes |
 | 12 | OP Mainnet | 10 | $400M | yes | yes | yes | yes |
-| 13 | Cronos | 25 | $257M | yes | no | yes | yes |
+| 13 | Cronos | 25 | $257M | yes | yes | yes | yes |
 | 14 | Anubis | 6714 | $192M | yes~ | no~ | yes~ | yes~ |
 | 15 | Ink | 57073 | $127M | yes | yes | yes | yes |
 | 16 | Flare | 14 | $122M | yes | no | yes | yes |
@@ -80,7 +80,7 @@ The top 50 EVM chains by TVL, ranked by DefiLlama with endpoints from `ethereum-
 - `~` observed, but by a single operator, so not confirmed: Robinhood Chain, Anubis
 - `*` from a primary source because no probe reaches that chain: Tron ([source](https://api.trongrid.io/wallet/getchainparameters))
 - generic evidence, a rejection that named no cause, so consistent with an undefined opcode but with anything else too: Rootstock CLZ, Hedera CLZ, ZKsync Era CLZ, Abstract CLZ
-- both operators answered with the same client string, so possibly one node behind two names: BSC, Hyperliquid L1, Flare, X Layer, Gnosis, Mezo, Katana, Berachain, Celo
+- both operators answered with the same client string, so possibly one node behind two names: Hyperliquid L1, Flare, X Layer, Gnosis, Mezo, Katana, Berachain, Celo
 
 ## Method
 
