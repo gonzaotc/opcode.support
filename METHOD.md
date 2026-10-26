@@ -71,7 +71,7 @@ chain parameters state which forks are live.
 | `config/chain-selection.json` | how many chains, and the chain ids DefiLlama omits |
 | `config/known-rpcs.json` | endpoints added by hand, per chain id |
 | `config/unprobeable-chains.json` | sourced answers for chains no probe reaches |
-| `data/generated-chains.json` | the pinned chain set, with a verified endpoint pool each |
+| `data/generated-chains.json` | the chain set, with a verified endpoint pool each |
 | `data/generated-results.json` | the measurement |
 
 ## Chain selection
@@ -83,8 +83,7 @@ and for some chains they are the only endpoints there are.
 
 Every URL is then asked `eth_chainId`, and only correct answers are kept, ordered so a chain-operated
 endpoint leads and operators alternate. Nothing trusts a name: the registry lists chain 999 as
-Wanchain Testnet. The result is pinned, because a list that reshuffles weekly cannot be compared over
-time.
+Wanchain Testnet. The set is rebuilt on every daily run, so the ranking and TVL follow DefiLlama.
 
 Whether a chain is EVM is decided by measurement both ways: chains DefiLlama does not tag EVM but
 which verifiably run EVM bytecode are included, and chains it tags but which cannot run arbitrary
@@ -109,4 +108,3 @@ post-hardfork re-check.
 - Availability is not semantics. Gas costs and edge-case behaviour are out of scope.
 - `0x0c` is the negative control. A fork that assigned it would stop every endpoint calibrating,
   which shows up as a table of `?` rather than as a wrong answer.
-- The ranking and the TVL column refresh only when the chain set is re-pinned, not on the daily run.

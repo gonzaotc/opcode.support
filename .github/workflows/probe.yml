@@ -6,7 +6,7 @@ on:
   workflow_dispatch: # manual re-check, use this right after a hardfork
     inputs:
       regenerate_chains:
-        description: 'Also re-pin the chain set from DefiLlama. Changes which chains are measured.'
+        description: 'Also rebuild the chain set from DefiLlama. Changes which chains are measured.'
         type: boolean
         default: false
   push:
@@ -29,8 +29,8 @@ jobs:
         with:
           node-version: '22'
 
-      # The chain set is pinned on purpose, so this never runs on a schedule.
-      - if: inputs.regenerate_chains
+      # Daily, so the ranking and TVL follow DefiLlama.
+      - if: github.event_name == 'schedule' || inputs.regenerate_chains
         run: npm run chains
 
       - run: npm run probe

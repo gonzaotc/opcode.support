@@ -112,7 +112,7 @@ writeFileSync(
 
 Which EVM opcodes are supported on which chains, measured periodically against live nodes.
 
-- **Last updated:** ${readable(checkedAt)}${chainSetPinnedAt ? `\n- **Chain set and TVL pinned:** ${readable(chainSetPinnedAt)}` : ''}
+- **Last updated:** ${readable(checkedAt)}${chainSetPinnedAt ? `\n- **Chain set and TVL from DefiLlama:** ${readable(chainSetPinnedAt)}` : ''}
 - **Refreshed:** daily at 06:00 UTC
 - **How this is measured:** [METHOD.md](./METHOD.md)
 

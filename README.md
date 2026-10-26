@@ -3,7 +3,7 @@
 Which EVM opcodes are supported on which chains, measured periodically against live nodes.
 
 - **Last updated:** 26 October 2026, 12:26 UTC
-- **Chain set and TVL pinned:** 20 August 2026, 20:09 UTC
+- **Chain set and TVL from DefiLlama:** 20 August 2026, 20:09 UTC
 - **Refreshed:** daily at 06:00 UTC
 - **How this is measured:** [METHOD.md](./METHOD.md)
 
