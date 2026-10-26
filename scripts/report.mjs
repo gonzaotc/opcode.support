@@ -21,23 +21,27 @@ const table = (headers, rows) =>
 
 // One answer per cell, whatever its source: two operators agreeing, one operator observing, or a
 // primary source. The matrix shows which, so the summary does not need to.
-const supported = (opcode) =>
+const supporting = (opcode) =>
 	chains.filter((chain) => {
 		const v = chain.opcodes[opcode.name];
 		const seen = v.confidence === 'confirmed' ? v.status : (v.observed ?? v.documented?.status);
 		return seen === 'supported';
-	}).length;
+	});
+
+const sumTvl = (list) => list.reduce((sum, c) => sum + c.tvlUsd, 0);
+const share = (part, whole, detail) => `**${Math.round((part / whole) * 100)}%** (${detail})`;
 
 const summary = table(
-	['opcode', 'byte', 'fork', 'EIP', 'supported'],
+	['opcode', 'byte', 'fork', 'EIP', 'supported (chains %)', 'supported (TVL %)'],
 	opcodes.map((opcode) => {
-		const yes = supported(opcode);
+		const yes = supporting(opcode);
 		return [
 			`\`${opcode.name}\``,
 			`\`${opcode.byte}\``,
 			opcode.fork,
 			opcode.eip,
-			`**${Math.round((yes / chains.length) * 100)}%** (${yes} of ${chains.length})`,
+			share(yes.length, chains.length, `${yes.length} of ${chains.length}`),
+			share(sumTvl(yes), sumTvl(chains), `${usd(sumTvl(yes))} of ${usd(sumTvl(chains))}`),
 		];
 	}),
 );
