@@ -2,84 +2,84 @@
 
 Which EVM opcodes are supported on which chains, measured periodically against live nodes.
 
-- **Last updated:** 15 November 2026, 13:36 UTC
-- **Chain set and TVL from DefiLlama:** 15 November 2026, 13:34 UTC
+- **Last updated:** 16 November 2026, 15:04 UTC
+- **Chain set and TVL from DefiLlama:** 16 November 2026, 15:02 UTC
 - **Refreshed:** daily at 06:00 UTC
 - **How this is measured:** [METHOD.md](./METHOD.md)
 
 ## Representativeness
 
-The top 50 EVM chains by TVL, ranked by DefiLlama with endpoints from `ethereum-lists/chains`. The last run answered **99.7% of EVM TVL** ($62.0B), of which **92.1%** ($57.3B) is confirmed by two operators on every opcode.
+The top 50 EVM chains by TVL, ranked by DefiLlama with endpoints from `ethereum-lists/chains`. The last run answered **99.7% of EVM TVL** ($61.6B), of which **91.3%** ($56.4B) is confirmed by two operators on every opcode.
 
 ## Summary
 
 | opcode | byte | fork | EIP | supported (chains %) | supported (TVL %) |
 | --- | --- | --- | --- | --- | --- |
-| `PUSH0` | `0x5f` | Shanghai | EIP-3855 | **98%** (48 of 49) | **100%** ($62.0B of $62.0B) |
-| `CLZ` | `0x1e` | Fusaka | EIP-7939 | **59%** (29 of 49) | **86%** ($53.4B of $62.0B) |
-| `TLOAD` | `0x5c` | Cancun | EIP-1153 | **94%** (46 of 49) | **100%** ($62.0B of $62.0B) |
-| `TSTORE` | `0x5d` | Cancun | EIP-1153 | **94%** (46 of 49) | **100%** ($62.0B of $62.0B) |
+| `PUSH0` | `0x5f` | Shanghai | EIP-3855 | **98%** (48 of 49) | **100%** ($61.5B of $61.6B) |
+| `CLZ` | `0x1e` | Fusaka | EIP-7939 | **59%** (29 of 49) | **86%** ($53.0B of $61.6B) |
+| `TLOAD` | `0x5c` | Cancun | EIP-1153 | **94%** (46 of 49) | **100%** ($61.5B of $61.6B) |
+| `TSTORE` | `0x5d` | Cancun | EIP-1153 | **94%** (46 of 49) | **100%** ($61.5B of $61.6B) |
 
 ## Top 49 EVM Chains Opcodes Support
 
 | # | chain | chain id | TVL | PUSH0 | CLZ | TLOAD | TSTORE |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | Ethereum | 1 | $38.0B | yes | yes | yes | yes |
-| 2 | Base | 8453 | $5.2B | yes | yes | yes | yes |
-| 3 | BSC | 56 | $4.6B | yes | yes | yes | yes |
-| 4 | Tron | 728126428 | $4.4B | yes* | no* | yes* | yes* |
+| 1 | Ethereum | 1 | $37.7B | yes | yes | yes | yes |
+| 2 | Base | 8453 | $5.1B | yes | yes | yes | yes |
+| 3 | BSC | 56 | $4.5B | yes | yes | yes | yes |
+| 4 | Tron | 728126428 | $4.3B | yes* | no* | yes* | yes* |
 | 5 | Hyperliquid L1 | 999 | $2.2B | yes | no | yes | yes |
 | 6 | Arbitrum | 42161 | $1.3B | yes | yes | yes | yes |
 | 7 | Robinhood Chain | 4663 | $1.0B | yes | yes | yes | yes |
-| 8 | Monad | 143 | $902M | yes | yes | yes | yes |
+| 8 | Monad | 143 | $889M | yes | yes | yes | yes |
 | 9 | Polygon | 137 | $609M | yes | yes | yes | yes |
-| 10 | Arc | 5042 | $607M | yes | yes | yes | yes |
-| 11 | Avalanche | 43114 | $551M | yes | no | yes | yes |
-| 12 | Plasma | 9745 | $409M | yes | no | yes | yes |
-| 13 | OP Mainnet | 10 | $377M | yes | yes | yes | yes |
-| 14 | Anubis | 6714 | $361M | yes~ | no~ | yes~ | yes~ |
-| 15 | X Layer | 196 | $202M | yes | no | yes | yes |
-| 16 | Ink | 57073 | $167M | yes | yes | yes | yes |
-| 17 | Flare | 14 | $135M | yes | no | yes | yes |
-| 18 | Pharos | 1672 | $128M | yes | no | yes | yes |
-| 19 | Mantle | 5000 | $92M | yes | yes | yes | yes |
-| 20 | Tempo | 4217 | $90M | yes | yes | yes | yes |
-| 21 | Cronos | 25 | $84M | yes | yes | yes | yes |
-| 22 | Gnosis | 100 | $78M | yes | yes | yes | yes |
-| 23 | Stable | 988 | $68M | yes | yes | yes | yes |
-| 24 | Rootstock | 30 | $56M | yes | no | yes | yes |
+| 10 | Arc | 5042 | $598M | yes | yes | yes | yes |
+| 11 | Avalanche | 43114 | $545M | yes | no | yes | yes |
+| 12 | Plasma | 9745 | $405M | yes~ | no~ | yes~ | yes~ |
+| 13 | Anubis | 6714 | $378M | yes~ | no~ | yes~ | yes~ |
+| 14 | OP Mainnet | 10 | $375M | yes | yes | yes | yes |
+| 15 | Ink | 57073 | $242M | yes | yes | yes | yes |
+| 16 | X Layer | 196 | $203M | yes | no | yes | yes |
+| 17 | Flare | 14 | $134M | yes | no | yes | yes |
+| 18 | Pharos | 1672 | $127M | yes | no | yes | yes |
+| 19 | Tempo | 4217 | $90M | yes | yes | yes | yes |
+| 20 | Mantle | 5000 | $88M | yes | yes | yes | yes |
+| 21 | Cronos | 25 | $81M | yes | yes | yes | yes |
+| 22 | Gnosis | 100 | $77M | yes | yes | yes | yes |
+| 23 | Stable | 988 | $67M | yes | yes | yes | yes |
+| 24 | Rootstock | 30 | $55M | yes | no | yes | yes |
 | 25 | PulseChain | 369 | $45M | yes | no | no | no |
 | 26 | Katana | 747474 | $30M | yes | yes | yes | yes |
-| 27 | Berachain | 80094 | $29M | yes | yes | yes | yes |
-| 28 | World Chain | 480 | $28M | yes | yes | yes | yes |
+| 27 | World Chain | 480 | $28M | yes~ | yes~ | yes~ | yes~ |
+| 28 | Berachain | 80094 | $27M | yes | yes | yes | yes |
 | 29 | Unichain | 130 | $22M | yes | yes | yes | yes |
 | 30 | Hedera | 295 | $21M | yes | no | yes | yes |
-| 31 | Sei | 1329 | $20M | yes | no | yes | yes |
-| 32 | Morph | 2818 | $20M | yes | yes | yes | yes |
+| 31 | Morph | 2818 | $20M | yes | yes | yes | yes |
+| 32 | Sei | 1329 | $20M | yes | no | yes | yes |
 | 33 | Linea | 59144 | $19M | yes | yes | yes | yes |
-| 34 | Etherlink | 42793 | $17M | yes | yes | yes | yes |
+| 34 | Etherlink | 42793 | $17M | yes~ | yes~ | yes~ | yes~ |
 | 35 | Fraxtal | 252 | $16M | yes | no | yes | yes |
 | 36 | Kava | 2222 | $14M | no | no | no | no |
 | 37 | Celo | 42220 | $13M | yes | no | yes | yes |
 | 38 | Sonic | 146 | $13M | yes | yes | yes | yes |
-| 39 | Bifrost Network | 3068 | $11M | yes | yes | yes | yes |
+| 39 | Bifrost Network | 3068 | $12M | yes~ | yes~ | yes~ | yes~ |
 | 40 | ZKsync Era | 324 | $11M | yes | no | yes | yes |
 | 41 | Immutable zkEVM | 13371 | $11M | yes | no | yes | yes |
-| 42 | Fluent | 25363 | $10M | yes | yes | yes | yes |
-| 43 | ReyaChain | 1729 | $10M | yes | yes | yes | yes |
+| 42 | Fluent | 25363 | $10M | yes~ | yes~ | yes~ | yes~ |
+| 43 | ReyaChain | 1729 | $10M | yes~ | yes~ | yes~ | yes~ |
 | 44 | Soneium | 1868 | $9M | yes | yes | yes | yes |
 | 45 | MegaETH | 4326 | $9M | yes | no | yes | yes |
-| 46 | Flow | 747 | $9M | yes | yes | yes | yes |
+| 46 | Flow | 747 | $9M | yes~ | yes~ | yes~ | yes~ |
 | 47 | Ronin | 2020 | $8M | yes | yes | yes | yes |
 | 48 | Citrea | 4114 | $8M | yes~ | no~ | yes~ | yes~ |
-| 49 | Merlin | 4200 | $8M | yes | no | no | no |
+| 49 | Merlin | 4200 | $8M | yes~ | no~ | no~ | no~ |
 
 - `yes` supported
 - `no` unsupported
-- `~` observed, but by a single operator, so not confirmed: Anubis, Citrea
+- `~` observed, but by a single operator, so not confirmed: Plasma, Anubis, World Chain, Etherlink, Bifrost Network, Fluent, ReyaChain, Flow, Citrea, Merlin
 - `*` from a primary source because no probe reaches that chain: Tron ([source](https://api.trongrid.io/wallet/getchainparameters))
 - generic evidence, a rejection that named no cause, so consistent with an undefined opcode but with anything else too: Rootstock CLZ, Hedera CLZ, ZKsync Era CLZ
-- both operators answered with the same client string, so possibly one node behind two names: Hyperliquid L1, X Layer, Flare, Gnosis, Katana, Berachain, Morph
+- both operators answered with the same client string, so possibly one node behind two names: Hyperliquid L1, X Layer, Flare, Gnosis, Katana, Berachain, Morph, Celo
 
 ## Method
 
